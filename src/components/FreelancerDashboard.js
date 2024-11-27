@@ -18,7 +18,7 @@ function FreelancerDashboard() {
       <h2>Recommended Jobs</h2>
       <div className="jobs-list">
         {employersDetails.map(job => (
-          <JobCard key={job.id} job={job} />
+          <JobCard key={job.id} job={job}/>
         ))}
       </div>
     </div>
