@@ -1,0 +1,19 @@
+.freelancer-dashboard {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #28a745;
+  }
+  
+  .jobs-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+  }
+  

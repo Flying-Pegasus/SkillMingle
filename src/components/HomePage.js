@@ -1,0 +1,28 @@
+import React from 'react';
+import '../styles/JobCard.css';
+import Application from './FreeLancerApp';
+import { Link } from 'react-router-dom';
+
+function HomePage() {
+
+
+    return (
+        <div>
+            <h2>Welcome to skillmingle</h2>
+            <div className="job-card">
+                <h3>FreeLancer</h3>
+                <Link to="/freelancer">
+                <button className="apply-button" >FreeLancer</button>
+                </Link>
+            </div>
+            <div className="job-card">
+                <h3>Employer</h3>
+                <Link to="/employer">
+                <button className="apply-button" >Employer</button>
+                </Link>
+            </div>
+        </div>
+    );
+}
+
+export default HomePage;

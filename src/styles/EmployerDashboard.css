@@ -1,0 +1,19 @@
+.employer-dashboard {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #007bff;
+  }
+  
+  .freelancers-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+  }
+  
