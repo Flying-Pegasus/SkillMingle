@@ -1,15 +1,26 @@
-import React from 'react';
-import '../styles/JobCard.css';
+import React from "react";
+import "../styles/JobCard.css";
 
 function JobCard({ job }) {
   return (
     <div className="job-card">
       <h3>{job.title}</h3>
-      <p><strong>Company:</strong> {job.company}</p>
-      <p><strong>Description:</strong> {job.description}</p>
-      <p><strong>Budget:</strong> {job.budget}</p>
-      <p><strong>Deadline:</strong> {job.deadline}</p>
-      <button className="apply-button">Apply Now</button>
+      {job.skills_required && (
+        <p>
+          <strong>Required Skills:</strong> {job.skills_required.join(", ")}
+        </p>
+      )}
+      {job.budget && (
+        <p>
+          <strong>Budget:</strong> {job.budget}
+        </p>
+      )}
+      {job.score !== undefined && (
+        <p>
+          <strong>Recommendation Score:</strong> {(job.score)*100} %
+        </p>
+      )}
+      <button className="apply-button">View Details</button>
     </div>
   );
 }

@@ -2,7 +2,8 @@ import React from 'react';
 import FreelancerDashboard from './components/FreelancerDashboard';
 import EmployerDashboard from './components/EmployerDashboard';
 import HomePage from './components/HomePage';
-import Application from './components/FreeLancerApp';
+import freeLancerApplication from './components/FreeLancerApp';
+import employerApplication from './components/EmployerApp';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
@@ -10,9 +11,10 @@ function App() {
     <Router>
       <h1>SkillMingle</h1>
       <Switch>
-        <Route path="/freelancer" component={Application} />
-        <Route path="/dashboard" component={FreelancerDashboard} />
-        <Route path="/employer" component={EmployerDashboard} />
+        <Route path="/freelancerapp" component={freeLancerApplication} />
+        <Route path="/jobsdashboard" component={FreelancerDashboard} />
+        <Route path="/employerapp" component={employerApplication} />
+        <Route path="/freelancerdashboard" component={EmployerDashboard} />
         <Route path="/" component={HomePage} />
         {/* <Route path="/employer/dashboard" element={<EmployerDashboard />} /> */}
       </Switch>
