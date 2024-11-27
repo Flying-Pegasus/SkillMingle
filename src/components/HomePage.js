@@ -1,6 +1,5 @@
 import React from 'react';
 import '../styles/JobCard.css';
-import Application from './FreeLancerApp';
 import { Link } from 'react-router-dom';
 
 function HomePage() {
