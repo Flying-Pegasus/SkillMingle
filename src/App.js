@@ -12,9 +12,9 @@ function App() {
       <h1>SkillMingle</h1>
       <Switch>
         <Route path="/freelancerapp" component={FreelancerApp} />
-        <Route path="/jobsdashboard" component={FreelancerDashboard} />
+        <Route path="/jobsdashboard/:freelancerId" component={FreelancerDashboard} />
         <Route path="/employerapp" component={EmployerApp} />
-        <Route path="/freelancerdashboard" component={EmployerDashboard} />
+        <Route path="/dashboard/:jobId" component={EmployerDashboard} />
         <Route path="/" component={HomePage} />
       </Switch>
     </Router>

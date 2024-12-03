@@ -1,28 +1,31 @@
-import React from "react";
-import "../styles/JobCard.css";
+import React from 'react';
+import '../styles/FreelancerCard.css';
 
-function JobCard({ job }) {
-  return (
-    <div className="job-card">
-      <h3>{job.title}</h3>
-      {job.skills_required && (
-        <p>
-          <strong>Required Skills:</strong> {job.skills_required.join(", ")}
-        </p>
-      )}
-      {job.budget && (
-        <p>
-          <strong>Budget:</strong> {job.budget}
-        </p>
-      )}
-      {job.score !== undefined && (
-        <p>
-          <strong>Recommendation Score:</strong> {(job.score)*100} %
-        </p>
-      )}
-      <button className="apply-button">View Details</button>
-    </div>
-  );
+function JobCard({ job, score }) {
+    const {
+        jobTitle,
+        exLevelDemand,
+        clientCountry,
+        rating,
+        feedbackNum,
+        paymentType,
+        hourlyRate,
+        skills
+    } = job;
+
+    return (
+        <div className="freelancer-card">
+            <h3>{jobTitle}</h3>
+            <p><strong>Experience Level:</strong> {exLevelDemand}</p>
+            <p><strong>Location:</strong> {clientCountry}</p>
+            <p><strong>Rating:</strong> {rating}/5</p>
+            <p><strong>Number of feedbacks:</strong> {feedbackNum}</p>
+            <p><strong>Payment Type:</strong> {paymentType}</p>
+            <p><strong>Budget:</strong> {hourlyRate}</p>
+            <p><strong>Skills:</strong> {skills.join(', ')}</p>
+            <p><strong>Recommendation Score:</strong> {score.toFixed(2)}</p>
+        </div>
+    );
 }
 
 export default JobCard;

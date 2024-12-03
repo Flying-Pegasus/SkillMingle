@@ -1,0 +1,111 @@
+[
+    {
+        "name": "Nitya",
+        "country": "Indore",
+        "hourlyRate": 40.0,
+        "jobSuccess": 88.5,
+        "title": "ShuklaJee",
+        "totalHours": 50,
+        "totalJobs": 3,
+        "skills": [
+            "Java",
+            "Cpp",
+            "Python",
+            "Javascript"
+        ],
+        "id": 1
+    },
+    {
+        "name": "Atul",
+        "country": "Gaon",
+        "hourlyRate": 50.0,
+        "jobSuccess": 92.0,
+        "title": "Muthal",
+        "totalHours": 400,
+        "totalJobs": 1,
+        "skills": [
+            "Hilana",
+            "Baba"
+        ],
+        "id": 2
+    },
+    {
+        "name": "Masud",
+        "country": "Varanasi",
+        "hourlyRate": 15.0,
+        "jobSuccess": 89.0,
+        "title": "Robotics ",
+        "totalHours": 150,
+        "totalJobs": 5,
+        "skills": [
+            "Cpp",
+            "Linux",
+            "ROS",
+            "Python"
+        ],
+        "id": 3
+    },
+    {
+        "name": "Dhananjay",
+        "country": "Raipur",
+        "hourlyRate": 10.0,
+        "jobSuccess": 90.0,
+        "title": "Robotics",
+        "totalHours": 100,
+        "totalJobs": 10,
+        "skills": [
+            "Linux",
+            "OS",
+            "CPP",
+            "Automation",
+            "IoT"
+        ],
+        "id": 4
+    },
+    {
+        "name": "Priyamwada",
+        "country": "Shimla",
+        "hourlyRate": 20.0,
+        "jobSuccess": 87.0,
+        "title": "Software Engineer",
+        "totalHours": 100,
+        "totalJobs": 20,
+        "skills": [
+            "C",
+            "Python",
+            "Javascript"
+        ],
+        "id": 5
+    },
+    {
+        "name": "Chaman",
+        "country": "Varanasi",
+        "hourlyRate": 15.0,
+        "jobSuccess": 80.0,
+        "title": "Graphic Designer",
+        "totalHours": 120,
+        "totalJobs": 15,
+        "skills": [
+            "Canva",
+            "AdobePS",
+            "AdobeLR"
+        ],
+        "id": 6
+    },
+    {
+        "name": "Rashi",
+        "country": "Varanasi",
+        "hourlyRate": 6.0,
+        "jobSuccess": 97.0,
+        "title": "Creative Designer",
+        "totalHours": 400,
+        "totalJobs": 80,
+        "skills": [
+            "Figma",
+            "Canva",
+            "AdobeAi",
+            "AdobePS"
+        ],
+        "id": 7
+    }
+]

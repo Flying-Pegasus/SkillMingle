@@ -2,121 +2,171 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 function FreelancerApp() {
-  const [name, setName] = useState("");
-  const [skills, setSkills] = useState("");
-  const [hourlyRate, setHourlyRate] = useState("");
-  const [location, setLocation] = useState(""); 
-  const [existingName, setExistingName] = useState(""); // Input for "Already Logged In"
-  const history = useHistory(); 
 
-  // Function to handle new freelancer form submission
+  const [freelancerId, setFreelancerId] = useState(""); // For login form
+  const history = useHistory();
+  const [formData, setFormData] = useState({
+    name: "",
+    country: "",
+    hourlyRate: 0,
+    jobSuccess: 0,
+    title: "",
+    totalHours: 0,
+    totalJobs: 0,
+    skills: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-  
-    // Convert hourly rate to a number before submission
-    const convertedHourlyRate = parseFloat(hourlyRate);
-    if (isNaN(convertedHourlyRate)) {
-      alert("Please enter a valid numeric value for Hourly Rate!");
-      return;
-    }
-  
+
     const freelancerData = {
-      name: name,
-      skills: skills.split(",").map((skill) => skill.trim()),
-      hourly_rate: convertedHourlyRate, // Submit as a number
-      location: location, // Add location field if applicable
+      name: formData.name,
+      country: formData.country,
+      hourlyRate: parseFloat(formData.hourlyRate), // Convert to float
+      jobSuccess: parseFloat(formData.jobSuccess), // Convert to float
+      title: formData.title,
+      totalHours: parseInt(formData.totalHours, 10), // Convert to integer
+      totalJobs: parseInt(formData.totalJobs, 10), // Convert to integer
+      skills: formData.skills.split(",").map(skill => skill.trim()), // Array of strings
     };
-  
-    fetch("http://127.0.0.1:5000/add_freelancer", {
+
+    fetch("http://127.0.0.1:5000/store_freelancer", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(freelancerData),
     })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Freelancer added:", data);
-        if (data.freelancer_id) {
-          history.push(`/jobsdashboard?freelancerId=${data.freelancer_id}`);
-        } else {
-          alert("Error adding freelancer. Please try again!");
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to store freelancer details.");
         }
+        return response.json();
+      })
+      .then((data) => {
+        const newfreelancerID = data.id; // Assuming the response contains the new job ID
+        alert("Freelancer details stored successfully!");
+
+        // Redirect to dashboard with the new job ID
+        history.push({
+          pathname: "/jobsdashboard",
+          state: { freelancerDetails: { ...freelancerData, id: newfreelancerID } },
+        });
       })
       .catch((error) => {
         console.error("Error:", error);
-        alert("Something went wrong!");
+        alert("An error occurred. Please try again.");
       });
   };
-  
 
-  // Function to check if the freelancer already exists
-  const handleLogin = () => {
-    fetch("http://127.0.0.1:5000/freelancers")
-      .then((response) => response.json())
-      .then((data) => {
-        const freelancer = data.find((f) => f.name === existingName);
-        if (freelancer) {
-          history.push(`/jobsdashboard?freelancerId=${freelancer.id}`);
-        } else {
-          alert("Freelancer not found. Please fill out the form to register.");
-        }
-      })
-      .catch((error) => {
-        console.error("Error fetching freelancers:", error);
-        alert("Something went wrong!");
-      });
-  };
+  // Handle job ID login
+  const handleLogin = (e) => {
+    e.preventDefault();
+    if (freelancerId) {
+        history.push(`/jobsdashboard/${freelancerId}`);
+    } else {
+        alert('Please enter a valid Freelancer ID');
+    }
+};
 
   return (
     <div>
       <h3>Enter Freelancer Details</h3>
       <form onSubmit={handleSubmit}>
-        <label>Name: </label>
+        <label>Name:</label>
         <input
           type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
           required
         />
         <br />
-        <label>Skills (comma separated): </label>
+        <label>Location:</label>
         <input
           type="text"
-          value={skills}
-          onChange={(e) => setSkills(e.target.value)}
+          name="country"
+          value={formData.country}
+          onChange={handleChange}
           required
         />
         <br />
-        <label>Hourly Rate: </label>
+        <label>Hourly Rate:</label>
         <input
           type="number"
-          value={hourlyRate}
-          onChange={(e) => setHourlyRate(e.target.value)}
+          name="hourlyRate"
+          value={formData.hourlyRate}
+          step="0.5"
+          onChange={handleChange}
           required
         />
         <br />
-        <label>Location: </label>
+        <label>Job Success Rate (%):</label>
+        <input
+          type="number"
+          name="jobSuccess"
+          value={formData.jobSuccess}
+          step="0.5"
+          onChange={handleChange}
+          required
+        />
+        <br />
+        <label>Title:</label>
         <input
           type="text"
-          value={location}
-          onChange={(e) => setLocation(e.target.value)}
+          name="title"
+          value={formData.title}
+          onChange={handleChange}
+          required
+        />
+        <br />
+        <label>Total Hours Worked:</label>
+        <input
+          type="number"
+          name="totalHours"
+          value={formData.totalHours}
+          onChange={handleChange}
+          required
+        />
+        <br />
+        <label>Total Jobs:</label>
+        <input
+          type="number"
+          name="totalJobs"
+          value={formData.totalJobs}
+          onChange={handleChange}
+          required
+        />
+        <br />
+        <label>Skills (comma separated):</label>
+        <input
+          type="text"
+          name="skills"
+          value={formData.skills}
+          onChange={handleChange}
           required
         />
         <br />
         <button type="submit">Submit</button>
       </form>
 
-      <h3>Already Logged In?</h3>
-      <label>Enter Your Name: </label>
-      <input
-        type="text"
-        value={existingName}
-        onChange={(e) => setExistingName(e.target.value)}
-        placeholder="Enter your name"
-        required
-      />
-      <button onClick={handleLogin}>Go to Dashboard</button>
+      <h3>Already LoggedIn?</h3>
+      <form onSubmit={handleLogin}>
+        <label>Freelancer ID:</label>
+        <input
+          type="text"
+          value={freelancerId}
+          onChange={(e) => setFreelancerId(e.target.value)}
+          required
+        />
+        <br />
+        <button type="submit">Login</button>
+      </form>
     </div>
   );
 }

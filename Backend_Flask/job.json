@@ -1,0 +1,72 @@
+[
+    {
+        "jobTitle": "Software Engineer 2 ",
+        "exLevelDemand": 2,
+        "clientCountry": "Varanasi",
+        "rating": 3.9,
+        "feedbackNum": 82,
+        "paymentType": "Fixed",
+        "hourlyRate": "$30.00-$75.00",
+        "startRate": 2,
+        "endRate": 8,
+        "skills": [
+            "Java",
+            "Cpp"
+        ],
+        "id": 1
+    },
+    {
+        "jobTitle": "Data Scientist",
+        "exLevelDemand": 3,
+        "clientCountry": "Surat",
+        "rating": 3.8,
+        "feedbackNum": 420,
+        "paymentType": "Hourly",
+        "hourlyRate": "$10-$30",
+        "startRate": 10,
+        "endRate": 30,
+        "skills": [
+            "Python",
+            "Numpy",
+            "Pandas",
+            "Matplotlib"
+        ],
+        "id": 2
+    },
+    {
+        "jobTitle": "Data Analyst",
+        "exLevelDemand": 1,
+        "clientCountry": "Mumbai",
+        "rating": 4.0,
+        "feedbackNum": 40,
+        "paymentType": "Fixed",
+        "hourlyRate": "$29.00-$30.00",
+        "startRate": 29,
+        "endRate": 30,
+        "skills": [
+            "PowerBi",
+            "Excel.Powerpoint",
+            "Pandas"
+        ],
+        "id": 3
+    },
+    {
+        "jobTitle": "Graphic Designer",
+        "exLevelDemand": 2,
+        "clientCountry": "Varanasi",
+        "rating": 4.2,
+        "feedbackNum": 40,
+        "paymentType": "Hourly",
+        "hourlyRate": "$2.00-$10.00",
+        "startRate": 2,
+        "endRate": 10,
+        "skills": [
+            "Figma",
+            "Canva",
+            "AdobeAi",
+            "AdobePS",
+            "AdobeLR"
+        ],
+        "id": 4
+    }
+]

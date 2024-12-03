@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from sklearn.feature_extraction.text import CountVectorizer
@@ -9,336 +10,279 @@ import traceback
 app = Flask(__name__)
 CORS(app)  # Enable CORS to allow requests from the React frontend
 
-# Load Data Once at Startup
-with open("data.json", "r") as file:
-    data = json.load(file)
+# Path to job.json file
+JOB_FILE = "job.json"
+FREELANCER_FILE = "freelancer.json"
 
-freelancers = data["freelancers"]
-jobs = data["jobs"]
+# Example data
+with open('job.json', 'r') as file:
+    job_data = json.load(file)
 
-# Utility Function: Save Data Back to File
-def save_data():
-    with open("data.json", "w") as file:
-        json.dump(data, file, indent=4)
+with open('freelancer.json', 'r') as file:
+    freelancer_data = json.load(file)
 
-
-def calculate_average_rating(past_freelancers):
-    if not past_freelancers:
-        return 0
-    return round(
-        sum(freelancer.get("rating", 0) for freelancer in past_freelancers) / len(past_freelancers), 2
-    )
-
-
-def recommend_jobs(freelancer_id):
-    # Retrieve freelancer details
-    freelancer = next((f for f in freelancers if f["id"] == freelancer_id), None)
-    if not freelancer:
-        return []
-
-    # Prepare freelancer skills
-    freelancer_skills = set(freelancer["skills"])
-
-    recommendations = []
-    for job in jobs:
-        # Ensure at least one matching skill
-        job_skills = set(job["skills_required"])
-        skill_overlap = freelancer_skills.intersection(job_skills)
-        if not skill_overlap:
-            continue  # Skip jobs with no matching skills
-
-        # Base Skill Score using cosine similarity
-        skill_vectorizer = CountVectorizer()
-        skill_matrix = skill_vectorizer.fit_transform(
-            [" ".join(freelancer_skills), " ".join(job_skills)]
-        )
-        skill_similarity_score = cosine_similarity(skill_matrix[0], skill_matrix[1])[0][0]
-
-        # Additional Factors
-        score = skill_similarity_score
-
-        # Location Boost
-        if freelancer.get("location") and job.get("location"):
-            if freelancer["location"].lower() == job["location"].lower():
-                score += 0.2  # Boost for exact location match
-
-        # Budget Boost
-        try:
-            budget = int(job["budget"])  # Ensure budget is an integer
-            hourly_rate = freelancer.get("hourly_rate", 0)
-            if hourly_rate > 0 and budget / hourly_rate >= 10:
-                score += 0.1  # Boost if budget supports at least 10 hours
-        except ValueError:
-            print(f"Invalid budget format for job ID {job['id']}: {job['budget']}")
-
-        # Rating Boost
-        past_jobs = freelancer.get("past_jobs", [])
-        avg_rating = (
-            sum(job.get("rating", 0) for job in past_jobs) / len(past_jobs) if past_jobs else 0
-        )
-        if avg_rating > 0:
-            score += (avg_rating / 5) * 0.2  # Boost proportional to average rating (scaled to 20%)
-
-        # Add job details and final score to recommendations
-        recommendations.append({
-            "job_id": job["id"],
-            "company": job["company"],
-            "title": job["title"],
-            "skills_required": list(job_skills),
-            "budget": job["budget"],
-            "location": job.get("location", "Not specified"),
-            "preferred_experience": job.get("preferred_experience", "Not specified"),
-            "past_freelancers": job.get("past_freelancers", []),
-            "score": round(score, 2)
-        })
-
-    # Sort recommendations by Final Score in descending order
-    recommendations.sort(key=lambda x: x["score"], reverse=True)
-    return recommendations
-
-
-
-# API Endpoint: Recommend Jobs for a Freelancer
-@app.route("/recommend", methods=["POST"])
-def recommend_jobs_api():
-    try:
-        freelancer_id = request.json.get("freelancer_id")
-        if not freelancer_id:
-            return jsonify({"error": "Invalid freelancer ID"}), 400
-
-        recommendations = recommend_jobs(int(freelancer_id))
-        if not recommendations:
-            return jsonify({"error": "No recommendations available for this freelancer ID"}), 404
-
-        return jsonify(recommendations)
-
-    except Exception as e:
-        print("Error occurred in /recommend:", traceback.format_exc())
-        return jsonify({"error": "Internal server error"}), 500
-
-# API Endpoint: Add Freelancer
-@app.route("/add_freelancer", methods=["POST"])
-def add_freelancer():
-    try:
-        freelancer_data = request.json
-
-        # Validate freelancer data
-        if not freelancer_data.get("name") or not freelancer_data.get("skills"):
-            return jsonify({"error": "Name and skills are required"}), 400
-
-        if not isinstance(freelancer_data.get("skills"), list):
-            return jsonify({"error": "Skills must be a list"}), 400
-
-        new_freelancer_id = len(freelancers) + 1  # Generate a new ID
-
-        new_freelancer = {
-            "id": new_freelancer_id,
-            "name": freelancer_data["name"],
-            "skills": freelancer_data["skills"],
-            "hourly_rate": freelancer_data.get("hourly_rate"),
-            "location": freelancer_data.get("location", None),
-            "past_jobs": []
-        }
-
-        # Append the new freelancer to the list
-        freelancers.append(new_freelancer)
-        save_data()  # Save changes to file
-
-        print("Updated Freelancer Data:", new_freelancer)  # Log the new freelancer
-
-        return jsonify({"message": "Freelancer added successfully!", "freelancer_id": new_freelancer_id})
-
-    except Exception as e:
-        print("Error occurred in /add_freelancer:", traceback.format_exc())
-        return jsonify({"error": str(e)}), 500
-
-# API Endpoint: Recommend Freelancers for a Job
-@app.route("/recommend_freelancers", methods=["POST"])
-def recommend_freelancers_api():
-    try:
-        job_id = request.json.get("job_id")
-        if not job_id:
-            return jsonify({"error": "Invalid job ID"}), 400
-
-        recommendations = recommend_freelancers(int(job_id))
-        if not recommendations:
-            return jsonify({"error": "No recommendations available for this job ID"}), 404
-
-        return jsonify(recommendations)
-
-    except Exception as e:
-        print("Error occurred in /recommend_freelancers:", traceback.format_exc())
-        return jsonify({"error": "Internal server error"}), 500
-
-def recommend_freelancers(job_id):
-    # Retrieve job details
-    job = next((j for j in jobs if j["id"] == job_id), None)
+@app.route('/job_details/<int:job_id>', methods=['GET'])
+def get_job_details(job_id):
+    # Find job by ID
+    job = next((job for job in job_data if job["id"] == job_id), None)
     if not job:
-        return []
+        return jsonify({"error": "Job not found"}), 404
+    return jsonify(job), 200
 
-    # Prepare job skills for comparison
-    job_skills = set(job["skills_required"])
+@app.route('/freelancer_details/<int:freelancer_id>', methods=['GET'])
+def get_freelancer_details(freelancer_id):
+    # Find freelancer by ID
+    freelancer = next((freelancer for freelancer in freelancer_data if freelancer["id"] == freelancer_id), None)
+    if not freelancer:
+        return jsonify({"error": "Freelancer not found"}), 404
+    return jsonify(freelancer), 200
 
-    recommendations = []
-    for freelancer in freelancers:
-        # Ensure at least one matching skill
-        freelancer_skills = set(freelancer["skills"])
-        skill_overlap = job_skills.intersection(freelancer_skills)
-        if not skill_overlap:
-            continue  # Skip freelancers with no matching skills
+def calculate_recommendation_score(job, freelancer):
+    score = 0
 
-        # Skill Score using cosine similarity
-        skill_vectorizer = CountVectorizer()
-        skill_matrix = skill_vectorizer.fit_transform(
-            [" ".join(job_skills), " ".join(freelancer_skills)]
-        )
-        skill_similarity_score = cosine_similarity(skill_matrix[0], skill_matrix[1])[0][0]
-        score = skill_similarity_score
+    # 1. Skill Matching
+    job_skills = set(job["skills"])
+    freelancer_skills = set(freelancer["skills"])
+    matched_skills = job_skills.intersection(freelancer_skills)
+    skill_score = len(matched_skills) / len(job_skills) * 50  # Weighted 50
+    score += skill_score
 
-        # Location Boost
-        if freelancer.get("location") and job.get("location"):
-            if freelancer["location"].lower() == job["location"].lower():
-                score += 0.2  # Boost for exact location match
+    # 2. Budget Compliance
+    start_rate = job["startRate"]
+    end_rate = job["endRate"]
+    if start_rate <= freelancer["hourlyRate"] <= end_rate:
+        score += 20  # Weighted 20
+    else:
+        score -= 10  # Penalize if out of budget
 
-        # Hourly Rate Alignment Boost
-        try:
-            budget = int(job["budget"])  # Ensure budget is an integer
-            hourly_rate = int(freelancer.get("hourly_rate", 0))  # Convert hourly_rate to integer
-            if hourly_rate > 0 and budget / hourly_rate >= 10:
-                score += 0.1  # Boost if freelancer fits within budget for at least 10 hours
-        except (ValueError, TypeError):
-            print(f"Invalid budget or hourly_rate for freelancer {freelancer['name']}: "
-                  f"budget={job.get('budget')}, hourly_rate={freelancer.get('hourly_rate')}")
+    # 3. Experience
+    experience_score = (
+        (freelancer["jobSuccess"] * 0.3) +
+        (freelancer["totalHours"] * 0.1) +
+        (freelancer["totalJobs"] * 0.1)
+    )
+    score += experience_score
 
-        # Past Job Experience Boost
-        past_jobs = freelancer.get("past_jobs", [])
-        avg_rating = (
-            sum(job.get("rating", 0) for job in past_jobs) / len(past_jobs) if past_jobs else 0
-        )
-        if avg_rating > 0:
-            score += (avg_rating / 5) * 0.2  # Boost proportional to average rating (scaled to 20%)
+    # 4. Location Match
+    if job["clientCountry"] == freelancer["country"]:
+        score += 5  # Small bonus for location match
 
-        # Add freelancer details and final score to recommendations
-        recommendations.append({
-            "freelancer_id": freelancer["id"],
-            "name": freelancer["name"],
-            "skills": list(freelancer_skills),
-            "location": freelancer.get("location", "Not specified"),
-            "past_jobs": freelancer.get("past_jobs", []),
-            "hourly_rate": freelancer.get("hourly_rate", "Not specified"),
-            "score": round(score, 2)
-        })
+    return score
 
-    # Sort recommendations by Final Score in descending order
-    recommendations.sort(key=lambda x: x["score"], reverse=True)
-    return recommendations
+def calculate_job_recommendation_score(freelancer, job):
+    score = 0
+
+    # 1. Skill Matching
+    job_skills = set(job["skills"])
+    freelancer_skills = set(freelancer["skills"])
+    matched_skills = job_skills.intersection(freelancer_skills)
+    skill_score = len(matched_skills) / len(job_skills) * 50  # Weighted 50
+    score += skill_score
+
+    # 2. Budget Compliance (Freelancer's hourlyRate should be within job's startRate and endRate)
+    start_rate = job["startRate"]
+    end_rate = job["endRate"]
+    if start_rate <= freelancer["hourlyRate"] <= end_rate:
+        score += 20  # Weighted 20
+    else:
+        score -= 10  # Penalize if out of budget
+
+    # 3. Experience Level Demand (Penalize if job demands more experience than freelancer has)
+    if job["exLevelDemand"] > freelancer["jobSuccess"]:
+        score -= 5  # Penalize if the freelancer doesn't meet the experience demand
+
+    # 4. Location Match (Small bonus for location match)
+    if job["clientCountry"] == freelancer["country"]:
+        score += 5  # Small bonus for location match
+
+    return score
 
 
-
-# API Endpoint: Add Employer
-@app.route("/add_employer", methods=["POST"])
-def add_employer():
+@app.route('/store_job', methods=['POST'])
+def store_job():
     try:
-        employer_data = request.json
+        # Get the new job data from the request
+        new_job = request.json
 
-        new_job_id = len(jobs) + 1  # Generate a new job ID
+        # Ensure proper types for numeric fields
+        new_job['exLevelDemand'] = int(new_job.get('exLevelDemand', 0))
+        new_job['rating'] = float(new_job.get('rating', 0.0))
+        new_job['feedbackNum'] = int(new_job.get('feedbackNum', 0))
+        new_job['startRate'] = int(new_job.get('startRate', 0))
+        new_job['endRate'] = int(new_job.get('endRate', 0))
 
-        new_employer_job = {
-            "id": new_job_id,
-            "company": employer_data["company"],
-            "title": employer_data["title"],
-            "skills_required": employer_data["skills_required"],
-            "budget": employer_data["budget"],
-            "location": employer_data.get("location", None),
-            "preferred_experience": employer_data.get("preferred_experience", None),
-            "past_freelancers": []
-        }
+        # Check if the job file exists
+        if not os.path.exists(JOB_FILE):
+            with open(JOB_FILE, 'w') as file:
+                json.dump([], file)
 
-        # Append the new employer job to the list
-        jobs.append(new_employer_job)
-        save_data()  # Save changes to file
+        # Load existing jobs
+        with open(JOB_FILE, 'r') as file:
+            jobs = json.load(file)
 
-        print(f"New employer job added: {new_employer_job}")  # Log new job added
+        # Assign a new ID
+        new_job['id'] = jobs[-1]['id'] + 1 if jobs else 1
 
-        return jsonify({"message": "Employer job added successfully!", "job_id": new_job_id})
+        # Append the job and save
+        jobs.append(new_job)
+        with open(JOB_FILE, 'w') as file:
+            json.dump(jobs, file, indent=4)
+
+        return jsonify({"message": "Job stored successfully!", "id": new_job['id']}), 200
 
     except Exception as e:
-        print("Error occurred in /add_employer:", traceback.format_exc())
+        print(f"Error: {e}")
+        return jsonify({"error": str(e)}), 500
+    
+@app.route('/store_freelancer', methods=['POST'])
+def store_freelancer():
+    try:
+        new_freelancer = request.json
+
+        # Ensure proper types for numeric fields
+        new_freelancer['hourlyRate'] = float(new_freelancer.get('hourlyRate', 0.0))
+        new_freelancer['jobSuccess'] = float(new_freelancer.get('jobSuccess', 0.0))
+        new_freelancer['totalHours'] = int(new_freelancer.get('totalHours', 0))
+        new_freelancer['totalJobs'] = int(new_freelancer.get('totalJobs', 0))
+
+        # Check if the job file exists
+        if not os.path.exists(FREELANCER_FILE):
+            with open(FREELANCER_FILE, 'w') as file:
+                json.dump([], file)
+
+        # Load existing jobs
+        with open(FREELANCER_FILE, 'r') as file:
+            freelancers = json.load(file)
+
+        # Assign a new ID
+        new_freelancer['id'] = freelancers[-1]['id'] + 1 if freelancers else 1
+
+        # Append the job and save
+        freelancers.append(new_freelancer)
+        with open(FREELANCER_FILE, 'w') as file:
+            json.dump(freelancers, file, indent=4)
+
+        return jsonify({"message": "Freelancer stored successfully!", "id": new_freelancer['id']}), 200
+
+    except Exception as e:
+        print(f"Error: {e}")
         return jsonify({"error": str(e)}), 500
 
-#Check for already existing freelancer    
-@app.route("/freelancers", methods=["GET"])
+
+
+
+
+@app.route('/get_job/<int:job_id>', methods=['GET'])
+def get_job(job_id):
+    try:
+        # Load existing jobs
+        with open(JOB_FILE, 'r') as file:
+            jobs = json.load(file)
+
+        # Find the job with the given ID
+        job = next((job for job in jobs if job['id'] == job_id), None)
+
+        if job is None:
+            return jsonify({"error": "Job not found"}), 404
+
+        return jsonify(job), 200
+
+    except Exception as e:
+        print(f"Error: {e}")
+        return jsonify({"error": str(e)}), 500
+    
+@app.route('/get_freelancer/<int:freelancer_id>', methods=['GET'])
+def get_freelancer(freelancer_id):
+    try:
+        # Load existing jobs
+        with open(FREELANCER_FILE, 'r') as file:
+            freelancers = json.load(file)
+
+        # Find the job with the given ID
+        freelancer = next((freelancer for freelancer in freelancers if freelancer['id'] == freelancer_id), None)
+
+        if freelancer is None:
+            return jsonify({"error": "Freelancer not found"}), 404
+
+        return jsonify(freelancer), 200
+
+    except Exception as e:
+        print(f"Error: {e}")
+        return jsonify({"error": str(e)}), 500
+
+
+
+@app.route('/freelancers', methods=['GET'])
 def get_freelancers():
     try:
-        with open("data.json", "r") as file:
-            data = json.load(file)
-        return jsonify(data["freelancers"])  # Return the freelancers list
+        with open('freelancer.json', 'r') as file:
+            freelancers = json.load(file)
+        return jsonify(freelancers), 200
     except Exception as e:
-        print("Error fetching freelancers:", traceback.format_exc())
-        return jsonify({"error": "Failed to fetch freelancers"}), 500
-
-
-#Check for already existing company    
-@app.route("/employers", methods=["GET"])
-def get_employers():
+        return jsonify({"error": str(e)}), 500
+@app.route('/jobs', methods=['GET'])
+def get_jobs():
     try:
-        with open("data.json", "r") as file:
-            data = json.load(file)
-        return jsonify(data["jobs"])  # Return the list of jobs
+        with open('job.json', 'r') as file:
+            jobs = json.load(file)
+        return jsonify(jobs), 200
     except Exception as e:
-        print("Error fetching employers:", traceback.format_exc())
-        return jsonify({"error": "Failed to fetch employers"}), 500
+        return jsonify({"error": str(e)}), 500
+    
 
-@app.route("/rate_job", methods=["POST"])
-def rate_job():
-    try:
-        data = request.json
-        job_id = data["job_id"]
-        rating = data["rating"]
 
-        with open("data.json", "r") as file:
-            json_data = json.load(file)
+@app.route("/recommend_freelancers", methods=["POST"])
+def recommend_freelancers():
+    try:                                                    
+        # Load job and freelancer data
+        job = request.json
+        with open("freelancer.json", "r") as file:
+            freelancers = json.load(file)
 
-        # Find the job and append the freelancer's rating
-        for job in json_data["jobs"]:
-            if job["id"] == job_id:
-                job["past_freelancers"].append({
-                    "freelancer_id": 1,  # Replace with dynamic freelancer ID
-                    "rating": rating
-                })
+        # Calculate recommendation scores
+        recommendations = []
+        for freelancer in freelancers:
+            score = calculate_recommendation_score(job, freelancer)
+            recommendations.append({
+                "freelancer": freelancer,
+                "score": score
+            })
 
-        # Save the updated data.json
-        with open("data.json", "w") as file:
-            json.dump(json_data, file, indent=4)
+        # Sort freelancers by recommendation score (high to low)
+        sorted_recommendations = sorted(recommendations, key=lambda x: x["score"], reverse=True)
 
-        return jsonify({"message": "Rating submitted successfully!"})
+        # Return the sorted list of freelancers
+        return jsonify(sorted_recommendations), 200
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     
-# API Endpoint: Rate Freelancer
-@app.route("/rate_freelancer", methods=["POST"])
-def rate_freelancer():
+@app.route("/recommend_jobs", methods=["POST"])
+def recommend_jobs():
     try:
-        data = request.json
-        freelancer_id = data["freelancer_id"]
-        new_rating = data["rating"]
+        # Load freelancer and job data
+        freelancer = request.json
+        with open("job.json", "r") as file:
+            jobs = json.load(file)
 
-        # Find the freelancer by ID and update their rating
-        freelancer = next((f for f in freelancers if f["id"] == freelancer_id), None)
-        if freelancer:
-            freelancer["rating"] = new_rating  # Update freelancer's rating
-            save_data()  # Save the changes to data.json
-            return jsonify({"message": "Rating submitted successfully!"})
-        else:
-            return jsonify({"error": "Freelancer not found"}), 404
+        # Calculate recommendation scores for each job
+        job_recommendations = []
+        for job in jobs:
+            score = calculate_job_recommendation_score(freelancer, job)
+            job_recommendations.append({
+                "job": job,
+                "score": score
+            })
+
+        # Sort jobs by recommendation score (high to low)
+        sorted_job_recommendations = sorted(job_recommendations, key=lambda x: x["score"], reverse=True)
+
+        # Return the sorted list of jobs
+        return jsonify(sorted_job_recommendations), 200
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-
-
-
-# Test the Application
-if __name__ == "__main__":
+    
+if __name__ == '__main__':
     app.run(debug=True)
