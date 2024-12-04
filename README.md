@@ -1,104 +1,135 @@
-<h1>Setup of the application</h2>
-<h2><strong>Step-1: </strong>Copy the code link and paste it in your IDE terminal</h2>
-<p>All codes and dependencies will be downloaded onto your system.</p>
+# SkillMingle
 
-<h2>Now we need to run frontend and backend simultaneously on two different ports:</h2>
-<p>Frontend - <b>Client Side</b></p>
-<p>Backend - <b>Server Side</b></p>
+SkillMingle is a platform that connects freelancers with employers. It allows freelancers to showcase their skills and employers to post job opportunities.
 
-<h2><strong>Step-2: </strong>We need to install some libraries and packages for both frontend and backend</h2>
-<p><b>For server side</b> go to terminal and get into Backend_Flask folder to install libraries for flask locally</p>
+## Table of Contents
 
-<p>Run this command to install for <strong>server side:</strong></p>
-<strong>pip install Flask Flask-Cors scikit-learn geopy jsonify</strong>
+- [Installation](#installation)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [API Endpoints](#api-endpoints)
+- [Contributing](#contributing)
+- [License](#license)
 
-</br>
+## Installation
 
-<p>Run this command to install for <strong>client side:</strong></p>
-<p>You need to install Node.js from <br>https://nodejs.org/en</b> and in terminal write the command <b>npm install</b>.</p>
-<p>Then in terminal write in commands:</p>
-<u><strong>npm install react-router-dom</strong></u>
+### Prerequisites
 
-<h2><strong>Step-3: </strong>When all these libraries and packages are installed your application is ready to run</h2>
-<p>Get into the directory in terminal using <strong><u>cd SkillMingle</u></strong> and write the command <strong><u>npm start</u></strong></p>
-<p>This will run the frontend on port no. 8000 or your desired port.</p>
+- [Node.js](https://nodejs.org/en/) (v14 or higher)
+- [Python](https://www.python.org/downloads/) (v3.6 or higher)
+- [pip](https://pip.pypa.io/en/stable/installation/)
 
-<p>Now for backend get into the directory in terminal using <strong><u>cd SkillMingle Backend_Flask</u></strong> which will led you to backend directory and then run the command <strong><u>python app.py</u></strong></p>
-<p>This will run the server on port no. 5000 or your desired port.</p>
+### Backend Setup
 
-<h2><strong>Step-4: </strong>Both Client and Server side should run simultaneously to make API calls smoothly.</h2>
-<p>Just to check API calls fluency you can use <u>Postman</u>and hit the end point <u>http://127.0.0.1:5000/recommend</u> in POST method and in Body request for <b><u>{"freelancer_id": 1}</u></b></p>
-<p>More details for frontend is given below.</p>
+1. Navigate to the `Backend_Flask` directory:
+    ```sh
+    cd Backend_Flask
+    ```
 
-# Getting Started with Create React App
+2. Install the required Python packages:
+    ```sh
+    pip install Flask Flask-Cors scikit-learn geopy jsonify
+    ```
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+3. Start the Flask server:
+    ```sh
+    python app.py
+    ```
 
-## Available Scripts
+### Frontend Setup
 
-In the project directory, you can run:
+1. Navigate to the root directory of the project:
+    ```sh
+    cd ..
+    ```
 
-### `npm start`
+2. Install the required Node.js packages:
+    ```sh
+    npm install
+    ```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+3. Start the React development server:
+    ```sh
+    npm start
+    ```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Usage
 
-### `npm test`
+Once both the frontend and backend servers are running, you can access the application in your web browser at `http://localhost:3000`.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### API Testing
 
-### `npm run build`
+You can use [Postman](https://www.postman.com/) to test the API endpoints. For example, to test the recommendation endpoint, send a POST request to `http://127.0.0.1:5000/recommend` with the following JSON body:
+```json
+{
+    "freelancer_id": 1
+}
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Project Structure
+.
+├── Backend_Flask/
+│   ├── app.py
+│   ├── [data.json](http://_vscodecontentref_/1)
+│   ├── [freelancer_details.json](http://_vscodecontentref_/2)
+│   ├── [freelancer.json](http://_vscodecontentref_/3)
+│   ├── [job_details.json](http://_vscodecontentref_/4)
+│   ├── [job.json](http://_vscodecontentref_/5)
+├── public/
+│   ├── [index.html](http://_vscodecontentref_/6)
+│   ├── [manifest.json](http://_vscodecontentref_/7)
+│   ├── [robots.txt](http://_vscodecontentref_/8)
+├── src/
+│   ├── components/
+│   │   ├── [EmployerApp.js](http://_vscodecontentref_/9)
+│   │   ├── EmployerDashboard.js
+│   │   ├── [FreeLancerApp.js](http://_vscodecontentref_/10)
+│   │   ├── [FreelancerCard.js](http://_vscodecontentref_/11)
+│   │   ├── [FreelancerDashboard.js](http://_vscodecontentref_/12)
+│   │   ├── [HomePage.js](http://_vscodecontentref_/13)
+│   │   ├── [JobCard.js](http://_vscodecontentref_/14)
+│   ├── styles/
+│   │   ├── EmployerDashboard.css
+│   │   ├── [FreelancerCard.css](http://_vscodecontentref_/15)
+│   ├── [App.css](http://_vscodecontentref_/16)
+│   ├── [App.js](http://_vscodecontentref_/17)
+│   ├── App.test.js
+│   ├── [index.css](http://_vscodecontentref_/18)
+│   ├── [index.js](http://_vscodecontentref_/19)
+│   ├── reportWebVitals.js
+│   ├── setupTests.js
+├── .gitignore
+├── [package.json](http://_vscodecontentref_/20)
+├── [README.md](http://_vscodecontentref_/21)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## API Endpoints
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Freelancer Endpoints
 
-### `npm run eject`
+- `GET /freelancers`: Retrieve a list of all freelancers.
+- `GET /freelancers/:id`: Retrieve details of a specific freelancer.
+- `POST /store_freelancer`: Store a new freelancer's details.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Job Endpoints
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- `GET /jobs`: Retrieve a list of all jobs.
+- `GET /jobs/:id`: Retrieve details of a specific job.
+- `POST /store_job`: Store a new job's details.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Recommendation Endpoint
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- `POST /recommend`: Get job recommendations for a freelancer.
 
-## Learn More
+## Contributing
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+We welcome contributions! Please follow these steps to contribute:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes.
+4. Commit your changes (`git commit -m 'Add some feature'`).
+5. Push to the branch (`git push origin feature-branch`).
+6. Open a pull request.
 
-### Code Splitting
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
