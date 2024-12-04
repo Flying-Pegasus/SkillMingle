@@ -9,7 +9,6 @@ SkillMingle is a platform that connects freelancers with employers. It allows fr
 - [Project Structure](#project-structure)
 - [API Endpoints](#api-endpoints)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Installation
 
