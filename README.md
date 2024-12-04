@@ -82,11 +82,18 @@ Once both the frontend and backend servers are running, you can access the appli
 │   │   ├── FreeLancerApp.js
 │   │   ├── FreelancerCard.js
 │   │   ├── FreelancerDashboard.js
+│   │   ├── Header.js
 │   │   ├── HomePage.js
 │   │   ├── JobCard.js
+│   │   ├── Profile.js
 │   ├── styles/
 │   │   ├── EmployerDashboard.css
 │   │   ├── FreelancerCard.css
+│   │   ├── FreelancerDashboard.css
+│   │   ├── Form.css
+│   │   ├── Header.css
+│   │   ├── HomePage.css
+│   │   ├── Profile.css
 │   ├── App.css
 │   ├── App.js
 │   ├── App.test.js
@@ -97,6 +104,7 @@ Once both the frontend and backend servers are running, you can access the appli
 ├── .gitignore
 ├── package.json
 ├── README.md
+
 ```
 
 ## API Endpoints
