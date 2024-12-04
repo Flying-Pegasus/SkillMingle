@@ -70,37 +70,37 @@ You can use [Postman](https://www.postman.com/) to test the API endpoints. For e
 .
 ├── Backend_Flask/
 │   ├── app.py
-│   ├── [data.json](http://_vscodecontentref_/1)
-│   ├── [freelancer_details.json](http://_vscodecontentref_/2)
-│   ├── [freelancer.json](http://_vscodecontentref_/3)
-│   ├── [job_details.json](http://_vscodecontentref_/4)
-│   ├── [job.json](http://_vscodecontentref_/5)
+│   ├── data.json
+│   ├── freelancer_details.json
+│   ├── freelancer.json
+│   ├── job_details.json
+│   ├── job.json
 ├── public/
-│   ├── [index.html](http://_vscodecontentref_/6)
-│   ├── [manifest.json](http://_vscodecontentref_/7)
-│   ├── [robots.txt](http://_vscodecontentref_/8)
+│   ├── index.html
+│   ├── manifest.json
+│   ├── robots.txt
 ├── src/
 │   ├── components/
-│   │   ├── [EmployerApp.js](http://_vscodecontentref_/9)
+│   │   ├── EmployerApp.js
 │   │   ├── EmployerDashboard.js
-│   │   ├── [FreeLancerApp.js](http://_vscodecontentref_/10)
-│   │   ├── [FreelancerCard.js](http://_vscodecontentref_/11)
-│   │   ├── [FreelancerDashboard.js](http://_vscodecontentref_/12)
-│   │   ├── [HomePage.js](http://_vscodecontentref_/13)
-│   │   ├── [JobCard.js](http://_vscodecontentref_/14)
+│   │   ├── FreeLancerApp.js
+│   │   ├── FreelancerCard.js
+│   │   ├── FreelancerDashboard.js
+│   │   ├── HomePage.js
+│   │   ├── JobCard.js
 │   ├── styles/
 │   │   ├── EmployerDashboard.css
-│   │   ├── [FreelancerCard.css](http://_vscodecontentref_/15)
-│   ├── [App.css](http://_vscodecontentref_/16)
-│   ├── [App.js](http://_vscodecontentref_/17)
+│   │   ├── FreelancerCard.css
+│   ├── App.css
+│   ├── App.js
 │   ├── App.test.js
-│   ├── [index.css](http://_vscodecontentref_/18)
-│   ├── [index.js](http://_vscodecontentref_/19)
+│   ├── index.css
+│   ├── index.js
 │   ├── reportWebVitals.js
 │   ├── setupTests.js
 ├── .gitignore
-├── [package.json](http://_vscodecontentref_/20)
-├── [README.md](http://_vscodecontentref_/21)
+├── package.json
+├── README.md
 
 ## API Endpoints
 
@@ -130,7 +130,3 @@ We welcome contributions! Please follow these steps to contribute:
 4. Commit your changes (`git commit -m 'Add some feature'`).
 5. Push to the branch (`git push origin feature-branch`).
 6. Open a pull request.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
