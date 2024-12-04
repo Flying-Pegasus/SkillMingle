@@ -20,7 +20,7 @@ SkillMingle is a platform that connects freelancers with employers. It allows fr
 
 Clone the repository:
     ```sh
-    git clone https://github.com/CrazyPrash007/SkillMingle.git
+    git clone "https://github.com/CrazyPrash007/SkillMingle.git"
     ```
 
 ### Backend Setup
