@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import JobCard from './JobCard';
+import '../styles/FreelancerDashboard.css';
 
 function FreelancerDashboard() {
   const { freelancerId } = useParams(); // Retrieve freelancerId from URL
@@ -46,10 +47,9 @@ function FreelancerDashboard() {
   }
 
   return (
-    <div>
-      {/* {freelancerDetails.jobTitle} */}
-      <h1>Recommended Freelancers </h1>
-      <div className="freelancer-cards">
+    <div className="freelancer-dashboard">
+      <h1>Recommended Jobs</h1>
+      <div className="job-cards-container">
         {jobs.map((recommendation) => (
           <JobCard key={recommendation.job.id} job={recommendation.job} score={recommendation.score} />
         ))}

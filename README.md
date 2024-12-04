@@ -47,7 +47,12 @@ SkillMingle is a platform that connects freelancers with employers. It allows fr
     npm install
     ```
 
-3. Start the React development server:
+3. Install `react-router-dom@5.3.4`:
+    ```sh
+    npm install react-router-dom@5.3.4
+    ```
+
+4. Start the React development server:
     ```sh
     npm start
     ```
@@ -55,15 +60,6 @@ SkillMingle is a platform that connects freelancers with employers. It allows fr
 ## Usage
 
 Once both the frontend and backend servers are running, you can access the application in your web browser at `http://localhost:3000`.
-
-### API Testing
-
-You can use [Postman](https://www.postman.com/) to test the API endpoints. For example, to test the recommendation endpoint, send a POST request to `http://127.0.0.1:5000/recommend` with the following JSON body:
-```json
-{
-    "freelancer_id": 1
-}
-```
 
 ## Project Structure
 ```
