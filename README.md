@@ -18,6 +18,11 @@ SkillMingle is a platform that connects freelancers with employers. It allows fr
 - [Python](https://www.python.org/downloads/) (v3.6 or higher)
 - [pip](https://pip.pypa.io/en/stable/installation/)
 
+Clone the repository:
+    ```sh
+    git clone https://github.com/CrazyPrash007/SkillMingle.git
+    ```
+
 ### Backend Setup
 
 1. Navigate to the `Backend_Flask` directory:
