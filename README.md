@@ -67,6 +67,7 @@ You can use [Postman](https://www.postman.com/) to test the API endpoints. For e
 ```
 
 ## Project Structure
+```
 .
 ├── Backend_Flask/
 │   ├── app.py
@@ -101,6 +102,7 @@ You can use [Postman](https://www.postman.com/) to test the API endpoints. For e
 ├── .gitignore
 ├── package.json
 ├── README.md
+```
 
 ## API Endpoints
 
