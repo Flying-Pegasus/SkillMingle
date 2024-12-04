@@ -64,6 +64,7 @@ You can use [Postman](https://www.postman.com/) to test the API endpoints. For e
 {
     "freelancer_id": 1
 }
+```
 
 ## Project Structure
 .
