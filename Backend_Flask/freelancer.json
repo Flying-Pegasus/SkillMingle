@@ -107,5 +107,58 @@
             "AdobePS"
         ],
         "id": 7
+    },
+    {
+        "name": "MrX",
+        "country": "Surat",
+        "hourlyRate": 9.0,
+        "jobSuccess": 82.0,
+        "title": "SWE",
+        "totalHours": 500,
+        "totalJobs": 5,
+        "skills": [
+            "Cpp",
+            "Javascript",
+            "Python",
+            "CP",
+            "WebDev",
+            "Backend"
+        ],
+        "id": 8
+    },
+    {
+        "name": "Mr.Y",
+        "country": "Varanasi",
+        "hourlyRate": 8.0,
+        "jobSuccess": 87.0,
+        "title": "SDE",
+        "totalHours": 120,
+        "totalJobs": 4,
+        "skills": [
+            "Java",
+            "Python",
+            "Javascript",
+            "OS",
+            "System Architecture",
+            "DBMS"
+        ],
+        "id": 9
+    },
+    {
+        "name": "Luther",
+        "country": "Bengaluru",
+        "hourlyRate": 12.0,
+        "jobSuccess": 97.0,
+        "title": "Data Engineer",
+        "totalHours": 260,
+        "totalJobs": 40,
+        "skills": [
+            "PowerBi",
+            "Pandas",
+            "Python",
+            "Javascript",
+            "DBMS"
+        ],
+        "id": 10
     }
 ]

@@ -1,11 +1,7 @@
 import os
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
-from geopy.distance import geodesic  # Install geopy using `pip install geopy`
 import json
-import traceback
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS to allow requests from the React frontend
@@ -38,28 +34,35 @@ def get_freelancer_details(freelancer_id):
     return jsonify(freelancer), 200
 
 def calculate_recommendation_score(job, freelancer):
-    score = 0
 
     # 1. Skill Matching
     job_skills = set(job["skills"])
     freelancer_skills = set(freelancer["skills"])
     matched_skills = job_skills.intersection(freelancer_skills)
+
+    # Exclude freelancer if no skills match
+    if not matched_skills:
+        return None  # Return None to indicate this freelancer should be excluded
+    
+    score = 0
+
+
     skill_score = len(matched_skills) / len(job_skills) * 50  # Weighted 50
     score += skill_score
 
     # 2. Budget Compliance
     start_rate = job["startRate"]
     end_rate = job["endRate"]
-    if start_rate <= freelancer["hourlyRate"] <= end_rate:
+    if freelancer["hourlyRate"] <= end_rate:
         score += 20  # Weighted 20
     else:
         score -= 10  # Penalize if out of budget
 
     # 3. Experience
     experience_score = (
-        (freelancer["jobSuccess"] * 0.3) +
-        (freelancer["totalHours"] * 0.1) +
-        (freelancer["totalJobs"] * 0.1)
+        (freelancer["jobSuccess"] * 0.4) +
+        (freelancer["totalHours"] * 0.2) +
+        (freelancer["totalJobs"] * 0.2)
     )
     score += experience_score
 
@@ -76,13 +79,16 @@ def calculate_job_recommendation_score(freelancer, job):
     job_skills = set(job["skills"])
     freelancer_skills = set(freelancer["skills"])
     matched_skills = job_skills.intersection(freelancer_skills)
-    skill_score = len(matched_skills) / len(job_skills) * 50  # Weighted 50
+    if len(matched_skills) == 0:
+        return None  # Skip this job if no skills match
+    
+    skill_score = len(matched_skills) / len(job_skills) * 60  # Weighted 50
     score += skill_score
 
     # 2. Budget Compliance (Freelancer's hourlyRate should be within job's startRate and endRate)
     start_rate = job["startRate"]
     end_rate = job["endRate"]
-    if start_rate <= freelancer["hourlyRate"] <= end_rate:
+    if freelancer["hourlyRate"] <= end_rate:
         score += 20  # Weighted 20
     else:
         score -= 10  # Penalize if out of budget
@@ -94,6 +100,13 @@ def calculate_job_recommendation_score(freelancer, job):
     # 4. Location Match (Small bonus for location match)
     if job["clientCountry"] == freelancer["country"]:
         score += 5  # Small bonus for location match
+
+    # 5. Ratings and feedback
+    rating_score = (
+        (job["rating"] * 0.6) +
+        (job["feedbackNum"] * 0.07) 
+    )
+    score += rating_score
 
     return score
 
@@ -233,7 +246,7 @@ def get_jobs():
 
 @app.route("/recommend_freelancers", methods=["POST"])
 def recommend_freelancers():
-    try:                                                    
+    try:
         # Load job and freelancer data
         job = request.json
         with open("freelancer.json", "r") as file:
@@ -243,10 +256,11 @@ def recommend_freelancers():
         recommendations = []
         for freelancer in freelancers:
             score = calculate_recommendation_score(job, freelancer)
-            recommendations.append({
-                "freelancer": freelancer,
-                "score": score
-            })
+            if score is not None:  # Only include freelancers with matching skills
+                recommendations.append({
+                    "freelancer": freelancer,
+                    "score": score
+                })
 
         # Sort freelancers by recommendation score (high to low)
         sorted_recommendations = sorted(recommendations, key=lambda x: x["score"], reverse=True)
@@ -256,6 +270,7 @@ def recommend_freelancers():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
     
 @app.route("/recommend_jobs", methods=["POST"])
 def recommend_jobs():
@@ -269,10 +284,11 @@ def recommend_jobs():
         job_recommendations = []
         for job in jobs:
             score = calculate_job_recommendation_score(freelancer, job)
-            job_recommendations.append({
-                "job": job,
-                "score": score
-            })
+            if score is not None:  # Only include jobs with a valid score
+                job_recommendations.append({
+                    "job": job,
+                    "score": score
+                })
 
         # Sort jobs by recommendation score (high to low)
         sorted_job_recommendations = sorted(job_recommendations, key=lambda x: x["score"], reverse=True)

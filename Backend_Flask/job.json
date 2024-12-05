@@ -68,5 +68,64 @@
             "AdobeLR"
         ],
         "id": 4
+    },
+    {
+        "jobTitle": "SWEE",
+        "exLevelDemand": 2,
+        "clientCountry": "Delhi",
+        "rating": 4,
+        "feedbackNum": 45,
+        "paymentType": "Hourly",
+        "hourlyRate": "$2.00-$10.00",
+        "startRate": 2,
+        "endRate": 10,
+        "skills": [
+            "Figma",
+            "DSA",
+            "Python",
+            "Java",
+            "Cpp"
+        ],
+        "id": 5
+    },
+    {
+        "jobTitle": "Software Development Role",
+        "exLevelDemand": 85,
+        "clientCountry": "Hyderabad",
+        "rating": 4.8,
+        "feedbackNum": 1226,
+        "paymentType": "Fixed",
+        "hourlyRate": "$11.00-$15.00",
+        "startRate": 11,
+        "endRate": 15,
+        "skills": [
+            "Java",
+            "Python",
+            "DevOps",
+            "System Architecture",
+            "DBMS"
+        ],
+        "id": 6
+    },
+    {
+        "jobTitle": "Data Engineer",
+        "exLevelDemand": 75,
+        "clientCountry": "Bengaluru",
+        "rating": 4.8,
+        "feedbackNum": 1440,
+        "paymentType": "Fixed",
+        "hourlyRate": "$8.00-$12.00",
+        "startRate": 8,
+        "endRate": 12,
+        "skills": [
+            "Python",
+            "Excel",
+            "PowerBi",
+            "Sklearn",
+            "ML",
+            "SQL",
+            "DBMS"
+        ],
+        "id": 7
     }
 ]
