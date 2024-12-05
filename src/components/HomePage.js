@@ -1,24 +1,24 @@
 import React from 'react';
-import '../styles/JobCard.css';
 import { Link } from 'react-router-dom';
+import '../styles/HomePage.css';
 
 function HomePage() {
-
-
     return (
-        <div>
-            <h2>Welcome to skillmingle</h2>
-            <div className="job-card">
-                <h3>FreeLancer</h3>
-                <Link to="/freelancerapp">
-                <button className="apply-button" >FreeLancer</button>
-                </Link>
-            </div>
-            <div className="job-card">
-                <h3>Employer</h3>
-                <Link to="/employerapp">
-                <button className="apply-button" >Employer</button>
-                </Link>
+        <div className="homepage">
+            <h2>Welcome to SkillMingle</h2>
+            <div className="card-container">
+                <div className="card">
+                    <h3>Freelancer</h3>
+                    <Link to="/freelancerapp">
+                        <button className="apply-button">Freelancer</button>
+                    </Link>
+                </div>
+                <div className="card">
+                    <h3>Employer</h3>
+                    <Link to="/employerapp">
+                        <button className="apply-button">Employer</button>
+                    </Link>
+                </div>
             </div>
         </div>
     );

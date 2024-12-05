@@ -1,19 +1,25 @@
 .freelancer-dashboard {
-    margin: 20px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-  }
-  
-  h2 {
-    text-align: center;
-    color: #28a745;
-  }
-  
-  .jobs-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
-  }
-  
+  margin: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #28a745;
+  margin-bottom: 20px;
+}
+
+.job-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.job-card {
+  flex: 1 1 calc(33.333% - 40px); /* 3 cards per row with 20px gap */
+  box-sizing: border-box;
+}
