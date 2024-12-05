@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import '../styles/Form.css';
 
 function FreelancerApp() {
-
   const [freelancerId, setFreelancerId] = useState(""); // For login form
   const history = useHistory();
   const [formData, setFormData] = useState({
@@ -68,104 +68,87 @@ function FreelancerApp() {
   const handleLogin = (e) => {
     e.preventDefault();
     if (freelancerId) {
-        history.push(`/jobsdashboard/${freelancerId}`);
+      history.push(`/jobsdashboard/${freelancerId}`);
     } else {
-        alert('Please enter a valid Freelancer ID');
+      alert('Please enter a valid Freelancer ID');
     }
-};
+  };
 
   return (
-    <div>
-      <h3>Enter Freelancer Details</h3>
+    <div className="container">
+      <div className="text">Freelancer Details</div>
       <form onSubmit={handleSubmit}>
-        <label>Name:</label>
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-        />
-        <br />
-        <label>Location:</label>
-        <input
-          type="text"
-          name="country"
-          value={formData.country}
-          onChange={handleChange}
-          required
-        />
-        <br />
-        <label>Hourly Rate:</label>
-        <input
-          type="number"
-          name="hourlyRate"
-          value={formData.hourlyRate}
-          step="0.5"
-          onChange={handleChange}
-          required
-        />
-        <br />
-        <label>Job Success Rate (%):</label>
-        <input
-          type="number"
-          name="jobSuccess"
-          value={formData.jobSuccess}
-          step="0.5"
-          onChange={handleChange}
-          required
-        />
-        <br />
-        <label>Title:</label>
-        <input
-          type="text"
-          name="title"
-          value={formData.title}
-          onChange={handleChange}
-          required
-        />
-        <br />
-        <label>Total Hours Worked:</label>
-        <input
-          type="number"
-          name="totalHours"
-          value={formData.totalHours}
-          onChange={handleChange}
-          required
-        />
-        <br />
-        <label>Total Jobs:</label>
-        <input
-          type="number"
-          name="totalJobs"
-          value={formData.totalJobs}
-          onChange={handleChange}
-          required
-        />
-        <br />
-        <label>Skills (comma separated):</label>
-        <input
-          type="text"
-          name="skills"
-          value={formData.skills}
-          onChange={handleChange}
-          required
-        />
-        <br />
-        <button type="submit">Submit</button>
+        <div className="form-row">
+          <div className="input-data">
+            <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+            <div className="underline"></div>
+            <label>Name</label>
+          </div>
+          <div className="input-data">
+            <input type="text" name="country" value={formData.country} onChange={handleChange} required />
+            <div className="underline"></div>
+            <label>Country</label>
+          </div>
+        </div>
+        <div className="form-row">
+          <div className="input-data">
+            <input type="number" name="hourlyRate" value={formData.hourlyRate} onChange={handleChange} required />
+            <div className="underline"></div>
+            <label>Hourly Rate</label>
+          </div>
+          <div className="input-data">
+            <input type="number" name="jobSuccess" value={formData.jobSuccess} onChange={handleChange} required />
+            <div className="underline"></div>
+            <label>Job Success Rate (%)</label>
+          </div>
+        </div>
+        <div className="form-row">
+          <div className="input-data">
+            <input type="text" name="title" value={formData.title} onChange={handleChange} required />
+            <div className="underline"></div>
+            <label>Title</label>
+          </div>
+          <div className="input-data">
+            <input type="number" name="totalHours" value={formData.totalHours} onChange={handleChange} required />
+            <div className="underline"></div>
+            <label>Total Hours Worked</label>
+          </div>
+        </div>
+        <div className="form-row">
+          <div className="input-data">
+            <input type="number" name="totalJobs" value={formData.totalJobs} onChange={handleChange} required />
+            <div className="underline"></div>
+            <label>Total Jobs Completed</label>
+          </div>
+          <div className="input-data">
+            <input type="text" name="skills" value={formData.skills} onChange={handleChange} required />
+            <div className="underline"></div>
+            <label>Skills (comma separated)</label>
+          </div>
+        </div>
+        <div className="form-row submit-btn">
+          <div className="input-data">
+            <div className="inner"></div>
+            <input type="submit" value="Submit" />
+          </div>
+        </div>
       </form>
 
-      <h3>Already LoggedIn?</h3>
+      <h3>Already Logged In?</h3>
       <form onSubmit={handleLogin}>
-        <label>Freelancer ID:</label>
-        <input
-          type="text"
-          value={freelancerId}
-          onChange={(e) => setFreelancerId(e.target.value)}
-          required
-        />
-        <br />
-        <button type="submit">Login</button>
+        <div className="form-row">
+          <div className="input-data">
+            <input type="text" value={freelancerId} onChange={(e) => setFreelancerId(e.target.value)} required />
+            <div className="underline"></div>
+            <label>Freelancer ID</label>
+          </div>
+        </div>
+        <div className="form-row submit-btn">
+          <div className="input-data">
+            <div className="inner"></div>
+            <input type="submit" value="Login" />
+          </div>
+        </div>
       </form>
     </div>
   );

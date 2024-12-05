@@ -107,5 +107,39 @@
             "AdobePS"
         ],
         "id": 7
+    },
+    {
+        "name": "Prash",
+        "country": "Varanasi",
+        "hourlyRate": 35.0,
+        "jobSuccess": 100.0,
+        "title": "Software Developer",
+        "totalHours": 200,
+        "totalJobs": 1,
+        "skills": [
+            "Cpp",
+            "Frontend",
+            "Backend",
+            "Full stack",
+            "AWS"
+        ],
+        "id": 8
+    },
+    {
+        "name": "Prashant Kumar",
+        "country": "Delhi",
+        "hourlyRate": 25.0,
+        "jobSuccess": 100.0,
+        "title": "Video Editor",
+        "totalHours": 150,
+        "totalJobs": 18,
+        "skills": [
+            "Canva",
+            "Figma",
+            "Adobe",
+            "Photoshop",
+            "Animate"
+        ],
+        "id": 9
     }
 ]

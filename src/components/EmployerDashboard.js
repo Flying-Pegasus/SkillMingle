@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import FreelancerCard from './FreelancerCard';
+import '../styles/EmployerDashboard.css';
 
-// function Dashboard({ jobId })
 function EmployerDashboard() {
   const { jobId } = useParams(); // Retrieve jobId from URL
   const [freelancers, setFreelancers] = useState([]);
@@ -47,10 +47,9 @@ function EmployerDashboard() {
   }
 
   return (
-    <div>
-      {/* {jobDetails.jobTitle} */}
-      <h1>Recommended Freelancers </h1>
-      <div className="freelancer-cards">
+    <div className="employer-dashboard">
+      <h1>Recommended Freelancers</h1>
+      <div className="freelancer-cards-container">
         {freelancers.map((recommendation) => (
           <FreelancerCard key={recommendation.freelancer.id} freelancer={recommendation.freelancer} score={recommendation.score} />
         ))}
