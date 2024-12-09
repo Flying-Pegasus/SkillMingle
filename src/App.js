@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, useLocation } from "react-router-dom";
 import FreelancerDashboard from "./components/FreelancerDashboard";
 import EmployerDashboard from "./components/EmployerDashboard";
 import HomePage from "./components/HomePage";
@@ -11,7 +11,18 @@ import Header from "./components/Header";
 function App() {
   return (
     <Router>
-      <Header />
+      <Main />
+    </Router>
+  );
+}
+
+function Main() {
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
+
+  return (
+    <>
+      {!isHomePage && <Header />}
       <div className="container">
         <Switch>
           <Route path="/freelancerapp" component={FreelancerApp} />
@@ -22,7 +33,7 @@ function App() {
           <Route path="/" component={HomePage} />
         </Switch>
       </div>
-    </Router>
+    </>
   );
 }
 

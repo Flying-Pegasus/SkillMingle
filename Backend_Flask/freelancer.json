@@ -20,12 +20,13 @@
         "country": "Gaon",
         "hourlyRate": 50.0,
         "jobSuccess": 92.0,
-        "title": "Muthal",
+        "title": "FinTech Researcher",
         "totalHours": 400,
         "totalJobs": 1,
         "skills": [
-            "Hilana",
-            "Baba"
+            "Quantative Analysis",
+            "Advanced Mathematics",
+            "Python"
         ],
         "id": 2
     },

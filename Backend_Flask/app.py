@@ -283,6 +283,27 @@ def recommend_jobs():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+# @app.route('/api/search', methods=['GET'])
+# def search():
+#     query = request.args.get('query')
+#     results = [job for job in job_data if query.lower() in job['Job Title'].lower()]
+#     return jsonify(results)
+
+# @app.route('/api/filter', methods=['GET'])
+# def filter():
+#     skills = request.args.get('skills')
+#     location = request.args.get('location')
+#     hourly_rate = request.args.get('hourlyRate')
     
+#     results = freelancer_data
+#     if skills:
+#         results = [freelancer for freelancer in results if skills.lower() in freelancer['skills'].lower()]
+#     if location:
+#         results = [freelancer for freelancer in results if location.lower() in freelancer['country'].lower()]
+#     if hourly_rate:
+#         results = [freelancer for freelancer in results if freelancer['hourlyRate'] <= float(hourly_rate)]
+    
+#     return jsonify(results)
+
 if __name__ == '__main__':
     app.run(debug=True)
