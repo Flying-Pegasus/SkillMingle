@@ -82,7 +82,7 @@ def calculate_job_recommendation_score(freelancer, job):
     if len(matched_skills) == 0:
         return None  # Skip this job if no skills match
     
-    skill_score = len(matched_skills) / len(job_skills) * 60  # Weighted 50
+    skill_score = len(matched_skills) / len(job_skills) * 70 
     score += skill_score
 
     # 2. Budget Compliance (Freelancer's hourlyRate should be within job's startRate and endRate)
@@ -95,16 +95,16 @@ def calculate_job_recommendation_score(freelancer, job):
 
     # 3. Experience Level Demand (Penalize if job demands more experience than freelancer has)
     if job["exLevelDemand"] > freelancer["jobSuccess"]:
-        score -= 5  # Penalize if the freelancer doesn't meet the experience demand
+        score -= 10  # Penalize if the freelancer doesn't meet the experience demand
 
     # 4. Location Match (Small bonus for location match)
     if job["clientCountry"] == freelancer["country"]:
-        score += 5  # Small bonus for location match
+        score += 10  # Small bonus for location match
 
     # 5. Ratings and feedback
     rating_score = (
         (job["rating"] * 0.6) +
-        (job["feedbackNum"] * 0.07) 
+        (job["feedbackNum"] * 0.05) 
     )
     score += rating_score
 

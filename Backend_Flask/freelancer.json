@@ -109,7 +109,7 @@
         "id": 7
     },
     {
-        "name": "Prash",
+        "name": "Suhani",
         "country": "Varanasi",
         "hourlyRate": 35.0,
         "jobSuccess": 100.0,
@@ -141,5 +141,19 @@
             "Animate"
         ],
         "id": 9
+    },
+    {
+        "name": "Ansh",
+        "country": "Varanasi",
+        "hourlyRate": 10.0,
+        "jobSuccess": 80.0,
+        "title": "Materials",
+        "totalHours": 12,
+        "totalJobs": 1,
+        "skills": [
+            "Ceramics",
+            "Material Science"
+        ],
+        "id": 10
     }
 ]
