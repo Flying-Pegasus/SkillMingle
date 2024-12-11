@@ -9,7 +9,8 @@ function JobCard({ job, score }) {
         rating,
         feedbackNum,
         paymentType,
-        hourlyRate,
+        startRate,
+        endRate,
         skills
     } = job;
 
@@ -21,7 +22,7 @@ function JobCard({ job, score }) {
             <p><strong>Rating:</strong> {rating}/5</p>
             <p><strong>Number of feedbacks:</strong> {feedbackNum}</p>
             <p><strong>Payment Type:</strong> {paymentType}</p>
-            <p><strong>Budget:</strong> {hourlyRate}</p>
+            <p><strong>Budget:</strong> ${startRate}-${endRate}</p>
             <p><strong>Skills:</strong> {skills.join(', ')}</p>
             <p><strong>Recommendation Score:</strong> {score.toFixed(2)}</p>
         </div>

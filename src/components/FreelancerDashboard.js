@@ -5,6 +5,7 @@ import ProfileFreelancer from './ProfileFreelancer';
 import Search from './Search';
 import Filter from './Filter';
 import '../styles/FreelancerDashboard.css';
+import profileImage from '../Elements/profile.jpg';
 
 function FreelancerDashboard() {
   const { freelancerId } = useParams(); // Retrieve freelancerId from URL
@@ -82,7 +83,7 @@ function FreelancerDashboard() {
       {/* Profile Icon */}
       <div className="profile-icon" onClick={handleProfileClick}>
         <img
-          src="/path/to/profile-icon.png" // Replace with your profile icon
+          src={profileImage} // Replace with your profile icon
           alt="Profile Icon"
           style={{ width: "40px", height: "40px", borderRadius: "50%" }}
         />

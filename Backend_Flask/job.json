@@ -239,38 +239,55 @@
         "id": 13
     },
     {
-        "jobTitle": "Dancer",
-        "exLevelDemand": 50,
-        "clientCountry": "Surat",
-        "rating": 4.0,
-        "feedbackNum": 80,
-        "paymentType": "Hourly",
-        "hourlyRate": "$11.00-$15.00",
-        "startRate": 11,
-        "endRate": 15,
+        "jobTitle": "Data Engineer",
+        "exLevelDemand": 86,
+        "clientCountry": "Varanasi",
+        "rating": 4.2,
+        "feedbackNum": 200,
+        "paymentType": "Fixed",
+        "startRate": 2,
+        "endRate": 50,
         "skills": [
-            "Dance",
-            "Sing"
+            "PowerBi",
+            "Excel",
+            "Powerpoint",
+            "Pandas"
         ],
         "id": 14
     },
     {
-        "jobTitle": "Data Engineer",
-        "exLevelDemand": 90,
-        "clientCountry": "Mumbai",
-        "rating": 4.8,
-        "feedbackNum": 600,
-        "paymentType": "Fixed",
-        "hourlyRate": "$11.00-$17.00",
-        "startRate": 11,
-        "endRate": 17,
+        "jobTitle": "Software Development ",
+        "exLevelDemand": 80,
+        "clientCountry": "Hyderabad",
+        "rating": 4.1,
+        "feedbackNum": 70,
+        "paymentType": "Hourly",
+        "startRate": 10,
+        "endRate": 30,
         "skills": [
+            "Java",
+            "Cpp",
             "Python",
-            "Numpy",
-            "Pandas",
-            "Matplotlib",
-            "DataVisulaize"
+            "Javascript"
         ],
         "id": 15
+    },
+    {
+        "jobTitle": "Robotics",
+        "exLevelDemand": 75,
+        "clientCountry": "Varanasi",
+        "rating": 4.3,
+        "feedbackNum": 100,
+        "paymentType": "hbbhghbg@gmail.com",
+        "startRate": 7,
+        "endRate": 16,
+        "skills": [
+            "Robotics",
+            "IoT",
+            "Cpp",
+            "ROS",
+            "EmbededSys"
+        ],
+        "id": 16
     }
 ]

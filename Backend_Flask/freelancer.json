@@ -208,18 +208,18 @@
         "id": 13
     },
     {
-        "name": "Nityaa",
-        "country": "Hyderabad",
-        "hourlyRate": 14.0,
-        "jobSuccess": 89.0,
-        "title": "tybtyb",
-        "totalHours": 200,
-        "totalJobs": 100,
+        "name": "Nitu",
+        "country": "Raipur",
+        "hourlyRate": 12.0,
+        "jobSuccess": 90.0,
+        "title": "Data Sheta",
+        "totalHours": 450,
+        "totalJobs": 24,
         "skills": [
-            "PowerBi",
-            "Excel",
-            "Powerpoint",
-            "Pandas"
+            "Java",
+            "Cpp",
+            "Python",
+            "Javascript"
         ],
         "id": 14
     }

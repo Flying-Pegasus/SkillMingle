@@ -12,7 +12,6 @@ function EmployerApp() {
     rating: 0,
     feedbackNum: 0,
     paymentType: "",
-    hourlyRate: "",
     startRate: 0,
     endRate: 0,
     skills: "", // Holds comma-separated skills
@@ -33,7 +32,6 @@ function EmployerApp() {
       rating: parseFloat(formData.rating), // Convert to float
       feedbackNum: parseInt(formData.feedbackNum, 10), // Convert to integer
       paymentType: formData.paymentType,
-      hourlyRate: formData.hourlyRate,
       startRate: parseInt(formData.startRate, 10), // Convert to integer
       endRate: parseInt(formData.endRate, 10), // Convert to integer
       skills: formData.skills.split(",").map((skill) => skill.trim()), // Array of strings
@@ -98,6 +96,11 @@ function EmployerApp() {
     }
   };
 
+  const handleShow = (e) => {
+    e.preventDefault();
+    history.push('/showall');
+  };
+
   return (
 
     <div className="container">
@@ -137,27 +140,23 @@ function EmployerApp() {
           <div className="input-data">
             <input type="text" name="paymentType" value={formData.paymentType} onChange={handleChange} required />
             <div className="underline"></div>
-            <label>Payment Type</label>
+            <label>Contact Email</label>
           </div>
         </div>
         <div className="form-row">
-          <div className="input-data">
-            <input type="text" name="hourlyRate" value={formData.hourlyRate} onChange={handleChange} required />
-            <div className="underline"></div>
-            <label>Hourly Rate (e.g., "$30.00-$75.00")</label>
-          </div>
           <div className="input-data">
             <input type="number" name="startRate" value={formData.startRate} onChange={handleChange} required />
             <div className="underline"></div>
             <label>Start Rate</label>
           </div>
-        </div>
-        <div className="form-row">
           <div className="input-data">
             <input type="number" name="endRate" value={formData.endRate} onChange={handleChange} required />
             <div className="underline"></div>
             <label>End Rate</label>
           </div>
+        </div>
+        <div className="form-row">
+
           <div className="input-data">
             <input type="text" name="skills" value={formData.skills} onChange={handleChange} required />
             <div className="underline"></div>
@@ -188,6 +187,17 @@ function EmployerApp() {
           </div>
         </div>
       </form>
+
+      <h3>Want to search freelancers from your own?</h3>
+      <form onSubmit={handleShow}>
+        <div className="form-row submit-btn">
+          <div className="input-data">
+            <div className="inner"></div>
+            <input type="submit" value="Search" />
+          </div>
+        </div>
+      </form>
+
     </div>
   );
 }

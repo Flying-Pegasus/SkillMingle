@@ -51,12 +51,6 @@ function FreelancerApp() {
       .then((data) => {
         const newfreelancerID = data.id; // Assuming the response contains the new job ID
         alert("Freelancer details stored successfully!");
-
-        // Redirect to dashboard with the new job ID
-        // history.push({
-        //   pathname: "/jobsdashboard",
-        //   state: { freelancerDetails: { ...freelancerData, id: newfreelancerID } },
-        // });
         history.push(`/jobsdashboard/${newfreelancerID}`);
       })
       .catch((error) => {
@@ -75,11 +69,16 @@ function FreelancerApp() {
     }
   };
 
+  const handleShow = (e) => {
+    e.preventDefault();
+    history.push('/showalljob');
+  };
+
   return (
     <div className="container">
       <div className="text">Freelancer Details</div>
       <form onSubmit={handleSubmit}>
-      <h3>Register : </h3>
+        <h3>Register : </h3>
         <div className="form-row">
           <div className="input-data">
             <input type="text" name="name" value={formData.name} onChange={handleChange} required />
@@ -152,6 +151,17 @@ function FreelancerApp() {
           </div>
         </div>
       </form>
+
+      <h3>Want to search jobs from your own?</h3>
+      <form onSubmit={handleShow}>
+        <div className="form-row submit-btn">
+          <div className="input-data">
+            <div className="inner"></div>
+            <input type="submit" value="Search" />
+          </div>
+        </div>
+      </form>
+
     </div>
   );
 }

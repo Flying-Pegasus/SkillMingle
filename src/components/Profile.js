@@ -46,7 +46,7 @@ function Profile({ jobId }) {
             <p><strong>Job Title:</strong> {employer.jobTitle}</p>
             <p><strong>Rating:</strong> {employer.rating}</p>
             <p><strong>Location:</strong> {employer.clientCountry}</p>
-            <p><strong>Hourly Rate:</strong> {employer.hourlyRate}</p>
+            <p><strong>Budget:</strong> ${employer.startRate}-${employer.endRate}</p>
             <p><strong>Skills:</strong> {employer.skills?.join(', ')}</p>
         </div>
     );

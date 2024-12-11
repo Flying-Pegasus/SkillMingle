@@ -53,6 +53,8 @@ def get_freelancer_details(freelancer_id):
         return jsonify({"error": "Freelancer not found"}), 404
     return jsonify(freelancer), 200
 
+
+
 def calculate_recommendation_score(job, freelancer):
 
     # 1. Skill Matching
@@ -67,7 +69,7 @@ def calculate_recommendation_score(job, freelancer):
     score = 0
 
 
-    skill_score = len(matched_skills) / len(job_skills) * 50  # Weighted 50
+    skill_score = len(matched_skills) / len(job_skills) * 70  # Weighted 50
     score += skill_score
 
     # 2. Budget Compliance
@@ -81,7 +83,7 @@ def calculate_recommendation_score(job, freelancer):
     # 3. Experience
     experience_score = (
         (freelancer["jobSuccess"] * 0.4) +
-        (freelancer["totalHours"] * 0.2) +
+        (freelancer["totalHours"] * 0.08) +
         (freelancer["totalJobs"] * 0.2)
     )
     score += experience_score
@@ -170,10 +172,6 @@ def reload_data():
         jobs = reload_jobs()
         freelancers = reload_freelancers()
 
-        # Print jobs and freelancers for debugging
-        print(f"Jobs: {jobs}")
-        print(f"Freelancers: {freelancers}")
-
         return jsonify({"message": "Data reloaded successfully!"}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
@@ -215,48 +213,6 @@ def store_freelancer():
 
 
 
-
-
-@app.route('/get_job/<int:job_id>', methods=['GET'])
-def get_job(job_id):
-    try:
-        # Load existing jobs
-        with open('job.json', 'r') as file:
-            jobs = json.load(file)
-
-        # Find the job with the given ID
-        job = next((job for job in jobs if job['id'] == job_id), None)
-
-        if job is None:
-            return jsonify({"error": "Job not found"}), 404
-
-        return jsonify(job), 200
-
-    except Exception as e:
-        print(f"Error: {e}")
-        return jsonify({"error": str(e)}), 500
-    
-@app.route('/get_freelancer/<int:freelancer_id>', methods=['GET'])
-def get_freelancer(freelancer_id):
-    try:
-        # Load existing jobs
-        with open('freelancer.json', 'r') as file:
-            freelancers = json.load(file)
-
-        # Find the job with the given ID
-        freelancer = next((freelancer for freelancer in freelancers if freelancer['id'] == freelancer_id), None)
-
-        if freelancer is None:
-            return jsonify({"error": "Freelancer not found"}), 404
-
-        return jsonify(freelancer), 200
-
-    except Exception as e:
-        print(f"Error: {e}")
-        return jsonify({"error": str(e)}), 500
-
-
-
 @app.route('/freelancers', methods=['GET'])
 def freelancers():
     try:
@@ -274,6 +230,7 @@ def get_jobs():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     
+
 
 
 @app.route("/recommend_freelancers", methods=["POST"])
@@ -328,19 +285,6 @@ def recommend_jobs():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     
-
-# Example: Reload freelancer.json dynamically
-@app.route("/get_freelancers", methods=["GET"])
-def get_freelancers():
-    try:
-        if os.path.exists("freelancer.json"):
-            with open("freelancer.json", "r") as file:
-                freelancers = json.load(file)
-            return jsonify(freelancers), 200
-        else:
-            return jsonify({"error": "Freelancer data not found."}), 404
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
 
 
 # @app.route('/api/search', methods=['GET'])
