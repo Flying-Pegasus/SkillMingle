@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import JobCard from './JobCard';
 import ProfileFreelancer from './ProfileFreelancer';
-import Search from './Search';
-import Filter from './Filter';
 import '../styles/FreelancerDashboard.css';
 import profileImage from '../Elements/profile.jpg';
 
@@ -11,6 +9,12 @@ function FreelancerDashboard() {
   const { freelancerId } = useParams(); // Retrieve freelancerId from URL
   const [jobs, setJobs] = useState([]);
   const [filteredJobs, setFilteredJobs] = useState([]);
+  const [filters, setFilters] = useState({
+    clientCountry: '',
+    skills: '',
+    ratingMin: '',
+    rateMin: '',
+  });
   const [showProfile, setShowProfile] = useState(false);
   const [error, setError] = useState(null);
 
@@ -46,7 +50,7 @@ function FreelancerDashboard() {
           });
       })
       .catch((error) => {
-        console.error('Error fetching freelancer details:', error);
+        console.error('Error fetching job details:', error);
         setError(error.message);
       });
   }, [freelancerId]);
@@ -55,19 +59,27 @@ function FreelancerDashboard() {
     setShowProfile(!showProfile);
   };
 
-  const handleSearch = (query) => {
-    const filtered = jobs.filter(job =>
-      job.job.title.toLowerCase().includes(query.toLowerCase())
-    );
-    setFilteredJobs(filtered);
+  const handleFilterChange = (e) => {
+    const { name, value } = e.target;
+    setFilters({ ...filters, [name]: value });
   };
 
-  const handleFilter = (filters) => {
-    const filtered = jobs.filter(job =>
-      (!filters.skills || job.job.skills.toLowerCase().includes(filters.skills.toLowerCase())) &&
-      (!filters.location || job.job.location.toLowerCase().includes(filters.location.toLowerCase())) &&
-      (!filters.hourlyRate || job.job.hourlyRate <= parseFloat(filters.hourlyRate))
-    );
+  const applyFilters = () => {
+    const { clientCountry, skills, ratingMin, rateMin } = filters;
+    const skillSet = skills.split(',').map((skill) => skill.trim().toLowerCase());
+
+    const filtered = jobs.filter(({ job }) => {
+      const matchesCountry = clientCountry ? job.clientCountry.toLowerCase().includes(clientCountry.toLowerCase()) : true;
+      const matchesSkills = skills
+        ? skillSet.every((skill) => job.skills.map((s) => s.toLowerCase()).includes(skill))
+        : true;
+      const matchesRating =
+        (ratingMin ? job.rating >= parseFloat(ratingMin) : true);
+      const matchesRate = (rateMin ? job.endRate >= parseFloat(rateMin) : true);
+
+      return matchesCountry && matchesSkills && matchesRating && matchesRate;
+    });
+
     setFilteredJobs(filtered);
   };
 
@@ -76,10 +88,45 @@ function FreelancerDashboard() {
   }
 
   return (
-    <div className="freelancer-dashboard">
+    <div className="job-dashboard">
       <h1>Recommended Jobs</h1>
-      <Search onSearch={handleSearch} />
-      <Filter onFilter={handleFilter} />
+      
+      <div className="filter-container">
+        <label>
+          Location:
+          <input
+            type="text"
+            name="clientCountry"
+            placeholder="Filter by location"
+            value={filters.clientCountry}
+            onChange={handleFilterChange}
+          />
+        </label>
+        <input
+          type="text"
+          name="skills"
+          placeholder="Filter by skills (comma-separated)"
+          value={filters.skills}
+          onChange={handleFilterChange}
+        />
+        <input
+          type="number"
+          name="ratingMin"
+          placeholder="Min rating"
+          value={filters.ratingMin}
+          onChange={handleFilterChange}
+        />
+        <input
+          type="number"
+          name="rateMin"
+          placeholder="Min Budget"
+          value={filters.rateMin}
+          onChange={handleFilterChange}
+        />
+        <button onClick={applyFilters}>Apply Filters</button>
+      </div>
+
+
       {/* Profile Icon */}
       <div className="profile-icon" onClick={handleProfileClick}>
         <img
@@ -91,7 +138,8 @@ function FreelancerDashboard() {
 
       {/* Show Profile */}
       {showProfile && <ProfileFreelancer freelancerId={freelancerId} />}
-      <div className="job-cards-container">
+
+      <div className="freelancer-cards-container">
         {filteredJobs.map((recommendation) => (
           <JobCard key={recommendation.job.id} job={recommendation.job} score={recommendation.score} />
         ))}
