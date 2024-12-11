@@ -9,7 +9,7 @@ function Header() {
             <nav className="nav">
                 <Link to="/freelancerapp" className="nav-link">Freelancer</Link>
                 <Link to="/employerapp" className="nav-link">Employer</Link>
-                <Link to="/profile" className="nav-link">Profile</Link>
+                {/* <Link to="/profile" className="nav-link">Profile</Link> */}
             </nav>
         </header>
     );

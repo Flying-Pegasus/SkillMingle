@@ -1,34 +1,74 @@
 .homepage {
   text-align: center;
-  padding: 20px;
+  color: #000000;
+  padding: 10px;
+}
+
+.search, .filter {
+  margin: 20px 0;
+}
+
+.search input, .filter input {
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.search button, .filter button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search button:hover, .filter button:hover {
+  background-color: #0056b3;
 }
 
 .card-container {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 40px;
   margin-top: 20px;
 }
 
 .card {
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 20px;
+  padding: 40px;
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  max-width: 300px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, width 0.2s ease-in-out;
+  max-width: 500px;
   text-align: center;
+  width: 100%;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
 }
 
 .card h3 {
   margin: 0 0 15px;
   color: #007bff;
+}
+
+.card img {
+  display: block;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 15px auto;
+}
+
+.card p {
+  margin: 15px 0;
+  font-size: 14px;
+  color: #555;
 }
 
 .apply-button {
@@ -45,4 +85,71 @@
 
 .apply-button:hover {
   background-color: #218838;
+}
+
+.features, .testimonials {
+  margin-top: 40px;
+}
+
+.features h3, .testimonials h3 {
+  color: #007bff;
+}
+
+.features ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.features li {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.testimonials {
+  background-color: #f1f1f1;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.testimonials .testimonial {
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.testimonials .testimonial:before {
+  content: "“";
+  font-size: 50px;
+  color: #007bff;
+  position: absolute;
+  top: -20px;
+  left: 20px;
+}
+
+.testimonials .testimonial:after {
+  content: "”";
+  font-size: 50px;
+  color: #007bff;
+  position: absolute;
+  bottom: -20px;
+  right: 20px;
+}
+
+.testimonials .testimonial p {
+  font-size: 16px;
+  color: #555;
+  margin: 0;
+}
+
+.testimonials .testimonial strong {
+  display: block;
+  margin-top: 10px;
+  color: #333;
+  font-size: 14px;
+  font-weight: bold;
 }

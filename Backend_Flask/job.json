@@ -80,7 +80,6 @@
         "startRate": 2,
         "endRate": 10,
         "skills": [
-            "Figma",
             "DSA",
             "Python",
             "Java",
@@ -127,5 +126,131 @@
             "DBMS"
         ],
         "id": 7
+    },
+    {
+        "jobTitle": "Multipaint",
+        "exLevelDemand": 75,
+        "clientCountry": "Varanasi",
+        "rating": 4.0,
+        "feedbackNum": 420,
+        "paymentType": "Hourly",
+        "hourlyRate": "$5.00-$10.00",
+        "startRate": 5,
+        "endRate": 80,
+        "skills": [
+            "AdobeAi",
+            "AdobePS",
+            "AdobeLR"
+        ],
+        "id": 8
+    },
+    {
+        "jobTitle": "Multi",
+        "exLevelDemand": 70,
+        "clientCountry": "Mumbai",
+        "rating": 4.0,
+        "feedbackNum": 40,
+        "paymentType": "Hourly",
+        "hourlyRate": "$1.00-$7.00",
+        "startRate": 2,
+        "endRate": 50,
+        "skills": [
+            "Java",
+            "Cpp",
+            "Python",
+            "ML"
+        ],
+        "id": 9
+    },
+    {
+        "jobTitle": "Data Scientist",
+        "exLevelDemand": 75,
+        "clientCountry": "Surat",
+        "rating": 4.2,
+        "feedbackNum": 400,
+        "paymentType": "Fixed",
+        "hourlyRate": "$2.00-$10.00",
+        "startRate": 2,
+        "endRate": 80,
+        "skills": [
+            "Python",
+            "Numpy",
+            "Pandas",
+            "Matplotlib"
+        ],
+        "id": 10
+    },
+    {
+        "jobTitle": "Software Engineer Intern",
+        "exLevelDemand": 70,
+        "clientCountry": "Bengaluru",
+        "rating": 3.6,
+        "feedbackNum": 200,
+        "paymentType": "Hourly",
+        "hourlyRate": "$10-$30",
+        "startRate": 10,
+        "endRate": 30,
+        "skills": [
+            "Linux",
+            "OS",
+            "CPP",
+            "Java",
+            "DSA",
+            "CP"
+        ],
+        "id": 11
+    },
+    {
+        "jobTitle": "Designer",
+        "exLevelDemand": 73,
+        "clientCountry": "Surat",
+        "rating": 4.0,
+        "feedbackNum": 250,
+        "paymentType": "Fixed",
+        "hourlyRate": "$11.00-$15.00",
+        "startRate": 11,
+        "endRate": 15,
+        "skills": [
+            "Figma",
+            "Canva",
+            "AdobePS",
+            "AdobeLR",
+            "DesignerAi"
+        ],
+        "id": 12
+    },
+    {
+        "jobTitle": "RoboRbob",
+        "exLevelDemand": 80,
+        "clientCountry": "Varanasi",
+        "rating": 4.5,
+        "feedbackNum": 300,
+        "paymentType": "Hourly",
+        "hourlyRate": "$5.00-$300.00",
+        "startRate": 5,
+        "endRate": 300,
+        "skills": [
+            "Linux",
+            "OS",
+            "CPP",
+            "IoT",
+            "geburi"
+        ],
+        "id": 13
+    },
+    {
+        "jobTitle": "Dancer",
+        "exLevelDemand": 50,
+        "clientCountry": "Surat",
+        "rating": 4.0,
+        "feedbackNum": 80,
+        "paymentType": "Hourly",
+        "hourlyRate": "$11.00-$15.00",
+        "startRate": 11,
+        "endRate": 15,
+        "skills": [
+            "Dance.Sing"
+        ],
+        "id": 14
     }
 ]

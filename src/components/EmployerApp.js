@@ -36,7 +36,7 @@ function EmployerApp() {
       hourlyRate: formData.hourlyRate,
       startRate: parseInt(formData.startRate, 10), // Convert to integer
       endRate: parseInt(formData.endRate, 10), // Convert to integer
-      skills: formData.skills.split(",").map(skill => skill.trim()), // Array of strings
+      skills: formData.skills.split(",").map((skill) => skill.trim()), // Array of strings
     };
 
     fetch("http://127.0.0.1:5000/store_job", {
@@ -53,20 +53,18 @@ function EmployerApp() {
         return response.json();
       })
       .then((data) => {
-        const newJobId = data.id; // Assuming the response contains the new job ID
+        const newjobID = data.id; // Assuming the response contains the new job ID
         alert("Job details stored successfully!");
 
-        // Redirect to dashboard with the new job ID
-        history.push({
-          pathname: "/freelancerdashboard",
-          state: { jobDetails: { ...employerData, id: newJobId } },
-        });
+        history.push(`/freelancerdashboard/${newjobID}`);
       })
       .catch((error) => {
         console.error("Error:", error);
         alert("An error occurred. Please try again.");
       });
+
   };
+
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -97,7 +95,7 @@ function EmployerApp() {
           <div className="input-data">
             <input type="text" name="clientCountry" value={formData.clientCountry} onChange={handleChange} required />
             <div className="underline"></div>
-            <label>Client Country</label>
+            <label>Location</label>
           </div>
           <div className="input-data">
             <input type="number" name="rating" value={formData.rating} step="0.1" onChange={handleChange} required />
@@ -170,3 +168,63 @@ function EmployerApp() {
 }
 
 export default EmployerApp;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // First, directly fetch freelancer recommendations before saving the job
+    // fetch("http://127.0.0.1:5000/recommend_freelancers", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(employerData), // Pass the job data directly to the recommendation endpoint
+    // })
+    //   .then((response) => {
+    //     if (!response.ok) {
+    //       throw new Error("Failed to fetch freelancer recommendations.");
+    //     }
+    //     return response.json();
+    //   })
+    //   .then((freelancerData) => {
+    //     // Now display the freelancer recommendations
+    //     history.push({
+    //       pathname: "/freelancerdashboard",
+    //       state: {
+    //         jobDetails: employerData, // Pass the job details
+    //         freelancerRecommendations: freelancerData, // Pass the freelancer recommendations
+    //       },
+    //     });
+
+    //     // After displaying recommendations, save the job data to job.json
+    //     return fetch("http://127.0.0.1:5000/store_job", {
+    //       method: "POST",
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //       },
+    //       body: JSON.stringify(employerData),
+    //     });
+    //   })
+    //   .then((response) => {
+    //     if (!response.ok) {
+    //       throw new Error("Failed to store job details.");
+    //     }
+    //     return response.json();
+    //   })
+    //   .then((data) => {
+    //     console.log("Job stored successfully with ID:", data.id);
+    //   })
+    //   .catch((error) => {
+    //     console.error("Error:", error);
+    //     alert("An error occurred. Please try again.");
+    //   });

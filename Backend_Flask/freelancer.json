@@ -20,12 +20,13 @@
         "country": "Gaon",
         "hourlyRate": 50.0,
         "jobSuccess": 92.0,
-        "title": "Muthal",
+        "title": "FinTech Researcher",
         "totalHours": 400,
         "totalJobs": 1,
         "skills": [
-            "Hilana",
-            "Baba"
+            "Quantative Analysis",
+            "Advanced Mathematics",
+            "Python"
         ],
         "id": 2
     },
@@ -143,17 +144,51 @@
         "id": 9
     },
     {
-        "name": "Ansh",
-        "country": "Varanasi",
-        "hourlyRate": 10.0,
-        "jobSuccess": 80.0,
-        "title": "Materials",
-        "totalHours": 12,
-        "totalJobs": 1,
+        "name": "flying_pegasus",
+        "country": "Delhi",
+        "hourlyRate": 12.0,
+        "jobSuccess": 90.0,
+        "title": "Data Engineer",
+        "totalHours": 120,
+        "totalJobs": 20,
         "skills": [
-            "Ceramics",
-            "Material Science"
+            "Python",
+            "Excel",
+            "ML",
+            "DBMS",
+            "SQL"
         ],
         "id": 10
+    },
+    {
+        "name": "jawaan",
+        "country": "Varanasi",
+        "hourlyRate": 300.0,
+        "jobSuccess": 90.0,
+        "title": "Robo",
+        "totalHours": 0,
+        "totalJobs": 100,
+        "skills": [
+            "Linux",
+            "OS",
+            "Cpp",
+            "Automation",
+            "IoT"
+        ],
+        "id": 11
+    },
+    {
+        "name": "Dancer",
+        "country": "Surat",
+        "hourlyRate": 0.0,
+        "jobSuccess": 75.0,
+        "title": "Dancer",
+        "totalHours": 40,
+        "totalJobs": 10,
+        "skills": [
+            "Dance",
+            "Sing"
+        ],
+        "id": 12
     }
 ]

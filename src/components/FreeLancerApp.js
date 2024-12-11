@@ -53,10 +53,11 @@ function FreelancerApp() {
         alert("Freelancer details stored successfully!");
 
         // Redirect to dashboard with the new job ID
-        history.push({
-          pathname: "/jobsdashboard",
-          state: { freelancerDetails: { ...freelancerData, id: newfreelancerID } },
-        });
+        // history.push({
+        //   pathname: "/jobsdashboard",
+        //   state: { freelancerDetails: { ...freelancerData, id: newfreelancerID } },
+        // });
+        history.push(`/jobsdashboard/${newfreelancerID}`);
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -87,7 +88,7 @@ function FreelancerApp() {
           <div className="input-data">
             <input type="text" name="country" value={formData.country} onChange={handleChange} required />
             <div className="underline"></div>
-            <label>Country</label>
+            <label>Location</label>
           </div>
         </div>
         <div className="form-row">
