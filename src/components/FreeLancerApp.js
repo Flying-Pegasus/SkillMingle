@@ -79,6 +79,7 @@ function FreelancerApp() {
     <div className="container">
       <div className="text">Freelancer Details</div>
       <form onSubmit={handleSubmit}>
+      <h3>Register : </h3>
         <div className="form-row">
           <div className="input-data">
             <input type="text" name="name" value={formData.name} onChange={handleChange} required />

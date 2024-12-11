@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import FreelancerCard from './FreelancerCard';
+import Profile from './Profile';
 import Search from './Search';
 import Filter from './Filter';
 import '../styles/EmployerDashboard.css';
 
 function EmployerDashboard() {
   const { jobId } = useParams(); // Retrieve jobId from URL
-  const [jobDetails, setJobDetails] = useState(null); // Store job details
   const [freelancers, setFreelancers] = useState([]);
   const [filteredFreelancers, setFilteredFreelancers] = useState([]);
+  const [showProfile, setShowProfile] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     console.log("Job ID:", jobId);
-  
+
     fetch(`http://127.0.0.1:5000/job_details/${jobId}`)
       .then((response) => {
         if (!response.ok) {
@@ -25,7 +26,7 @@ function EmployerDashboard() {
       .then((jobDetails) => {
         // Use the job details to fetch recommendations
         console.log("Job Details:", jobDetails);
-  
+
         fetch("http://127.0.0.1:5000/recommend_freelancers", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -53,6 +54,10 @@ function EmployerDashboard() {
       });
   }, [jobId]); // Dependency: jobId
 
+  const handleProfileClick = () => {
+    setShowProfile(!showProfile);
+  };
+
   const handleSearch = (query) => {
     const filtered = freelancers.filter(freelancer =>
       freelancer.freelancer.name.toLowerCase().includes(query.toLowerCase())
@@ -78,6 +83,17 @@ function EmployerDashboard() {
       <h1>Recommended Freelancers</h1>
       <Search onSearch={handleSearch} />
       <Filter onFilter={handleFilter} />
+      {/* Profile Icon */}
+      <div className="profile-icon" onClick={handleProfileClick}>
+        <img
+          src="/path/to/profile-icon.png" // Replace with your profile icon
+          alt="Profile Icon"
+          style={{ width: "40px", height: "40px", borderRadius: "50%" }}
+        />
+      </div>
+
+      {/* Show Profile */}
+      {showProfile && <Profile jobId={jobId} />}
       <div className="freelancer-cards-container">
         {filteredFreelancers.map((recommendation) => (
           <FreelancerCard key={recommendation.freelancer.id} freelancer={recommendation.freelancer} score={recommendation.score} />

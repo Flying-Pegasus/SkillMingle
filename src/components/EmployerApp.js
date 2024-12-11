@@ -39,13 +39,39 @@ function EmployerApp() {
       skills: formData.skills.split(",").map((skill) => skill.trim()), // Array of strings
     };
 
-    fetch("http://127.0.0.1:5000/store_job", {
+    // First, directly fetch freelancer recommendations before saving the job
+    fetch("http://127.0.0.1:5000/recommend_freelancers", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(employerData),
+      body: JSON.stringify(employerData), // Pass the job data directly to the recommendation endpoint
     })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch freelancer recommendations.");
+        }
+        return response.json();
+      })
+      .then((freelancerData) => {
+        // Now display the freelancer recommendations
+        history.push({
+          pathname: "/freelancerdashboard",
+          state: {
+            jobDetails: employerData, // Pass the job details
+            freelancerRecommendations: freelancerData, // Pass the freelancer recommendations
+          },
+        });
+
+        // After displaying recommendations, save the job data to job.json
+        return fetch("http://127.0.0.1:5000/store_job", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(employerData),
+        });
+      })
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to store job details.");
@@ -53,10 +79,7 @@ function EmployerApp() {
         return response.json();
       })
       .then((data) => {
-        const newjobID = data.id; // Assuming the response contains the new job ID
-        alert("Job details stored successfully!");
-
-        history.push(`/freelancerdashboard/${newjobID}`);
+        console.log("Job stored successfully with ID:", data.id);
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -76,9 +99,11 @@ function EmployerApp() {
   };
 
   return (
+
     <div className="container">
       <div className="text">Employer Job Details</div>
       <form onSubmit={handleSubmit}>
+        <h3>Register : </h3>
         <div className="form-row">
           <div className="input-data">
             <input type="text" name="jobTitle" value={formData.jobTitle} onChange={handleChange} required />
@@ -176,55 +201,3 @@ export default EmployerApp;
 
 
 
-
-
-
-
-
-
-// // First, directly fetch freelancer recommendations before saving the job
-    // fetch("http://127.0.0.1:5000/recommend_freelancers", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(employerData), // Pass the job data directly to the recommendation endpoint
-    // })
-    //   .then((response) => {
-    //     if (!response.ok) {
-    //       throw new Error("Failed to fetch freelancer recommendations.");
-    //     }
-    //     return response.json();
-    //   })
-    //   .then((freelancerData) => {
-    //     // Now display the freelancer recommendations
-    //     history.push({
-    //       pathname: "/freelancerdashboard",
-    //       state: {
-    //         jobDetails: employerData, // Pass the job details
-    //         freelancerRecommendations: freelancerData, // Pass the freelancer recommendations
-    //       },
-    //     });
-
-    //     // After displaying recommendations, save the job data to job.json
-    //     return fetch("http://127.0.0.1:5000/store_job", {
-    //       method: "POST",
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    //       body: JSON.stringify(employerData),
-    //     });
-    //   })
-    //   .then((response) => {
-    //     if (!response.ok) {
-    //       throw new Error("Failed to store job details.");
-    //     }
-    //     return response.json();
-    //   })
-    //   .then((data) => {
-    //     console.log("Job stored successfully with ID:", data.id);
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error:", error);
-    //     alert("An error occurred. Please try again.");
-    //   });

@@ -6,6 +6,7 @@ import HomePage from "./components/HomePage";
 import FreelancerApp from "./components/FreeLancerApp";
 import EmployerApp from "./components/EmployerApp";
 import Profile from "./components/Profile";
+import ProfileFreelancer from "./components/ProfileFreelancer";
 import Header from "./components/Header";
 
 function App() {
@@ -30,6 +31,7 @@ function Main() {
           <Route path="/employerapp" component={EmployerApp} />
           <Route path="/dashboard/:jobId" component={EmployerDashboard} />
           <Route path="/profile" component={Profile} />
+          <Route path="/profilefreelancer" component={ProfileFreelancer} />
           <Route path="/" component={HomePage} />
         </Switch>
       </div>

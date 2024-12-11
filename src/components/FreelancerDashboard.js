@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import JobCard from './JobCard';
+import ProfileFreelancer from './ProfileFreelancer';
 import Search from './Search';
 import Filter from './Filter';
 import '../styles/FreelancerDashboard.css';
@@ -9,6 +10,7 @@ function FreelancerDashboard() {
   const { freelancerId } = useParams(); // Retrieve freelancerId from URL
   const [jobs, setJobs] = useState([]);
   const [filteredJobs, setFilteredJobs] = useState([]);
+  const [showProfile, setShowProfile] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -48,6 +50,10 @@ function FreelancerDashboard() {
       });
   }, [freelancerId]);
 
+  const handleProfileClick = () => {
+    setShowProfile(!showProfile);
+  };
+
   const handleSearch = (query) => {
     const filtered = jobs.filter(job =>
       job.job.title.toLowerCase().includes(query.toLowerCase())
@@ -73,6 +79,17 @@ function FreelancerDashboard() {
       <h1>Recommended Jobs</h1>
       <Search onSearch={handleSearch} />
       <Filter onFilter={handleFilter} />
+      {/* Profile Icon */}
+      <div className="profile-icon" onClick={handleProfileClick}>
+        <img
+          src="/path/to/profile-icon.png" // Replace with your profile icon
+          alt="Profile Icon"
+          style={{ width: "40px", height: "40px", borderRadius: "50%" }}
+        />
+      </div>
+
+      {/* Show Profile */}
+      {showProfile && <ProfileFreelancer freelancerId={freelancerId} />}
       <div className="job-cards-container">
         {filteredJobs.map((recommendation) => (
           <JobCard key={recommendation.job.id} job={recommendation.job} score={recommendation.score} />

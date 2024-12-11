@@ -190,5 +190,37 @@
             "Sing"
         ],
         "id": 12
+    },
+    {
+        "name": "Chamana",
+        "country": "Bengaluru",
+        "hourlyRate": 0.0,
+        "jobSuccess": 92.0,
+        "title": "SDE",
+        "totalHours": 150,
+        "totalJobs": 13,
+        "skills": [
+            "Python",
+            "Numpy",
+            "Pandas",
+            "Matplotlib"
+        ],
+        "id": 13
+    },
+    {
+        "name": "Nityaa",
+        "country": "Hyderabad",
+        "hourlyRate": 14.0,
+        "jobSuccess": 89.0,
+        "title": "tybtyb",
+        "totalHours": 200,
+        "totalJobs": 100,
+        "skills": [
+            "PowerBi",
+            "Excel",
+            "Powerpoint",
+            "Pandas"
+        ],
+        "id": 14
     }
 ]

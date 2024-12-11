@@ -249,8 +249,28 @@
         "startRate": 11,
         "endRate": 15,
         "skills": [
-            "Dance.Sing"
+            "Dance",
+            "Sing"
         ],
         "id": 14
+    },
+    {
+        "jobTitle": "Data Engineer",
+        "exLevelDemand": 90,
+        "clientCountry": "Mumbai",
+        "rating": 4.8,
+        "feedbackNum": 600,
+        "paymentType": "Fixed",
+        "hourlyRate": "$11.00-$17.00",
+        "startRate": 11,
+        "endRate": 17,
+        "skills": [
+            "Python",
+            "Numpy",
+            "Pandas",
+            "Matplotlib",
+            "DataVisulaize"
+        ],
+        "id": 15
     }
 ]

@@ -1,31 +1,32 @@
 import React, { useState, useEffect } from 'react';
+// import { useParams } from 'react-router-dom';
 import '../styles/Profile.css';
 
-function Profile() {
-    const [freelancer, setFreelancer] = useState(null);
+function Profile({ jobId }) {
+    // const { jobId } = useParams();
+    const [employer, setEmployer] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        // Fetch freelancer details from freelancer.json
-        fetch('/path/to/freelancer.json')
-            .then(response => {
+        // Fetch employer details from job.json or API
+        fetch(`http://127.0.0.1:5000/job_details/${jobId}`) // Replace with the correct path or API endpoint
+            .then((response) => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
                 return response.json();
             })
-            .then(data => {
-                // Assuming the freelancer ID is 1 for demonstration
-                const freelancerDetails = data.find(f => f.id === 1);
-                setFreelancer(freelancerDetails);
+            .then((data) => {
+                // Find employer details by ID
+                setEmployer(data);
                 setLoading(false);
             })
-            .catch(error => {
+            .catch((error) => {
                 setError(error);
                 setLoading(false);
             });
-    }, []);
+    }, [jobId]);
 
     if (loading) {
         return <div>Loading...</div>;
@@ -35,21 +36,18 @@ function Profile() {
         return <div>Error: {error.message}</div>;
     }
 
-    if (!freelancer) {
-        return <div>No freelancer data found.</div>;
+    if (!employer) {
+        return <div>No employer data found.</div>;
     }
 
     return (
         <div className="profile">
             <h2>Profile</h2>
-            <p><strong>Name:</strong> {freelancer.name}</p>
-            <p><strong>Country:</strong> {freelancer.country}</p>
-            <p><strong>Hourly Rate:</strong> ${freelancer.hourlyRate}/hr</p>
-            <p><strong>Job Success:</strong> {freelancer.jobSuccess}%</p>
-            <p><strong>Title:</strong> {freelancer.title}</p>
-            <p><strong>Total Hours Worked:</strong> {freelancer.totalHours}</p>
-            <p><strong>Total Jobs Completed:</strong> {freelancer.totalJobs}</p>
-            <p><strong>Skills:</strong> {freelancer.skills.join(', ')}</p>
+            <p><strong>Job Title:</strong> {employer.jobTitle}</p>
+            <p><strong>Rating:</strong> {employer.rating}</p>
+            <p><strong>Location:</strong> {employer.clientCountry}</p>
+            <p><strong>Hourly Rate:</strong> {employer.hourlyRate}</p>
+            <p><strong>Skills:</strong> {employer.skills?.join(', ')}</p>
         </div>
     );
 }
