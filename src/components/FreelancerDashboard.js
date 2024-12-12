@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import JobCard from './JobCard';
 import ProfileFreelancer from './ProfileFreelancer';
+import RatingForm from './RatingForm';
 import '../styles/FreelancerDashboard.css';
 import profileImage from '../Elements/profile.jpg';
 
@@ -90,7 +91,7 @@ function FreelancerDashboard() {
   return (
     <div className="job-dashboard">
       <h1>Recommended Jobs</h1>
-      
+
       <div className="filter-container">
         <label>
           Location:
@@ -144,6 +145,9 @@ function FreelancerDashboard() {
           <JobCard key={recommendation.job.id} job={recommendation.job} score={recommendation.score} />
         ))}
       </div>
+
+      <RatingForm />
+
     </div>
   );
 }

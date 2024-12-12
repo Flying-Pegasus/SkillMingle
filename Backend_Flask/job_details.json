@@ -16,7 +16,7 @@
         "ID": 2,
         "Job Title": "React + Laravel Developer",
         "EX_level_demand": 1,
-        "Client_Country": "Poland",
+        "Client_Country": " ",
         "Rating": 4.823875134,
         "Feedback_Num": 0,
         "Payment_type": "Hourly",
@@ -42,7 +42,7 @@
         "ID": 4,
         "Job Title": "UI/UX Developer - NextJS 13 - Typescript - GraphQL",
         "EX_level_demand": 0,
-        "Client_Country": "United States",
+        "Client_Country": "United States",  
         "Rating": 5.0,
         "Feedback_Num": 28,
         "Payment_type": "Hourly",
@@ -88,7 +88,7 @@
         "Hourly_Rate": null,
         "Start_rate": 0,
         "End_rate": 35,
-        "Skill_required": "Search Engine Optimization, On-Page SEO, Organic Traffic Growth"
+        "Skill_required": "SEO Writing, On-Page SEO, Organic Traffic Growth"
     },
     {
         "ID": 8,

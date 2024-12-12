@@ -1,14 +1,14 @@
 [
     {
-        "jobTitle": "deued",
-        "exLevelDemand": 40,
-        "clientCountry": "goa",
-        "rating": 2.0,
+        "jobTitle": "CS Teacher",
+        "exLevelDemand": 70,
+        "clientCountry": "India",
+        "rating": 3.0,
         "feedbackNum": 200,
         "email": "atul.kpandey.cse23@iitbhu.ac.in",
         "password": "$2a$10$U3UJH.FKxukb2huASHM.muoc3yiBdYIbwf8euJBWJQFrpdAcvTq7S",
         "startRate": 5,
-        "endRate": 16,
+        "endRate": 9,
         "skills": [
             "Java",
             "Cpp",
@@ -21,15 +21,18 @@
         "jobTitle": "Data Engineer",
         "exLevelDemand": 77,
         "clientCountry": "Bengaluru",
-        "rating": 1.0,
+        "rating": 4.0,
         "feedbackNum": 25,
         "email": "dtbdtssDsi@digbwid.com",
         "password": "$2a$10$UnCPnmlEdQZ.6uyfl11BbO31bygZOYKeGNGmVwwthr8NmiL6jUrd.",
         "startRate": 2,
-        "endRate": 5,
+        "endRate": 15,
         "skills": [
-            "Dance",
-            "Sing"
+            "PowerBi",
+            "Data Entry",
+            "SEO Writing",
+            "SQL",
+            "Business Intelligence"
         ],
         "id": 2
     },
@@ -54,10 +57,10 @@
     {
         "jobTitle": "Data Engineer",
         "exLevelDemand": 60,
-        "clientCountry": "Surat",
+        "clientCountry": "Egypt",
         "rating": 3.8,
         "feedbackNum": 50,
-        "email": "atulyashah8432@gmail.com",
+        "email": "ashneergrover@gmail.com",
         "password": "$2a$10$K1uWMpt7.t0joCutpdLrlu8C/VEHJkEfdyln5TeagylrC9KG7/mWG",
         "startRate": 2,
         "endRate": 10,
@@ -70,21 +73,658 @@
         "id": 4
     },
     {
-        "jobTitle": "Software Development Role",
-        "exLevelDemand": 70,
-        "clientCountry": "Bengaluru",
-        "rating": 4.0,
-        "feedbackNum": 400,
-        "email": "atulya1804@gmail.com",
-        "password": "$2a$10$hj1PMYQUfqz7pdndaMJg8e0diuTSM5TuDGvMBi2TUT6EH9jEpup8e",
-        "startRate": 2,
-        "endRate": 50,
+        "jobTitle": "GA Tracking specialist",
+        "exLevelDemand": 60,
+        "clientCountry": "United States",
+        "rating": 5.0,
+        "feedbackNum": 5,
+        "email": "avichauhan199@gmail.com",
+        "password": "$2a$10$d3QML8cBxNyoubssI6kc8On8d/WG8uKELjZwz4NnjP24/OD2I8OT6",
+        "startRate": 30,
+        "endRate": 75,
         "skills": [
-            "Java",
-            "Cpp",
-            "Python",
-            "Javascript"
+            "Google Analytics",
+            "Google Tag Manager"
         ],
         "id": 5
+    },
+    {
+        "jobTitle": "React + Laravel Developer",
+        "exLevelDemand": 82,
+        "clientCountry": "Poland",
+        "rating": 4.82,
+        "feedbackNum": 40,
+        "email": "avichauhan919@gmail.com",
+        "password": "$2a$10$lhS21K6bYCW92Ry.47uE4.pQVuXkHc0iBu33AvyifdVcHRJVRoFeq",
+        "startRate": 60,
+        "endRate": 150,
+        "skills": [
+            "Amazon DynamoDB",
+            "React",
+            "TypeScript",
+            "Laravel"
+        ],
+        "id": 6
+    },
+    {
+        "jobTitle": "Scraper for Linkedin and Facebook (e-mail + location)",
+        "exLevelDemand": 83,
+        "clientCountry": "United States",
+        "rating": 4.82,
+        "feedbackNum": 50,
+        "email": "avichauhan991@gmail.com",
+        "password": "$2a$10$dA/RpT/Ya3K0AB4wpKMxsu7OvnNSDqIAUqkCZ6EExseQEi77Oy2tu",
+        "startRate": 0,
+        "endRate": 35,
+        "skills": [
+            "Finance & Accounting",
+            "Lead Generation",
+            "Data Scraping",
+            "Data Mining",
+            "List Building",
+            "Prospect List"
+        ],
+        "id": 7
+    },
+    {
+        "jobTitle": "UI/UX Developer - NextJS 13 - Typescript - GraphQL",
+        "exLevelDemand": 83,
+        "clientCountry": "United States",
+        "rating": 5.0,
+        "feedbackNum": 28,
+        "email": "avichauhan799@gmail.com",
+        "password": "$2a$10$H4h50hKxM/IhaVzSlXl5a.fd77Gl.TTSblsAWgT/vT0VujPD1Pt9W",
+        "startRate": 5,
+        "endRate": 30,
+        "skills": [
+            "Next.js",
+            "Web Application",
+            "TypeScript",
+            "GraphQL"
+        ],
+        "id": 8
+    },
+    {
+        "jobTitle": "Marketing Strategy for AI/ML Content Product",
+        "exLevelDemand": 65,
+        "clientCountry": "Canada",
+        "rating": 4.98,
+        "feedbackNum": 17,
+        "email": "atulkp273@gmail.com",
+        "password": "$2a$10$SE6gS8/sfnHuVkChIIBd5.pZ3uITEgV8bM53sNRNM5Jyu/g7mArNu",
+        "startRate": 75,
+        "endRate": 300,
+        "skills": [
+            "Sales & Marketing",
+            "Marketing Strategy"
+        ],
+        "id": 9
+    },
+    {
+        "jobTitle": "SEO Expert - non English website",
+        "exLevelDemand": 65,
+        "clientCountry": "Israel",
+        "rating": 4.85,
+        "feedbackNum": 80,
+        "email": "atulkp223@gmail.com",
+        "password": "$2a$10$cTrmp8zIbiTwWVLfk3IumeHxTDSErb1qOyutgEEjRQzfDYjDN95eu",
+        "startRate": 0,
+        "endRate": 35,
+        "skills": [
+            "SEO Writing",
+            "On-Page SEO",
+            "Organic Traffic Growth"
+        ],
+        "id": 10
+    },
+    {
+        "jobTitle": "Taxi booking app",
+        "exLevelDemand": 75,
+        "clientCountry": "Georgia",
+        "rating": 5.0,
+        "feedbackNum": 8,
+        "email": "atulkpo23@gmail.com",
+        "password": "$2a$10$XXBPwBoxhet5iLKC9Z4VVu.JTYbr1kB0kEc9Kl0ZrzzyfOcRJn90m",
+        "startRate": 0,
+        "endRate": 35,
+        "skills": [
+            "Mobile App Development",
+            "Android",
+            "iOS",
+            "Smartphone",
+            "User Authentication"
+        ],
+        "id": 11
+    },
+    {
+        "jobTitle": "Facebook Ads Expert 15-20%",
+        "exLevelDemand": 55,
+        "clientCountry": "Netherlands",
+        "rating": 4.82,
+        "feedbackNum": 10,
+        "email": "dtbd1tssDsi@digbwid.com",
+        "password": "$2a$10$gN96TCwHhrGpY22VeRlta..CYj98DZMRxrIu6guYGpy6uNMHCRWMW",
+        "startRate": 0,
+        "endRate": 35,
+        "skills": [
+            "Social Media Marketing",
+            "Marketing",
+            "Fashion & Beauty",
+            "Facebook Ads Manager",
+            "Instagram",
+            "Facebook Pixel Setup & Optimization",
+            "Facebook",
+            "Facebook Advertising",
+            "Social Media Advertising"
+        ],
+        "id": 12
+    },
+    {
+        "jobTitle": "WorldPress Website Build",
+        "exLevelDemand": 57,
+        "clientCountry": "United States",
+        "rating": 4.72,
+        "feedbackNum": 13,
+        "email": "dtbd21tssDsi@digbwid.com",
+        "password": "$2a$10$g.6bTTCVS4XufePyUrP9Ce.GCaKeug4LEbqlATxQwz9Ar44tsIcRi",
+        "startRate": 0,
+        "endRate": 35,
+        "skills": [
+            "Web Development",
+            "WordPress",
+            "HTML",
+            "CSS",
+            "User Interface Design",
+            "Web Design",
+            "JavaScript"
+        ],
+        "id": 13
+    },
+    {
+        "jobTitle": "Remote position for Mobile Application Developer",
+        "exLevelDemand": 50,
+        "clientCountry": "Turkey",
+        "rating": 4.8,
+        "feedbackNum": 24,
+        "email": "atul.kpandey.cse21@iitbhu.ac.in",
+        "password": "$2a$10$yQyJPnnNpIrnVGEdO0hQFeDPgmDUE7CPZOolBpAuT3setZxA9tGRK",
+        "startRate": 32,
+        "endRate": 44,
+        "skills": [
+            "Android App Development",
+            "Mobile App Development"
+        ],
+        "id": 14
+    },
+    {
+        "jobTitle": "Build interactive graph with Chart.js for Wordpress website",
+        "exLevelDemand": 70,
+        "clientCountry": "Italy",
+        "rating": 4.83,
+        "feedbackNum": 29,
+        "email": "atul.kpandey.cse21@iitbhu.ac.in",
+        "password": "$2a$10$6axiu1w.DEYCZK3N2aeVxe4QUdDbHOWEuN8mauCmpgp74Sd6dX5xq",
+        "startRate": 15,
+        "endRate": 30,
+        "skills": [
+            "WordPress",
+            "Data Visualization",
+            "Chart.js",
+            "JavaScript",
+            "HTML5"
+        ],
+        "id": 15
+    },
+    {
+        "jobTitle": "Email copy writer for my list",
+        "exLevelDemand": 85,
+        "clientCountry": "United States",
+        "rating": 5.0,
+        "feedbackNum": 45,
+        "email": "atul.kpandey121@iitbhu.ac.in",
+        "password": "$2a$10$.IYng3eCRipw5KrOipDN/OuQUROUic1iItwghkFGW/L8.7ADfS6lq",
+        "startRate": 0,
+        "endRate": 35,
+        "skills": [
+            "Brand Marketing",
+            "Copywriting",
+            "Website Copywriting",
+            "Website Content",
+            "Sales Copywriting",
+            "Brand Naming",
+            "Brand Strategy",
+            "Brand Identity",
+            "Brand Positioning"
+        ],
+        "id": 16
+    },
+    {
+        "jobTitle": "Sheet Metal Drawing in Fusion 360",
+        "exLevelDemand": 85,
+        "clientCountry": "South Africa",
+        "rating": 4.5,
+        "feedbackNum": 20,
+        "email": "atul.kpandy121@iitbhu.ac.in",
+        "password": "$2a$10$3UYsRoFGumrXnET0WesoJu6YhwXhc/Bxl9Blky5huLICxzlUJeFK2",
+        "startRate": 15,
+        "endRate": 35,
+        "skills": [
+            "Autodesk AutoCAD",
+            "Autodesk Fusion 360",
+            "Product Design"
+        ],
+        "id": 17
+    },
+    {
+        "jobTitle": "Only Looking for Senior Golang Developers",
+        "exLevelDemand": 72,
+        "clientCountry": "United States",
+        "rating": 4.65,
+        "feedbackNum": 12,
+        "email": "avi99@gmail.com",
+        "password": "$2a$10$nSEh0dkeswA34/cqLhBxLuf9tVP.35wa8Lw9MsW9x7z77ZwSDbkdC",
+        "startRate": 65,
+        "endRate": 90,
+        "skills": [
+            "Kubernetes",
+            "Golang",
+            "Node.js",
+            "Python",
+            "Docker",
+            "MongoDB",
+            "Automated Deployment Pipeline",
+            "Google Cloud Platform",
+            "Amazon ECS"
+        ],
+        "id": 18
+    },
+    {
+        "jobTitle": "Development Lead/ Technical Manager",
+        "exLevelDemand": 70,
+        "clientCountry": "South Africa",
+        "rating": 4.69,
+        "feedbackNum": 160,
+        "email": "avi199@gmail.com",
+        "password": "$2a$10$wbeYYoTo8ue1Xop3lNowiuiUJr2UtB41q0mF7QPrYtCIf/JQlFxCG",
+        "startRate": 1,
+        "endRate": 35,
+        "skills": [
+            "Database Development",
+            "Web Development",
+            "Web Application",
+            "Software Debugging",
+            "API Integration",
+            "Project Management"
+        ],
+        "id": 19
+    },
+    {
+        "jobTitle": "Looking for an experienced Social Media Manager/Copywriting",
+        "exLevelDemand": 90,
+        "clientCountry": "United Arab Emirates",
+        "rating": 4.65,
+        "feedbackNum": 5,
+        "email": "saavi199@gmail.com",
+        "password": "$2a$10$KPdiE6wEajHmdZpD55SZVOkpT9/QPdrVDOs3YHyBxK.tSgbmHIDSS",
+        "startRate": 1,
+        "endRate": 35,
+        "skills": [
+            "Social Media Marketing Strategy",
+            "Social Media Marketing",
+            "Marketing Strategy",
+            "Social Media Management",
+            "Social Media Account Setup",
+            "Social Media Content Creation",
+            "Social Media Content"
+        ],
+        "id": 20
+    },
+    {
+        "jobTitle": "Simple packet sniffing task",
+        "exLevelDemand": 91,
+        "clientCountry": "South Korea",
+        "rating": 4.13,
+        "feedbackNum": 24,
+        "email": "atulya12@gmail.com",
+        "password": "$2a$10$97Xkec.TY11T1X6zMOS6wuPSk6wu26E6ZatsqyK//mx8QwkQnKus6",
+        "startRate": 0,
+        "endRate": 35,
+        "skills": [
+            "Network Security",
+            "Network Analysis",
+            "Python"
+        ],
+        "id": 21
+    },
+    {
+        "jobTitle": "Publishing my sport app in  GP",
+        "exLevelDemand": 60,
+        "clientCountry": "Georgia",
+        "rating": 4.85,
+        "feedbackNum": 204,
+        "email": "atulya108@gmail.com",
+        "password": "$2a$10$TxkxpaKyQWqDel4e9VW63.C49.mGT3WF/EG.MJxL51bw5wbTBHr9a",
+        "startRate": 0,
+        "endRate": 35,
+        "skills": [
+            "Mobile App Development",
+            "Android App Development"
+        ],
+        "id": 22
+    },
+    {
+        "jobTitle": "Simple Shopify footer payment icon fix and addition",
+        "exLevelDemand": 85,
+        "clientCountry": "India",
+        "rating": 5.0,
+        "feedbackNum": 14,
+        "email": "atulyashah@gmail.com",
+        "password": "$2a$10$ryzXrY11.Mx9ykAeqZbU.eywuj2fbiEd1yea5muwv78.cQGJ48.pa",
+        "startRate": 2,
+        "endRate": 35,
+        "skills": [
+            "Web Development",
+            "Shopify",
+            "Web Design",
+            "CSS",
+            "HTML",
+            "Shopify Templates",
+            "Shopify Theme"
+        ],
+        "id": 23
+    },
+    {
+        "jobTitle": "Get Technology Article posted to High Authority Sites (DA70+)",
+        "exLevelDemand": 0,
+        "clientCountry": "India",
+        "rating": 4.93,
+        "feedbackNum": 33,
+        "email": "atulya7@gmail.com",
+        "password": "$2a$10$.2r9UWiJAsF3WLSsGYmyRu3MAo8vDh0SMbjqiYvm1aOlKHnTt7oQG",
+        "startRate": 5,
+        "endRate": 25,
+        "skills": [
+            "Tech & IT",
+            "SEO Backlinking",
+            "Publishing",
+            "Article Submission",
+            "Blog Development",
+            "Guest Post"
+        ],
+        "id": 24
+    },
+    {
+        "jobTitle": "Google AdWords Expert",
+        "exLevelDemand": 85,
+        "clientCountry": "India",
+        "rating": 4.47,
+        "feedbackNum": 35,
+        "email": "atulya21@gmail.com",
+        "password": "$2a$10$yTJIxTVP0PXPpMxKzHgV/u1ffrB814mp50oOBdy2Wk9IOJ/Aa8K3i",
+        "startRate": 24,
+        "endRate": 66,
+        "skills": [
+            "Google Ads",
+            "PPC Campaign Setup & Management"
+        ],
+        "id": 25
+    },
+    {
+        "jobTitle": "Downloading ubuntu and integrating PyTorch",
+        "exLevelDemand": 80,
+        "clientCountry": "United States",
+        "rating": 4.95,
+        "feedbackNum": 5,
+        "email": "atulya1@gmail.com",
+        "password": "$2a$10$nydluxovXONIFYdo3h7SKuF4f0kbuAcofIGti3fqRq/wp.X3Xb.gK",
+        "startRate": 0,
+        "endRate": 35,
+        "skills": [
+            "Python",
+            "Ubuntu",
+            "Linux",
+            "Linux System Administration",
+            "Machine Learning",
+            "TensorFlow",
+            "PyTorch"
+        ],
+        "id": 26
+    },
+    {
+        "jobTitle": "Create Streamlit App from Git Repo",
+        "exLevelDemand": 85,
+        "clientCountry": "United States",
+        "rating": 4.82,
+        "feedbackNum": 5,
+        "email": "prash12@gmail.com",
+        "password": "$2a$10$lz4MtAi/.hp9BzSogIhmZ.qxspvGfgS0B37beShDk8udgjuG.FqO2",
+        "startRate": 15,
+        "endRate": 30,
+        "skills": [
+            "GitHub",
+            "Streamlit",
+            "Python",
+            "Git"
+        ],
+        "id": 27
+    },
+    {
+        "jobTitle": "Data Analyst",
+        "exLevelDemand": 90,
+        "clientCountry": "India",
+        "rating": 4.85,
+        "feedbackNum": 80,
+        "email": "prash122@gmail.com",
+        "password": "$2a$10$vXOXJnhKWplf3TYzcseRY.cZMN2mf3IMi7WJKr35NN.TFPRkqWVeq",
+        "startRate": 15,
+        "endRate": 60,
+        "skills": [
+            "Python",
+            "Numpy",
+            "Pandas",
+            "Matplotlib",
+            "SQL",
+            "Machine learning"
+        ],
+        "id": 28
+    },
+    {
+        "jobTitle": "Data Scientist",
+        "exLevelDemand": 90,
+        "clientCountry": "Canada",
+        "rating": 4.9,
+        "feedbackNum": 50,
+        "email": "prash132@gmail.com",
+        "password": "$2a$10$OpTbf4ENiORHQplrGMgYqu64ZQ/QAYCNBtn5KNQKh91Y6hDkUqtwC",
+        "startRate": 15,
+        "endRate": 60,
+        "skills": [
+            "Python",
+            "R",
+            "Data wrangling",
+            "Data visualization",
+            "Statistics",
+            "Mathematics",
+            "Probability",
+            "Machine Learning"
+        ],
+        "id": 29
+    },
+    {
+        "jobTitle": "Data Engineer",
+        "exLevelDemand": 80,
+        "clientCountry": "India",
+        "rating": 4.5,
+        "feedbackNum": 50,
+        "email": "prash32@gmail.com",
+        "password": "$2a$10$NOlPyGc4llRXY3O0d9Slbugqu1ZuohGYmYl4Qxy/chkHz7YfcLiFa",
+        "startRate": 15,
+        "endRate": 35,
+        "skills": [
+            "Python",
+            "R",
+            "Data cleaning",
+            "Data visualization",
+            "Data entry",
+            "Communication"
+        ],
+        "id": 30
+    },
+    {
+        "jobTitle": "Software Engineer Intern",
+        "exLevelDemand": 95,
+        "clientCountry": "India",
+        "rating": 4.9,
+        "feedbackNum": 100,
+        "email": "prashu32@gmail.com",
+        "password": "$2a$10$7RpdvkW4qClhU6VDbjYGFepqx6H62tZPEJK4UjKRZxUqnoI5eA/FO",
+        "startRate": 35,
+        "endRate": 50,
+        "skills": [
+            "Python",
+            "Cpp",
+            "JavaScript",
+            "Database management",
+            "Operating System",
+            "Problem-solving",
+            "Data Structures",
+            "Algorithms"
+        ],
+        "id": 31
+    },
+    {
+        "jobTitle": "Software Development Intern",
+        "exLevelDemand": 92,
+        "clientCountry": "United States",
+        "rating": 4.9,
+        "feedbackNum": 95,
+        "email": "prashu232@gmail.com",
+        "password": "$2a$10$F3R29Lse7H63w9PnpVbfue4cRt16uXFC4RKrl6nMMnZk9elP8hXpG",
+        "startRate": 35,
+        "endRate": 50,
+        "skills": [
+            "Cpp",
+            "Java",
+            "Database management",
+            "Operating System",
+            "System Architecture"
+        ],
+        "id": 32
+    },
+    {
+        "jobTitle": "Graphic Designer",
+        "exLevelDemand": 80,
+        "clientCountry": "United States",
+        "rating": 4.1,
+        "feedbackNum": 10,
+        "email": "prashu22@gmail.com",
+        "password": "$2a$10$/NmFwR89xV.UtR5lHnii/ejGreIV94ruoJcQ8/um1hefM1OqIt2My",
+        "startRate": 0,
+        "endRate": 20,
+        "skills": [
+            "Figma",
+            "Canva",
+            "Illustrator",
+            "PhotoShop"
+        ],
+        "id": 33
+    },
+    {
+        "jobTitle": "Logo Designer",
+        "exLevelDemand": 80,
+        "clientCountry": "India",
+        "rating": 4.1,
+        "feedbackNum": 10,
+        "email": "prashu221@gmail.com",
+        "password": "$2a$10$wbvNRkfnp6jvY8sA/88cUeXQji1RCZFwvryz9Fy051trIXfmCtVXq",
+        "startRate": 0,
+        "endRate": 15,
+        "skills": [
+            "Figma",
+            "Canva",
+            "Illustrator",
+            "PhotoShop",
+            "Typography",
+            "DesignerAi",
+            "Communication",
+            ""
+        ],
+        "id": 34
+    },
+    {
+        "jobTitle": "User Interface Design for website",
+        "exLevelDemand": 80,
+        "clientCountry": "China",
+        "rating": 4.0,
+        "feedbackNum": 15,
+        "email": "prashu7@gmail.com",
+        "password": "$2a$10$hn/hNzVBzXMudKEMY.OyyexP2yBphJRDF9.nA262E7lJUAloUeTwm",
+        "startRate": 0,
+        "endRate": 17,
+        "skills": [
+            "Figma",
+            "Canva",
+            "CSS",
+            "UI/UX",
+            "DesignerAi"
+        ],
+        "id": 35
+    },
+    {
+        "jobTitle": "Android and iOS Mobile Application Development",
+        "exLevelDemand": 70,
+        "clientCountry": "Qatar",
+        "rating": 4.82,
+        "feedbackNum": 5,
+        "email": "prashu77@gmail.com",
+        "password": "$2a$10$EG3csayTVHJljY394sSmMeVAfqMFOuNHWML5Iyv0PYVvd0NsYu0by",
+        "startRate": 15,
+        "endRate": 30,
+        "skills": [
+            "iOS Development",
+            "Mobile App Development",
+            "Android App Development",
+            "Android"
+        ],
+        "id": 36
+    },
+    {
+        "jobTitle": "Symfony Developer need for app",
+        "exLevelDemand": 70,
+        "clientCountry": "Poland",
+        "rating": 4.86,
+        "feedbackNum": 5,
+        "email": "prashu177@gmail.com",
+        "password": "$2a$10$3twVriOZndojdaGvBZk03ujJ84WiznytLpa55vvc.KC.UFqEP3C1O",
+        "startRate": 0,
+        "endRate": 35,
+        "skills": [
+            "Symfony",
+            "MySQL",
+            "PHP",
+            "HTML",
+            "JavaScript",
+            "CSS"
+        ],
+        "id": 37
+    },
+    {
+        "jobTitle": "3D Model |  BTC450 Bluetooth Car Kit",
+        "exLevelDemand": 90,
+        "clientCountry": "United Kingdom",
+        "rating": 4.94,
+        "feedbackNum": 75,
+        "email": "prashu187@gmail.com",
+        "password": "$2a$10$3LhkjV5LIvDgMp0GEax2A.PsdSLadOr3iwp0w5EPoUs/22nCLiFqK",
+        "startRate": 0,
+        "endRate": 35,
+        "skills": [
+            "3D Rendering",
+            "3D Modeling",
+            "3D Product Rendering",
+            "Photorealistic Rendering",
+            "Photoshop"
+        ],
+        "id": 38
     }
 ]

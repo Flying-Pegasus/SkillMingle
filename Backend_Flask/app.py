@@ -326,6 +326,27 @@ def get_freelancer_id():
 
     return jsonify({"id": freelancer["id"]}), 200
 
+@app.route('/submit_rating', methods=['POST'])
+def submit_rating():
+    """
+    Endpoint to handle rating submissions.
+    Currently non-functional, but ready for future implementation.
+    """
+    # Extract the rating from the request
+    try:
+        data = request.get_json()
+        rating = data.get('rating')
+
+        # Placeholder logic: Print the rating to the console
+        print(f"Received rating: {rating}")
+
+        # Placeholder response
+        return jsonify({"message": "Rating received. Endpoint currently non-functional."}), 200
+    except Exception as e:
+        print(f"Error in /submit_rating: {e}")
+        return jsonify({"error": "An error occurred while submitting the rating."}), 500
+
+
     
 
 if __name__ == '__main__':

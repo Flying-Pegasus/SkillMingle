@@ -36,6 +36,7 @@ function Main() {
           <Route path="/profilefreelancer" component={ProfileFreelancer} />
           <Route path="/showall" component={ShowAll} />
           <Route path="/showalljob" component={ShowAllJob} />
+          <Route path="/showalljob" component={ShowAllJob} />
           <Route path="/" component={HomePage} />
         </Switch>
       </div>
