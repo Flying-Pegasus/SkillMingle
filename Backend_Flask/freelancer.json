@@ -1,226 +1,38 @@
 [
     {
-        "name": "Nitya",
-        "country": "Indore",
-        "hourlyRate": 40.0,
-        "jobSuccess": 88.5,
-        "title": "ShuklaJee",
-        "totalHours": 50,
-        "totalJobs": 3,
+        "name": "hghgj",
+        "country": "Mumbai",
+        "hourlyRate": 15.0,
+        "jobSuccess": 96.0,
+        "title": "htnrn",
+        "totalHours": 120,
+        "totalJobs": 15,
         "skills": [
             "Java",
             "Cpp",
             "Python",
             "Javascript"
         ],
+        "email": "atul.kpandey.cse23@iitbhu.ac.in",
+        "password": "$2a$10$kmA8VU.HLqlZe7c24G/nKuVaftmA3nyEJ3hTNhFuYIYWhTwRW1d.e",
         "id": 1
     },
     {
-        "name": "Atul",
-        "country": "Gaon",
-        "hourlyRate": 50.0,
-        "jobSuccess": 92.0,
-        "title": "FinTech Researcher",
-        "totalHours": 400,
-        "totalJobs": 1,
-        "skills": [
-            "Quantative Analysis",
-            "Advanced Mathematics",
-            "Python"
-        ],
-        "id": 2
-    },
-    {
-        "name": "Masud",
-        "country": "Varanasi",
-        "hourlyRate": 15.0,
-        "jobSuccess": 89.0,
-        "title": "Robotics ",
-        "totalHours": 150,
-        "totalJobs": 5,
-        "skills": [
-            "Cpp",
-            "Linux",
-            "ROS",
-            "Python"
-        ],
-        "id": 3
-    },
-    {
-        "name": "Dhananjay",
-        "country": "Raipur",
-        "hourlyRate": 10.0,
-        "jobSuccess": 90.0,
-        "title": "Robotics",
-        "totalHours": 100,
-        "totalJobs": 10,
-        "skills": [
-            "Linux",
-            "OS",
-            "CPP",
-            "Automation",
-            "IoT"
-        ],
-        "id": 4
-    },
-    {
-        "name": "Priyamwada",
-        "country": "Shimla",
-        "hourlyRate": 20.0,
-        "jobSuccess": 87.0,
-        "title": "Software Engineer",
-        "totalHours": 100,
-        "totalJobs": 20,
-        "skills": [
-            "C",
-            "Python",
-            "Javascript"
-        ],
-        "id": 5
-    },
-    {
-        "name": "Chaman",
-        "country": "Varanasi",
-        "hourlyRate": 15.0,
-        "jobSuccess": 80.0,
-        "title": "Graphic Designer",
-        "totalHours": 120,
-        "totalJobs": 15,
-        "skills": [
-            "Canva",
-            "AdobePS",
-            "AdobeLR"
-        ],
-        "id": 6
-    },
-    {
-        "name": "Rashi",
-        "country": "Varanasi",
-        "hourlyRate": 6.0,
-        "jobSuccess": 97.0,
-        "title": "Creative Designer",
-        "totalHours": 400,
-        "totalJobs": 80,
-        "skills": [
-            "Figma",
-            "Canva",
-            "AdobeAi",
-            "AdobePS"
-        ],
-        "id": 7
-    },
-    {
-        "name": "Suhani",
-        "country": "Varanasi",
-        "hourlyRate": 35.0,
-        "jobSuccess": 100.0,
-        "title": "Software Developer",
-        "totalHours": 200,
-        "totalJobs": 1,
-        "skills": [
-            "Cpp",
-            "Frontend",
-            "Backend",
-            "Full stack",
-            "AWS"
-        ],
-        "id": 8
-    },
-    {
-        "name": "Prashant Kumar",
-        "country": "Delhi",
-        "hourlyRate": 25.0,
-        "jobSuccess": 100.0,
-        "title": "Video Editor",
-        "totalHours": 150,
-        "totalJobs": 18,
-        "skills": [
-            "Canva",
-            "Figma",
-            "Adobe",
-            "Photoshop",
-            "Animate"
-        ],
-        "id": 9
-    },
-    {
-        "name": "flying_pegasus",
-        "country": "Delhi",
-        "hourlyRate": 12.0,
-        "jobSuccess": 90.0,
-        "title": "Data Engineer",
-        "totalHours": 120,
-        "totalJobs": 20,
-        "skills": [
-            "Python",
-            "Excel",
-            "ML",
-            "DBMS",
-            "SQL"
-        ],
-        "id": 10
-    },
-    {
-        "name": "jawaan",
-        "country": "Varanasi",
-        "hourlyRate": 300.0,
-        "jobSuccess": 90.0,
-        "title": "Robo",
-        "totalHours": 0,
-        "totalJobs": 100,
-        "skills": [
-            "Linux",
-            "OS",
-            "Cpp",
-            "Automation",
-            "IoT"
-        ],
-        "id": 11
-    },
-    {
-        "name": "Dancer",
+        "name": "Atharva",
         "country": "Surat",
-        "hourlyRate": 0.0,
-        "jobSuccess": 75.0,
-        "title": "Dancer",
-        "totalHours": 40,
-        "totalJobs": 10,
-        "skills": [
-            "Dance",
-            "Sing"
-        ],
-        "id": 12
-    },
-    {
-        "name": "Jake",
-        "country": "Bengaluru",
-        "hourlyRate": 0.0,
-        "jobSuccess": 92.0,
-        "title": "SDE",
-        "totalHours": 150,
-        "totalJobs": 13,
+        "hourlyRate": 16.0,
+        "jobSuccess": 90.0,
+        "title": "yytuyuty",
+        "totalHours": 450,
+        "totalJobs": 160,
         "skills": [
             "Python",
             "Numpy",
             "Pandas",
             "Matplotlib"
         ],
-        "id": 13
-    },
-    {
-        "name": "Nitu",
-        "country": "Raipur",
-        "hourlyRate": 12.0,
-        "jobSuccess": 90.0,
-        "title": "Data Sheta",
-        "totalHours": 450,
-        "totalJobs": 24,
-        "skills": [
-            "Java",
-            "Cpp",
-            "Python",
-            "Javascript"
-        ],
-        "id": 14
+        "email": "dtbdtssDsi@digbwid.com",
+        "password": "$2a$10$EEBWwhyxWp7dQ3jc.2YSe.eu9IX2venAXcYibbHOYyHjYbL/DArX.",
+        "id": 2
     }
 ]

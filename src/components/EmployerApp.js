@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
+import bcrypt from 'bcryptjs';
 import '../styles/Form.css';
 
 function EmployerApp() {
-  const [jobId, setJobId] = useState(""); // For login form
+  const [loginDetails, setLoginDetails] = useState({ email: '', password: '' }); // For login form
   const history = useHistory();
   const [formData, setFormData] = useState({
     jobTitle: "",
@@ -11,7 +12,8 @@ function EmployerApp() {
     clientCountry: "",
     rating: 0,
     feedbackNum: 0,
-    paymentType: "",
+    email: '',
+    password: '',
     startRate: 0,
     endRate: 0,
     skills: "", // Holds comma-separated skills
@@ -22,54 +24,31 @@ function EmployerApp() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
 
+    // Hash the password before storing it
+    const hashedPassword = await bcrypt.hash(formData.password, 10);
     const employerData = {
       jobTitle: formData.jobTitle,
       exLevelDemand: parseInt(formData.exLevelDemand, 10), // Convert to integer
       clientCountry: formData.clientCountry,
       rating: parseFloat(formData.rating), // Convert to float
       feedbackNum: parseInt(formData.feedbackNum, 10), // Convert to integer
-      paymentType: formData.paymentType,
+      email: formData.email,
+      password: hashedPassword, // Store the hashed password
       startRate: parseInt(formData.startRate, 10), // Convert to integer
       endRate: parseInt(formData.endRate, 10), // Convert to integer
       skills: formData.skills.split(",").map((skill) => skill.trim()), // Array of strings
     };
 
-    // First, directly fetch freelancer recommendations before saving the job
-    fetch("http://127.0.0.1:5000/recommend_freelancers", {
+    fetch("http://127.0.0.1:5000/store_job", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(employerData), // Pass the job data directly to the recommendation endpoint
+      body: JSON.stringify(employerData),
     })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to fetch freelancer recommendations.");
-        }
-        return response.json();
-      })
-      .then((freelancerData) => {
-        // Now display the freelancer recommendations
-        history.push({
-          pathname: "/freelancerdashboard",
-          state: {
-            jobDetails: employerData, // Pass the job details
-            freelancerRecommendations: freelancerData, // Pass the freelancer recommendations
-          },
-        });
-
-        // After displaying recommendations, save the job data to job.json
-        return fetch("http://127.0.0.1:5000/store_job", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(employerData),
-        });
-      })
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to store job details.");
@@ -78,22 +57,42 @@ function EmployerApp() {
       })
       .then((data) => {
         console.log("Job stored successfully with ID:", data.id);
+        alert("Registration successful! Now you can log in.");
       })
       .catch((error) => {
         console.error("Error:", error);
         alert("An error occurred. Please try again.");
       });
-
   };
-
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (jobId) {
-      history.push(`/dashboard/${jobId}`);
-    } else {
-      alert('Please enter a valid Job ID');
-    }
+
+    const loginData = {
+      email: loginDetails.email,
+      password: loginDetails.password, // Store the hashed password
+    };
+
+    fetch("http://127.0.0.1:5000/get_job_id", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(loginData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.id) {
+          // Redirect to EmployerDashboard with jobId
+          history.push(`/dashboard/${data.id}`);
+        } else {
+          alert(data.error || "Invalid email or password.");
+        }
+      })
+      .catch((error) => {
+        console.error("Error during login:", error);
+        alert("An error occurred. Please try again.");
+      });
   };
 
   const handleShow = (e) => {
@@ -101,12 +100,16 @@ function EmployerApp() {
     history.push('/showall');
   };
 
-  return (
+  const handleLoginChange = (e) => {
+    const { name, value } = e.target;
+    setLoginDetails({ ...loginDetails, [name]: value });
+  };
 
+  return (
     <div className="container">
       <div className="text">Employer Job Details</div>
-      <form onSubmit={handleSubmit}>
-        <h3>Register : </h3>
+      <form onSubmit={handleRegister}>
+        <h3>Register :</h3>
         <div className="form-row">
           <div className="input-data">
             <input type="text" name="jobTitle" value={formData.jobTitle} onChange={handleChange} required />
@@ -138,9 +141,9 @@ function EmployerApp() {
             <label>Feedback Number</label>
           </div>
           <div className="input-data">
-            <input type="text" name="paymentType" value={formData.paymentType} onChange={handleChange} required />
+            <input type="text" name="skills" value={formData.skills} onChange={handleChange} required />
             <div className="underline"></div>
-            <label>Contact Email</label>
+            <label>Skills (comma separated)</label>
           </div>
         </div>
         <div className="form-row">
@@ -156,11 +159,15 @@ function EmployerApp() {
           </div>
         </div>
         <div className="form-row">
-
           <div className="input-data">
-            <input type="text" name="skills" value={formData.skills} onChange={handleChange} required />
+            <input type="email" name="email" value={formData.email} onChange={handleChange} required />
             <div className="underline"></div>
-            <label>Skills (comma separated)</label>
+            <label>Contact Email</label>
+          </div>
+          <div className="input-data">
+            <input type="password" name="password" value={formData.password} onChange={handleChange} required />
+            <div className="underline"></div>
+            <label>Create Password</label>
           </div>
         </div>
         <div className="form-row submit-btn">
@@ -175,9 +182,14 @@ function EmployerApp() {
       <form onSubmit={handleLogin}>
         <div className="form-row">
           <div className="input-data">
-            <input type="text" value={jobId} onChange={(e) => setJobId(e.target.value)} required />
+            <input type="email" name="email" value={loginDetails.email} onChange={handleLoginChange} required />
             <div className="underline"></div>
-            <label>Job ID</label>
+            <label>Email</label>
+          </div>
+          <div className="input-data">
+            <input type="password" name="password" value={loginDetails.password} onChange={handleLoginChange} required />
+            <div className="underline"></div>
+            <label>Password</label>
           </div>
         </div>
         <div className="form-row submit-btn">

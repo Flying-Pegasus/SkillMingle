@@ -1,293 +1,90 @@
 [
     {
-        "jobTitle": "Software Engineer 2 ",
-        "exLevelDemand": 2,
-        "clientCountry": "Varanasi",
-        "rating": 3.9,
-        "feedbackNum": 82,
-        "paymentType": "Fixed",
-        "hourlyRate": "$30.00-$75.00",
-        "startRate": 2,
-        "endRate": 8,
-        "skills": [
-            "Java",
-            "Cpp"
-        ],
-        "id": 1
-    },
-    {
-        "jobTitle": "Data Scientist",
-        "exLevelDemand": 3,
-        "clientCountry": "Surat",
-        "rating": 3.8,
-        "feedbackNum": 420,
-        "paymentType": "Hourly",
-        "hourlyRate": "$10-$30",
-        "startRate": 10,
-        "endRate": 30,
-        "skills": [
-            "Python",
-            "Numpy",
-            "Pandas",
-            "Matplotlib"
-        ],
-        "id": 2
-    },
-    {
-        "jobTitle": "Data Analyst",
-        "exLevelDemand": 1,
-        "clientCountry": "Mumbai",
-        "rating": 4.0,
-        "feedbackNum": 40,
-        "paymentType": "Fixed",
-        "hourlyRate": "$29.00-$30.00",
-        "startRate": 29,
-        "endRate": 30,
-        "skills": [
-            "PowerBi",
-            "Excel.Powerpoint",
-            "Pandas"
-        ],
-        "id": 3
-    },
-    {
-        "jobTitle": "Graphic Designer",
-        "exLevelDemand": 2,
-        "clientCountry": "Varanasi",
-        "rating": 4.2,
-        "feedbackNum": 40,
-        "paymentType": "Hourly",
-        "hourlyRate": "$2.00-$10.00",
-        "startRate": 2,
-        "endRate": 10,
-        "skills": [
-            "Figma",
-            "Canva",
-            "AdobeAi",
-            "AdobePS",
-            "AdobeLR"
-        ],
-        "id": 4
-    },
-    {
-        "jobTitle": "SWEE",
-        "exLevelDemand": 2,
-        "clientCountry": "Delhi",
-        "rating": 4,
-        "feedbackNum": 45,
-        "paymentType": "Hourly",
-        "hourlyRate": "$2.00-$10.00",
-        "startRate": 2,
-        "endRate": 10,
-        "skills": [
-            "DSA",
-            "Python",
-            "Java",
-            "Cpp"
-        ],
-        "id": 5
-    },
-    {
-        "jobTitle": "Software Development Role",
-        "exLevelDemand": 85,
-        "clientCountry": "Hyderabad",
-        "rating": 4.8,
-        "feedbackNum": 1226,
-        "paymentType": "Fixed",
-        "hourlyRate": "$11.00-$15.00",
-        "startRate": 11,
-        "endRate": 15,
-        "skills": [
-            "Java",
-            "Python",
-            "DevOps",
-            "System Architecture",
-            "DBMS"
-        ],
-        "id": 6
-    },
-    {
-        "jobTitle": "Data Engineer",
-        "exLevelDemand": 75,
-        "clientCountry": "Bengaluru",
-        "rating": 4.8,
-        "feedbackNum": 1440,
-        "paymentType": "Fixed",
-        "hourlyRate": "$8.00-$12.00",
-        "startRate": 8,
-        "endRate": 12,
-        "skills": [
-            "Python",
-            "Excel",
-            "PowerBi",
-            "Sklearn",
-            "ML",
-            "SQL",
-            "DBMS"
-        ],
-        "id": 7
-    },
-    {
-        "jobTitle": "Multipaint",
-        "exLevelDemand": 75,
-        "clientCountry": "Varanasi",
-        "rating": 4.0,
-        "feedbackNum": 420,
-        "paymentType": "Hourly",
-        "hourlyRate": "$5.00-$10.00",
-        "startRate": 5,
-        "endRate": 80,
-        "skills": [
-            "AdobeAi",
-            "AdobePS",
-            "AdobeLR"
-        ],
-        "id": 8
-    },
-    {
-        "jobTitle": "Multi",
-        "exLevelDemand": 70,
-        "clientCountry": "Mumbai",
-        "rating": 4.0,
-        "feedbackNum": 40,
-        "paymentType": "Hourly",
-        "hourlyRate": "$1.00-$7.00",
-        "startRate": 2,
-        "endRate": 50,
-        "skills": [
-            "Java",
-            "Cpp",
-            "Python",
-            "ML"
-        ],
-        "id": 9
-    },
-    {
-        "jobTitle": "Data Scientist",
-        "exLevelDemand": 75,
-        "clientCountry": "Surat",
-        "rating": 4.2,
-        "feedbackNum": 400,
-        "paymentType": "Fixed",
-        "hourlyRate": "$2.00-$10.00",
-        "startRate": 2,
-        "endRate": 80,
-        "skills": [
-            "Python",
-            "Numpy",
-            "Pandas",
-            "Matplotlib"
-        ],
-        "id": 10
-    },
-    {
-        "jobTitle": "Software Engineer Intern",
-        "exLevelDemand": 70,
-        "clientCountry": "Bengaluru",
-        "rating": 3.6,
+        "jobTitle": "deued",
+        "exLevelDemand": 40,
+        "clientCountry": "goa",
+        "rating": 2.0,
         "feedbackNum": 200,
-        "paymentType": "Hourly",
-        "hourlyRate": "$10-$30",
-        "startRate": 10,
-        "endRate": 30,
-        "skills": [
-            "Linux",
-            "OS",
-            "CPP",
-            "Java",
-            "DSA",
-            "CP"
-        ],
-        "id": 11
-    },
-    {
-        "jobTitle": "Designer",
-        "exLevelDemand": 73,
-        "clientCountry": "Surat",
-        "rating": 4.0,
-        "feedbackNum": 250,
-        "paymentType": "Fixed",
-        "hourlyRate": "$11.00-$15.00",
-        "startRate": 11,
-        "endRate": 15,
-        "skills": [
-            "Figma",
-            "Canva",
-            "AdobePS",
-            "AdobeLR",
-            "DesignerAi"
-        ],
-        "id": 12
-    },
-    {
-        "jobTitle": "RoboRbob",
-        "exLevelDemand": 80,
-        "clientCountry": "Varanasi",
-        "rating": 4.5,
-        "feedbackNum": 300,
-        "paymentType": "Hourly",
-        "hourlyRate": "$5.00-$300.00",
+        "email": "atul.kpandey.cse23@iitbhu.ac.in",
+        "password": "$2a$10$U3UJH.FKxukb2huASHM.muoc3yiBdYIbwf8euJBWJQFrpdAcvTq7S",
         "startRate": 5,
-        "endRate": 300,
-        "skills": [
-            "Linux",
-            "OS",
-            "CPP",
-            "IoT",
-            "geburi"
-        ],
-        "id": 13
-    },
-    {
-        "jobTitle": "Data Engineer",
-        "exLevelDemand": 86,
-        "clientCountry": "Varanasi",
-        "rating": 4.2,
-        "feedbackNum": 200,
-        "paymentType": "Fixed",
-        "startRate": 2,
-        "endRate": 50,
-        "skills": [
-            "PowerBi",
-            "Excel",
-            "Powerpoint",
-            "Pandas"
-        ],
-        "id": 14
-    },
-    {
-        "jobTitle": "Software Development ",
-        "exLevelDemand": 80,
-        "clientCountry": "Hyderabad",
-        "rating": 4.1,
-        "feedbackNum": 70,
-        "paymentType": "Hourly",
-        "startRate": 10,
-        "endRate": 30,
+        "endRate": 16,
         "skills": [
             "Java",
             "Cpp",
             "Python",
             "Javascript"
         ],
-        "id": 15
+        "id": 1
     },
     {
-        "jobTitle": "Robotics",
-        "exLevelDemand": 75,
+        "jobTitle": "Data Engineer",
+        "exLevelDemand": 77,
+        "clientCountry": "Bengaluru",
+        "rating": 1.0,
+        "feedbackNum": 25,
+        "email": "dtbdtssDsi@digbwid.com",
+        "password": "$2a$10$UnCPnmlEdQZ.6uyfl11BbO31bygZOYKeGNGmVwwthr8NmiL6jUrd.",
+        "startRate": 2,
+        "endRate": 5,
+        "skills": [
+            "Dance",
+            "Sing"
+        ],
+        "id": 2
+    },
+    {
+        "jobTitle": "Data Analyst",
+        "exLevelDemand": 50,
         "clientCountry": "Varanasi",
-        "rating": 4.3,
-        "feedbackNum": 100,
-        "paymentType": "hbbhghbg@gmail.com",
-        "startRate": 7,
+        "rating": 2.0,
+        "feedbackNum": 134,
+        "email": "avichauhan99@gmail.com",
+        "password": "$2a$10$r3ddLAalW7kOh7nqc45VnuTJAjpAS2sy6I7M9Z1AaL0DwJJfwBDQ6",
+        "startRate": 2,
         "endRate": 16,
         "skills": [
-            "Robotics",
-            "IoT",
+            "Java",
             "Cpp",
-            "ROS",
-            "EmbededSys"
+            "Python",
+            "Javascript"
         ],
-        "id": 16
+        "id": 3
+    },
+    {
+        "jobTitle": "Data Engineer",
+        "exLevelDemand": 60,
+        "clientCountry": "Surat",
+        "rating": 3.8,
+        "feedbackNum": 50,
+        "email": "atulyashah8432@gmail.com",
+        "password": "$2a$10$K1uWMpt7.t0joCutpdLrlu8C/VEHJkEfdyln5TeagylrC9KG7/mWG",
+        "startRate": 2,
+        "endRate": 10,
+        "skills": [
+            "PowerBi",
+            "Excel",
+            "Powerpoint",
+            "Pandas"
+        ],
+        "id": 4
+    },
+    {
+        "jobTitle": "Software Development Role",
+        "exLevelDemand": 70,
+        "clientCountry": "Bengaluru",
+        "rating": 4.0,
+        "feedbackNum": 400,
+        "email": "atulya1804@gmail.com",
+        "password": "$2a$10$hj1PMYQUfqz7pdndaMJg8e0diuTSM5TuDGvMBi2TUT6EH9jEpup8e",
+        "startRate": 2,
+        "endRate": 50,
+        "skills": [
+            "Java",
+            "Cpp",
+            "Python",
+            "Javascript"
+        ],
+        "id": 5
     }
 ]

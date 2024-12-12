@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import bcrypt from 'bcryptjs';
 import '../styles/Form.css';
 
 function FreelancerApp() {
-  const [freelancerId, setFreelancerId] = useState(""); // For login form
+  const [loginDetails, setLoginDetails] = useState({ email: '', password: '' }); // For login form
   const history = useHistory();
   const [formData, setFormData] = useState({
     name: "",
@@ -14,6 +15,8 @@ function FreelancerApp() {
     totalHours: 0,
     totalJobs: 0,
     skills: "",
+    email: '',
+    password: '',
   });
 
   const handleChange = (e) => {
@@ -21,9 +24,12 @@ function FreelancerApp() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Hash the password before storing it
+    const hashedPassword = await bcrypt.hash(formData.password, 10);
     const freelancerData = {
       name: formData.name,
       country: formData.country,
@@ -32,7 +38,9 @@ function FreelancerApp() {
       title: formData.title,
       totalHours: parseInt(formData.totalHours, 10), // Convert to integer
       totalJobs: parseInt(formData.totalJobs, 10), // Convert to integer
-      skills: formData.skills.split(",").map(skill => skill.trim()), // Array of strings
+      skills: formData.skills.split(",").map(skill => skill.trim()),
+      email: formData.email,
+      password: hashedPassword, 
     };
 
     fetch("http://127.0.0.1:5000/store_freelancer", {
@@ -49,9 +57,8 @@ function FreelancerApp() {
         return response.json();
       })
       .then((data) => {
-        const newfreelancerID = data.id; // Assuming the response contains the new job ID
-        alert("Freelancer details stored successfully!");
-        history.push(`/jobsdashboard/${newfreelancerID}`);
+        console.log("Freelancer stored successfully with ID:", data.id);
+        alert("Registration successful! Now you can log in.");
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -62,16 +69,42 @@ function FreelancerApp() {
   // Handle job ID login
   const handleLogin = (e) => {
     e.preventDefault();
-    if (freelancerId) {
-      history.push(`/jobsdashboard/${freelancerId}`);
-    } else {
-      alert('Please enter a valid Freelancer ID');
-    }
+
+    const loginData = {
+      email: loginDetails.email,
+      password: loginDetails.password, // Store the hashed password
+    };
+
+    fetch("http://127.0.0.1:5000/get_freelancer_id", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(loginData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.id) {
+          // Redirect to EmployerDashboard with jobId
+          history.push(`/jobsdashboard/${data.id}`);
+        } else {
+          alert(data.error || "Invalid email or password.");
+        }
+      })
+      .catch((error) => {
+        console.error("Error during login:", error);
+        alert("An error occurred. Please try again.");
+      });
   };
 
   const handleShow = (e) => {
     e.preventDefault();
     history.push('/showalljob');
+  };
+
+  const handleLoginChange = (e) => {
+    const { name, value } = e.target;
+    setLoginDetails({ ...loginDetails, [name]: value });
   };
 
   return (
@@ -127,6 +160,18 @@ function FreelancerApp() {
             <label>Skills (comma separated)</label>
           </div>
         </div>
+        <div className="form-row">
+          <div className="input-data">
+            <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+            <div className="underline"></div>
+            <label>Contact Email</label>
+          </div>
+          <div className="input-data">
+            <input type="password" name="password" value={formData.password} onChange={handleChange} required />
+            <div className="underline"></div>
+            <label>Create Password</label>
+          </div>
+        </div>
         <div className="form-row submit-btn">
           <div className="input-data">
             <div className="inner"></div>
@@ -139,9 +184,14 @@ function FreelancerApp() {
       <form onSubmit={handleLogin}>
         <div className="form-row">
           <div className="input-data">
-            <input type="text" value={freelancerId} onChange={(e) => setFreelancerId(e.target.value)} required />
+            <input type="email" name="email" value={loginDetails.email} onChange={handleLoginChange} required />
             <div className="underline"></div>
-            <label>Freelancer ID</label>
+            <label>Email</label>
+          </div>
+          <div className="input-data">
+            <input type="password" name="password" value={loginDetails.password} onChange={handleLoginChange} required />
+            <div className="underline"></div>
+            <label>Password</label>
           </div>
         </div>
         <div className="form-row submit-btn">

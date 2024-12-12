@@ -3,6 +3,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import os
 import json
+import bcrypt
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS to allow requests from the React frontend
@@ -176,7 +177,8 @@ def reload_data():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-    
+
+
 @app.route('/store_freelancer', methods=['POST'])
 def store_freelancer():
     try:
@@ -285,29 +287,46 @@ def recommend_jobs():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     
+@app.route('/get_job_id', methods=['POST'])
+def get_job_id():
+    data = request.get_json()
+    email = data.get("email")
+    password = data.get("password")
 
-
-# @app.route('/api/search', methods=['GET'])
-# def search():
-#     query = request.args.get('query')
-#     results = [job for job in job_data if query.lower() in job['Job Title'].lower()]
-#     return jsonify(results)
-
-# @app.route('/api/filter', methods=['GET'])
-# def filter():
-#     skills = request.args.get('skills')
-#     location = request.args.get('location')
-#     hourly_rate = request.args.get('hourlyRate')
+    with open("job.json", "r") as file:
+        job_data = json.load(file)
     
-#     results = freelancer_data
-#     if skills:
-#         results = [freelancer for freelancer in results if skills.lower() in freelancer['skills'].lower()]
-#     if location:
-#         results = [freelancer for freelancer in results if location.lower() in freelancer['country'].lower()]
-#     if hourly_rate:
-#         results = [freelancer for freelancer in results if freelancer['hourlyRate'] <= float(hourly_rate)]
+    job = next((job for job in job_data if job["email"] == email), None)
+    if not job:
+        return jsonify({"error": "Email not found"}), 404
+
+    # Verify password
+    if not bcrypt.checkpw(password.encode('utf-8'), job["password"].encode('utf-8')):
+        return jsonify({"error": "Incorrect password"}), 403
+
+    return jsonify({"id": job["id"]}), 200
+
+
+@app.route('/get_freelancer_id', methods=['POST'])
+def get_freelancer_id():
+    data = request.get_json()
+    email = data.get("email")
+    password = data.get("password")
+
+    with open("freelancer.json", "r") as file:
+        freelancer_data = json.load(file)
     
-#     return jsonify(results)
+    freelancer = next((freelancer for freelancer in freelancer_data if freelancer["email"] == email), None)
+    if not freelancer:
+        return jsonify({"error": "Email not found"}), 404
+
+    # Verify password
+    if not bcrypt.checkpw(password.encode('utf-8'), freelancer["password"].encode('utf-8')):
+        return jsonify({"error": "Incorrect password"}), 403
+
+    return jsonify({"id": freelancer["id"]}), 200
+
+    
 
 if __name__ == '__main__':
     app.run(debug=True)
