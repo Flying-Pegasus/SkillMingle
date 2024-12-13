@@ -646,8 +646,7 @@
             "PhotoShop",
             "Typography",
             "DesignerAi",
-            "Communication",
-            ""
+            "Communication"
         ],
         "id": 34
     },
@@ -666,7 +665,9 @@
             "Canva",
             "CSS",
             "UI/UX",
-            "DesignerAi"
+            "DesignerAi",
+            "Communication",
+            "Problem Solving"
         ],
         "id": 35
     },
@@ -723,8 +724,119 @@
             "3D Modeling",
             "3D Product Rendering",
             "Photorealistic Rendering",
-            "Photoshop"
+            "Photoshop",
+            "Communication"
         ],
         "id": 38
+    },
+    {
+        "jobTitle": "Google Ads Performance Optimization for a Large Website",
+        "exLevelDemand": 90,
+        "clientCountry": "United States",
+        "rating": 5.0,
+        "feedbackNum": 10,
+        "email": "ajit4@gmail.com",
+        "password": "$2a$10$PT07t.I5fiibqveJ8onUWuHtmroKSCUA7viG1/4yu4q4xIhy8.w/G",
+        "startRate": 10,
+        "endRate": 100,
+        "skills": [
+            "Google Ads",
+            "Google Analytics",
+            "Google Tag Manager",
+            "Pay Per Click Advertising",
+            "PPC Campaign Setup & Management",
+            "Data Analysis",
+            "Data Science"
+        ],
+        "id": 39
+    },
+    {
+        "jobTitle": "Python backend framework",
+        "exLevelDemand": 95,
+        "clientCountry": "France",
+        "rating": 4.82,
+        "feedbackNum": 10,
+        "email": "ajit44@gmail.com",
+        "password": "$2a$10$WX4v8plOBA5X7Urw7MZtVuU1uXZuBn8fFLk69DrHmxS65v1YdNZK2",
+        "startRate": 25,
+        "endRate": 50,
+        "skills": [
+            "Database Architecture",
+            "Database Design",
+            "Database Maintenance",
+            "Python",
+            "RESTful API",
+            "Python Script",
+            "API",
+            "Database",
+            "Flask"
+        ],
+        "id": 40
+    },
+    {
+        "jobTitle": "Full Stack Application Developer",
+        "exLevelDemand": 85,
+        "clientCountry": "United States",
+        "rating": 4.5,
+        "feedbackNum": 50,
+        "email": "gukes90@gmail.com",
+        "password": "$2a$10$cQUlfBXLkN8ws1E9nlWOjeNlt99j9lnYFLCAleUVKoSqNnSRWia7y",
+        "startRate": 10,
+        "endRate": 90,
+        "skills": [
+            "Flask",
+            "UI/UX",
+            "Problem Solving",
+            "Communication",
+            "Angular",
+            "Django"
+        ],
+        "id": 41
+    },
+    {
+        "jobTitle": "Backend Engineer",
+        "exLevelDemand": 94,
+        "clientCountry": "India",
+        "rating": 4.9,
+        "feedbackNum": 40,
+        "email": "guess90@gmail.com",
+        "password": "$2a$10$6cc7sb4jcKP2Srq.KpgBYO.Pn2DnajBoUdK0QacvP3EM7OFxypAji",
+        "startRate": 10,
+        "endRate": 90,
+        "skills": [
+            "PostgreSQL",
+            "Management",
+            "Problem Solving",
+            "Communication",
+            "React",
+            "Django",
+            "Database Maintenance",
+            "Database Architecture"
+        ],
+        "id": 42
+    },
+    {
+        "jobTitle": "Buisness Analyst & Consulting",
+        "exLevelDemand": 95,
+        "clientCountry": "India",
+        "rating": 5.0,
+        "feedbackNum": 64,
+        "email": "atulya111@gmail.com",
+        "password": "$2a$10$6x6LkB4VqJrAJ/hJqEO2x.GoPIavvxarEXK/LgP6CGI7rkI3ZDBPS",
+        "startRate": 50,
+        "endRate": 150,
+        "skills": [
+            "Microsoft Power BI",
+            "Microsoft Word",
+            "Problem Solving",
+            "Communication",
+            "Management Business Consulting",
+            "Business Analysis",
+            "Data Analysis",
+            "Data Visualization",
+            "Power Query",
+            ""
+        ],
+        "id": 43
     }
 ]

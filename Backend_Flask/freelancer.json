@@ -485,7 +485,9 @@
             "Content SEO",
             "SQLite",
             "MongoDB",
-            "Data Mining"
+            "Data Mining",
+            "Management",
+            "Problem Solving"
         ],
         "email": "nidik11@gmail.com",
         "password": "$2a$10$e76vKR5o./3nPlveBbMp1uhmOQcdyDyDWmUS9ira87Mqmf3nuaTUG",
@@ -568,7 +570,8 @@
             "GPT-4",
             "Big Data",
             "Data Analysis",
-            "Generative AI"
+            "Generative AI",
+            "Communication"
         ],
         "email": "Pavel42@gmail.com",
         "password": "$2a$10$hNE6hwfg/gp3V5PpaZxXHOU1P3dx7JQoCRvRu/dUpXJkUQQ5kOn5G",
@@ -613,10 +616,263 @@
             "Autodesk Fusion 360",
             "Product Design",
             "Blender",
-            "Maya"
+            "Maya",
+            "Problem Solving",
+            "Communication"
         ],
         "email": "atulcse23@gmail.com",
         "password": "$2a$10$qsbGnGIHxOi/JhJC2v2tr./H8gO0dSG9pH8xBlj/x6hfELuJt63YO",
         "id": 23
+    },
+    {
+        "name": "Ajit",
+        "country": "United Kingdom",
+        "hourlyRate": 22.0,
+        "jobSuccess": 90.0,
+        "title": "CAD| 3D Modelling| Design",
+        "totalHours": 413,
+        "totalJobs": 49,
+        "skills": [
+            "3D Rendering",
+            "3D Modeling",
+            "3D Product Rendering",
+            "Photoshop",
+            "Communication"
+        ],
+        "email": "ajit42@gmail.com",
+        "password": "$2a$10$Re.mZSBVDe5eu3sYgkFIDeAl/0qNHSAQbTbIcYTAAh9zPNMXO8l8K",
+        "id": 24
+    },
+    {
+        "name": "Mfonabasi",
+        "country": "Poland",
+        "hourlyRate": 80.0,
+        "jobSuccess": 75.0,
+        "title": "Web Developer",
+        "totalHours": 798,
+        "totalJobs": 353,
+        "skills": [
+            "Symfony",
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ],
+        "email": "mfonabasi42@gmail.com",
+        "password": "$2a$10$umKMsFoc.dM8UC3ublq7VuZd68pquvJ7xPCJOsOFAMtaeiKTDfR2W",
+        "id": 25
+    },
+    {
+        "name": "Rajab",
+        "country": "India",
+        "hourlyRate": 30.0,
+        "jobSuccess": 75.0,
+        "title": "Graphic Designer| Poster & Logo Design| Artist",
+        "totalHours": 150,
+        "totalJobs": 15,
+        "skills": [
+            "PhotoShop",
+            "DesignerAi",
+            "Communication",
+            "Figma"
+        ],
+        "email": "rajab42@gmail.com",
+        "password": "$2a$10$BUorfQAOyYqZTc5xDtq6jOx0ukeRit5mwoNzLWnqaT1zM2vu0ruFm",
+        "id": 26
+    },
+    {
+        "name": "Rutvik",
+        "country": "United States",
+        "hourlyRate": 30.0,
+        "jobSuccess": 100.0,
+        "title": "Graphic Designer",
+        "totalHours": 985,
+        "totalJobs": 11,
+        "skills": [
+            "PhotoShop",
+            "Illustrator",
+            "Communication",
+            "Canva"
+        ],
+        "email": "rutvikp@gmail.com",
+        "password": "$2a$10$07x0dTFgjLFHhjQzUSuD6.ktHXDhcziDC4KVD3bleGp75QiA.B0Oa",
+        "id": 27
+    },
+    {
+        "name": "Prashu",
+        "country": "India",
+        "hourlyRate": 70.0,
+        "jobSuccess": 95.0,
+        "title": "Software Developer| System Architecture| ",
+        "totalHours": 500,
+        "totalJobs": 101,
+        "skills": [
+            "Cpp",
+            "Python",
+            "Database management",
+            "Data Structures",
+            "Algorithms"
+        ],
+        "email": "prashu51@gmail.com",
+        "password": "$2a$10$YPiHSnuAdpI38HeK30sjjughESjALTfrVmg5pX2qjahU46nq0Bk4S",
+        "id": 28
+    },
+    {
+        "name": "Varun",
+        "country": "India",
+        "hourlyRate": 45.0,
+        "jobSuccess": 80.0,
+        "title": "Software Engineer",
+        "totalHours": 400,
+        "totalJobs": 50,
+        "skills": [
+            "Cpp",
+            "Java",
+            "Database management",
+            "Data Structures",
+            "System Architecture",
+            "Operating System"
+        ],
+        "email": "varun151@gmail.com",
+        "password": "$2a$10$xJW9IENrk.cUPtIGHPvu/.edtOfPURdtOEm942Sncq.jreTSzfNxy",
+        "id": 29
+    },
+    {
+        "name": "Kendrick",
+        "country": "United States",
+        "hourlyRate": 35.0,
+        "jobSuccess": 75.0,
+        "title": "Data Engineer",
+        "totalHours": 120,
+        "totalJobs": 24,
+        "skills": [
+            "Data visualization",
+            "Communication",
+            "Data entry",
+            "R"
+        ],
+        "email": "kendricklamar89@gmail.com",
+        "password": "$2a$10$2Fq3FlCJNniGmglpjIqtJ.mclPsggmzlYGw8iwezxSIZAiQmRicCC",
+        "id": 30
+    },
+    {
+        "name": "Marvin",
+        "country": "Germany",
+        "hourlyRate": 30.0,
+        "jobSuccess": 80.0,
+        "title": "Data Scientist | Data Engineer",
+        "totalHours": 400,
+        "totalJobs": 25,
+        "skills": [
+            "Data visualization",
+            "Communication",
+            "Data entry",
+            "Python",
+            "Data cleaning"
+        ],
+        "email": "marvin89@gmail.com",
+        "password": "$2a$10$/XV.G3O.MeI7amIjN4czbeXFd0GGMXRNFiz/7OCUljpqLjd1qTTt2",
+        "id": 31
+    },
+    {
+        "name": "Sumy",
+        "country": "United States",
+        "hourlyRate": 30.0,
+        "jobSuccess": 85.0,
+        "title": "Data Analyst | Data Engineer",
+        "totalHours": 300,
+        "totalJobs": 25,
+        "skills": [
+            "Python",
+            "Numpy",
+            "Pandas",
+            "Matplotlib",
+            "SQL",
+            "Management"
+        ],
+        "email": "sumy89@gmail.com",
+        "password": "$2a$10$R4Z.rKcWNZYz/Z/QXwLjuOSYduc/O6UeEbwdMci8pVB3RytlQEkaG",
+        "id": 32
+    },
+    {
+        "name": "Gukesh",
+        "country": "India",
+        "hourlyRate": 100.0,
+        "jobSuccess": 96.0,
+        "title": "Backend Engineer, SEO Expert",
+        "totalHours": 500,
+        "totalJobs": 200,
+        "skills": [
+            "Database Architecture",
+            "Database Maintenance",
+            "Python",
+            "RESTful API",
+            "Flask",
+            "Management"
+        ],
+        "email": "gukesh77@gmail.com",
+        "password": "$2a$10$lJTr3aOvf7Hfe.AaHr02BeWKnOBLwnopjr83lnh4ew8NJf66NDhVy",
+        "id": 33
+    },
+    {
+        "name": "Golu",
+        "country": "United States",
+        "hourlyRate": 60.0,
+        "jobSuccess": 85.0,
+        "title": "Google Ads Performance Optimizer",
+        "totalHours": 500,
+        "totalJobs": 200,
+        "skills": [
+            "Google Ads",
+            "Google Analytics",
+            "Google Tag Manager",
+            "Pay Per Click Advertising",
+            "Communication"
+        ],
+        "email": "golu77@gmail.com",
+        "password": "$2a$10$hkMET94iaTV4Bugw9xlqz.Ch2YzyRFV3rHupXxPw2j.k06ANoF9iO",
+        "id": 34
+    },
+    {
+        "name": "Danny",
+        "country": "France",
+        "hourlyRate": 65.0,
+        "jobSuccess": 95.0,
+        "title": "Full Stack developer | Backend Engineer",
+        "totalHours": 400,
+        "totalJobs": 45,
+        "skills": [
+            "PostgreSQL",
+            "Flask",
+            "Python",
+            "Django",
+            "React",
+            "RESTful API",
+            "Communication",
+            "Google Ads"
+        ],
+        "email": "danny69@gmail.com",
+        "password": "$2a$10$lsqH2WhWqXPnNwTfIbB/B.jkyIFj/oiZ7jII4X6NSquxfi1Ta7IT6",
+        "id": 35
+    },
+    {
+        "name": "Tony Stark",
+        "country": "United States",
+        "hourlyRate": 80.0,
+        "jobSuccess": 90.0,
+        "title": "Full Stack developer | UI/UX Designer",
+        "totalHours": 120,
+        "totalJobs": 50,
+        "skills": [
+            "Flask",
+            "Python",
+            "Django",
+            "Angular",
+            "REST API",
+            "UI/UX",
+            "Problem Solving"
+        ],
+        "email": "tony7@gmail.com",
+        "password": "$2a$10$o.viicAmsNz5urNJXfo4DOVdzOjVJQJ29x54vPEMUdDEqncLnF6Iu",
+        "id": 36
     }
 ]
