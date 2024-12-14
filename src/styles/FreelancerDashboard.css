@@ -1,3 +1,4 @@
+/* Job Dashboard */
 .job-dashboard {
   margin: 10px;
   padding: 10px;
@@ -25,6 +26,7 @@ h1 {
   box-sizing: border-box;
 }
 
+/* Search and Filter */
 .search, .filter {
   margin: 20px 0;
   display: flex;
@@ -85,53 +87,70 @@ h1 {
   transform: scale(1.1);
 }
 
-/* Dropdown Menu */
+/* Profile Dropdown Menu */
 .profile-dropdown {
   position: absolute;
   top: 60px;
   right: 15px;
   background-color: #ffffff;
   border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 200px;
+  border-radius: 12px; /* Rounded for card-like appearance */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Enhanced shadow for depth */
+  width: 250px; /* Slightly wider for better spacing */
+  padding: 15px; /* Card-like padding */
   display: none; /* Hidden by default */
   z-index: 10;
-}
-
-.freelancer-cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-}
-
-.freelancer-card {
-  flex: 1 1 calc(33.333% - 40px); /* 3 cards per row with 20px gap */
-  box-sizing: border-box;
-  margin: 10px;
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth animations */
+  transform: scale(0.95);
+  opacity: 0;
 }
 
 .profile-dropdown.active {
   display: block; /* Show dropdown when active */
+  transform: scale(1); /* Smooth pop-in effect */
+  opacity: 1;
 }
 
+/* Dropdown List Styling */
 .profile-dropdown ul {
   list-style: none;
   margin: 0;
-  padding: 10px 0;
+  padding: 0;
 }
 
 .profile-dropdown ul li {
   padding: 10px 15px;
+  margin: 5px 0; /* Spacing for card-like look */
+  border: 1px solid #ddd; /* Border for individual card style */
+  border-radius: 8px;
+  background-color: #f8f9fa; /* Light card background */
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .profile-dropdown ul li:hover {
-  background-color: #f5f5f5;
+  background-color: #007bff; /* Highlight color on hover */
+  color: #fff; /* Contrast text on hover */
+  transform: scale(1.02); /* Slight lift effect */
+}
+
+.profile-dropdown ul li:active {
+  background-color: #0056b3; /* Darker shade for active */
+  transform: scale(1); /* Reset scale */
 }
 
 .profile-dropdown ul li:not(:last-child) {
-  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px; /* Spacing between list items */
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 600px) {
+  .profile-dropdown {
+    width: 200px; /* Adjust dropdown width */
+    padding: 10px; /* Adjust padding */
+  }
+
+  .profile-dropdown ul li {
+    padding: 8px 10px; /* Smaller padding for items */
+  }
 }

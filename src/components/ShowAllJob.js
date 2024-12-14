@@ -72,18 +72,16 @@ function ShowAllJob() {
     <div className="show-all-container">
       <h1>Job Listings</h1>
 
-      {/* Filter Section */}
-      <div className="filter">
-        <h4>Filter Jobs</h4>
-        <div className="filter-group">
+      <div className="filter-container">
+        <div className="filter">
           <label>
-            Country:
+            Location:
             <input
               type="text"
               name="clientCountry"
+              placeholder="Filter by location"
               value={filters.clientCountry}
               onChange={handleFilterChange}
-              placeholder="Enter clientCountry"
             />
           </label>
           <label>
@@ -91,24 +89,45 @@ function ShowAllJob() {
             <input
               type="text"
               name="skills"
+              placeholder="Filter by skills (comma-separated)"
               value={filters.skills}
               onChange={handleFilterChange}
-              placeholder="Enter skills (e.g., Python, React)"
             />
           </label>
           <label>
-            Min. Rating:
+            Min hourly rate:
             <input
               type="number"
-              name="ratingMin"
-              value={filters.ratingMin}
+              name="hourlyRateMin"
+              placeholder="Min hourly rate"
+              value={filters.hourlyRateMin}
               onChange={handleFilterChange}
-              placeholder="Min rate"
+            />
+          </label>
+          <label>
+            Max hourly rate:
+            <input
+              type="number"
+              name="hourlyRateMax"
+              placeholder="Max hourly rate"
+              value={filters.hourlyRateMax}
+              onChange={handleFilterChange}
+            />
+          </label>
+          <label>
+            Min Job Success:
+            <input
+              type="number"
+              name="jobSuccessMin"
+              placeholder="Min Job Success"
+              value={filters.jobSuccessMin}
+              onChange={handleFilterChange}
             />
           </label>
           <button onClick={applyFilters}>Apply Filters</button>
         </div>
       </div>
+
 
       {/* Render job cards */}
       <div className="freelancer-cards-container">
