@@ -838,5 +838,28 @@
             ""
         ],
         "id": 43
+    },
+    {
+        "jobTitle": "capacitor plugin developer for iOS",
+        "exLevelDemand": 0,
+        "clientCountry": "United States",
+        "rating": 4.82,
+        "feedbackNum": 0,
+        "email": "yoyohoneysingh@gmail.com",
+        "password": "$2a$10$e5Ezwpqo1wjJgNCL1.ZAaeZvHJqaDUS/sZT/10MEX7AOO7BgOBgr2",
+        "startRate": 15,
+        "endRate": 80,
+        "skills": [
+            "iOS Development",
+            "Native App Development",
+            "Plugin Development",
+            "Swift",
+            "Java",
+            "JavaScript",
+            "Ionic Framework",
+            "Node.js",
+            "Objective-C"
+        ],
+        "id": 44
     }
 ]

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import '../styles/FreelancerDashboard.css';
 
 function ShowAllJob() {
   const [jobs, setJobs] = useState([]);
@@ -72,7 +73,7 @@ function ShowAllJob() {
       <h1>Job Listings</h1>
 
       {/* Filter Section */}
-      <div className="filter-section">
+      <div className="filter">
         <h4>Filter Jobs</h4>
         <div className="filter-group">
           <label>

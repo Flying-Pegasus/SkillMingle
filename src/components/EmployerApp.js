@@ -21,6 +21,19 @@ function EmployerApp() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+    // Define limits
+    const limits = {
+      rating: 5,
+      exLevelDemand: 100,
+    };
+
+    // Check limits
+    if (limits[name] !== undefined && value > limits[name]) {
+      alert(`The limit for ${name} is ${limits[name]}.`);
+      return;
+    }
+
     setFormData({ ...formData, [name]: value });
   };
 
@@ -117,7 +130,7 @@ function EmployerApp() {
             <label>Job Title</label>
           </div>
           <div className="input-data">
-            <input type="number" name="exLevelDemand" value={formData.exLevelDemand} onChange={handleChange} required />
+            <input type="number" name="exLevelDemand" value={formData.exLevelDemand} onChange={handleChange} min="0" max="100" required />
             <div className="underline"></div>
             <label>Experience Level Demand</label>
           </div>
@@ -129,7 +142,7 @@ function EmployerApp() {
             <label>Location</label>
           </div>
           <div className="input-data">
-            <input type="number" name="rating" value={formData.rating} step="0.1" onChange={handleChange} required />
+            <input type="number" name="rating" value={formData.rating} step="0.1" onChange={handleChange} min="0" max="5" required />
             <div className="underline"></div>
             <label>Rating</label>
           </div>
@@ -215,11 +228,3 @@ function EmployerApp() {
 }
 
 export default EmployerApp;
-
-
-
-
-
-
-
-
