@@ -70,18 +70,25 @@ Once both the frontend and backend servers are running, you can access the appli
 ## Project Structure
 ```
 .
+├── .gitignore
 ├── Backend_Flask/
+│   ├── __pycache__/
+│   │   ├── app.cpython-39.pyc
 │   ├── app.py
-│   ├── data.json
 │   ├── freelancer_details.json
 │   ├── freelancer.json
 │   ├── job_details.json
 │   ├── job.json
+├── package.json
 ├── public/
 │   ├── index.html
 │   ├── manifest.json
 │   ├── robots.txt
+├── README.md
 ├── src/
+│   ├── App.css
+│   ├── App.js
+│   ├── App.test.js
 │   ├── components/
 │   │   ├── EmployerApp.js
 │   │   ├── EmployerDashboard.js
@@ -92,6 +99,16 @@ Once both the frontend and backend servers are running, you can access the appli
 │   │   ├── HomePage.js
 │   │   ├── JobCard.js
 │   │   ├── Profile.js
+│   │   ├── ProfileFreelancer.js
+│   │   ├── RatingForm.js
+│   │   ├── ShowAll.js
+│   │   ├── ShowAllJob.js
+│   ├── Elements/
+│   │   ├── profile.jpg
+│   ├── index.css
+│   ├── index.js
+│   ├── reportWebVitals.js
+│   ├── setupTests.js
 │   ├── styles/
 │   │   ├── EmployerDashboard.css
 │   │   ├── FreelancerCard.css
@@ -100,16 +117,9 @@ Once both the frontend and backend servers are running, you can access the appli
 │   │   ├── Header.css
 │   │   ├── HomePage.css
 │   │   ├── Profile.css
-│   ├── App.css
-│   ├── App.js
-│   ├── App.test.js
-│   ├── index.css
-│   ├── index.js
-│   ├── reportWebVitals.js
-│   ├── setupTests.js
-├── .gitignore
-├── package.json
-├── README.md
+│   │   ├── RatingForm.css
+│   │   ├── ShowAll.css
+│   │   ├── ShowAllJob.css
 
 ```
 
