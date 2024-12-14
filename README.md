@@ -50,6 +50,8 @@ Clone the repository:
 2. Install the required Node.js packages:
     ```sh
     npm install
+    ```
+    ```sh
     npm install bcryptjs
     ```
 
