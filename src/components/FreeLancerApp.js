@@ -21,6 +21,18 @@ function FreelancerApp() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+     // Define limits
+     const limits = {
+      jobSuccess: 100,
+    };
+
+    // Check limits
+    if (limits[name] !== undefined && value > limits[name]) {
+      alert(`The limit for ${name} is ${limits[name]}.`);
+      return;
+    }
+
     setFormData({ ...formData, [name]: value });
   };
 
@@ -131,7 +143,7 @@ function FreelancerApp() {
             <label>Hourly Rate</label>
           </div>
           <div className="input-data">
-            <input type="number" name="jobSuccess" value={formData.jobSuccess} onChange={handleChange} required />
+            <input type="number" name="jobSuccess" value={formData.jobSuccess} onChange={handleChange} min="0" max="100" required />
             <div className="underline"></div>
             <label>Job Success Rate (%)</label>
           </div>

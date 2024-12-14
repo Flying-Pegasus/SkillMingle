@@ -93,38 +93,59 @@ function FreelancerDashboard() {
       <h1>Recommended Jobs</h1>
 
       <div className="filter-container">
-        <label>
-          Location:
-          <input
-            type="text"
-            name="clientCountry"
-            placeholder="Filter by location"
-            value={filters.clientCountry}
-            onChange={handleFilterChange}
-          />
-        </label>
-        <input
-          type="text"
-          name="skills"
-          placeholder="Filter by skills (comma-separated)"
-          value={filters.skills}
-          onChange={handleFilterChange}
-        />
-        <input
-          type="number"
-          name="ratingMin"
-          placeholder="Min rating"
-          value={filters.ratingMin}
-          onChange={handleFilterChange}
-        />
-        <input
-          type="number"
-          name="rateMin"
-          placeholder="Min Budget"
-          value={filters.rateMin}
-          onChange={handleFilterChange}
-        />
-        <button onClick={applyFilters}>Apply Filters</button>
+        <div className="filter">
+          <label>
+            Location:
+            <input
+              type="text"
+              name="clientCountry"
+              placeholder="Filter by location"
+              value={filters.clientCountry}
+              onChange={handleFilterChange}
+            />
+          </label>
+          <label>
+            Skills (comma-separated):
+            <input
+              type="text"
+              name="skills"
+              placeholder="Filter by skills (comma-separated)"
+              value={filters.skills}
+              onChange={handleFilterChange}
+            />
+          </label>
+          <label>
+            Min hourly rate:
+            <input
+              type="number"
+              name="hourlyRateMin"
+              placeholder="Min hourly rate"
+              value={filters.hourlyRateMin}
+              onChange={handleFilterChange}
+            />
+          </label>
+          <label>
+            Max hourly rate:
+            <input
+              type="number"
+              name="hourlyRateMax"
+              placeholder="Max hourly rate"
+              value={filters.hourlyRateMax}
+              onChange={handleFilterChange}
+            />
+          </label>
+          <label>
+            Min Job Success:
+            <input
+              type="number"
+              name="jobSuccessMin"
+              placeholder="Min Job Success"
+              value={filters.jobSuccessMin}
+              onChange={handleFilterChange}
+            />
+          </label>
+          <button onClick={applyFilters}>Apply Filters</button>
+        </div>
       </div>
 
 

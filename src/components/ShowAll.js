@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import '../styles/FreelancerDashboard.css';
 
 function ShowAll() {
   const [freelancers, setFreelancers] = useState([]);
@@ -74,7 +75,7 @@ function ShowAll() {
       <h1>Freelancer Listings</h1>
 
       {/* Filter Section */}
-      <div className="filter-section">
+      <div className="filter">
         <h4>Filter Freelancers</h4>
         <div className="filter-group">
           <label>

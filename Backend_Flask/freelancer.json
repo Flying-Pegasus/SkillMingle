@@ -874,5 +874,34 @@
         "email": "tony7@gmail.com",
         "password": "$2a$10$o.viicAmsNz5urNJXfo4DOVdzOjVJQJ29x54vPEMUdDEqncLnF6Iu",
         "id": 36
+    },
+    {
+        "name": "Konstantin B.",
+        "country": "Ukraine",
+        "hourlyRate": 60.0,
+        "jobSuccess": 100.0,
+        "title": "AWS-Certified DevOps Architect | Cloud Solutions | AWS, GCP, Azure",
+        "totalHours": 320,
+        "totalJobs": 42,
+        "skills": [
+            "Amazon Web Services",
+            "Google Cloud Platform",
+            "Docker",
+            "Kubernetes",
+            "Ansible",
+            "Terraform",
+            "Linux System Administration",
+            "Jenkins",
+            "System Monitoring",
+            "Containerization",
+            "Security Infrastructure",
+            "Azure DevOps Server",
+            "GitHub",
+            "System Automation",
+            "CI/CD Platform"
+        ],
+        "email": "konstantin@gmail.com",
+        "password": "$2a$10$pxAJlmEuwGDX00dfwe65OO0OYM9iXSV5HjDuf7mHIHKa2ZRC1bF6.",
+        "id": 37
     }
 ]

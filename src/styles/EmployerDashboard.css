@@ -1,9 +1,10 @@
 .employer-dashboard {
-  margin: 20px;
-  padding: 20px;
+  margin: 10px;
+  padding: 10px;
   background-color: #f8f9fa;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative; /* To position the dropdown menu relative to this container */
 }
 
 h1 {
@@ -22,4 +23,127 @@ h1 {
 .freelancer-card {
   flex: 1 1 calc(33.333% - 40px); /* 3 cards per row with 20px gap */
   box-sizing: border-box;
+}
+
+.filter-container {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filter label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+}
+
+.filter input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter input:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+  outline: none;
+}
+
+.filter button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.filter button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.filter button:active {
+  background-color: #004494;
+  transform: scale(1);
+}
+
+/* Profile Icon */
+.profile-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+}
+
+.profile-icon img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.profile-icon img:hover {
+  transform: scale(1.1);
+}
+
+/* Dropdown Menu */
+.profile-dropdown {
+  position: absolute;
+  top: 60px;
+  right: 15px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  display: none; /* Hidden by default */
+  z-index: 10;
+}
+
+.profile-dropdown.active {
+  display: block; /* Show dropdown when active */
+}
+
+.profile-dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 10px 0;
+}
+
+.profile-dropdown ul li {
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.profile-dropdown ul li:hover {
+  background-color: #f5f5f5;
+}
+
+.profile-dropdown ul li:not(:last-child) {
+  border-bottom: 1px solid #ddd;
+}
+
+.freelancer-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.freelancer-card {
+  flex: 1 1 calc(33.333% - 40px); /* 3 cards per row with 20px gap */
+  box-sizing: border-box;
+  margin: 10px;
 }
