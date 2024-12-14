@@ -115,24 +115,6 @@ Once both the frontend and backend servers are running, you can access the appli
 
 ```
 
-## API Endpoints
-
-### Freelancer Endpoints
-
-- `GET /freelancers`: Retrieve a list of all freelancers.
-- `GET /freelancers/:id`: Retrieve details of a specific freelancer.
-- `POST /store_freelancer`: Store a new freelancer's details.
-
-### Job Endpoints
-
-- `GET /jobs`: Retrieve a list of all jobs.
-- `GET /jobs/:id`: Retrieve details of a specific job.
-- `POST /store_job`: Store a new job's details.
-
-### Recommendation Endpoint
-
-- `POST /recommend`: Get job recommendations for a freelancer.
-
 ## Contributing
 
 We welcome contributions! Please follow these steps to contribute:
