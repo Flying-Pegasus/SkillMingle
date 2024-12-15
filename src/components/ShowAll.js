@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/FreelancerDashboard.css';
 
+
 function ShowAll() {
   const [freelancers, setFreelancers] = useState([]);
   const [filteredFreelancers, setFilteredFreelancers] = useState([]);
@@ -116,16 +117,6 @@ function ShowAll() {
               onChange={handleFilterChange}
             />
           </label>
-          <label>
-            Min Job Success:
-            <input
-              type="number"
-              name="jobSuccessMin"
-              placeholder="Min Job Success"
-              value={filters.jobSuccessMin}
-              onChange={handleFilterChange}
-            />
-          </label>
           <button onClick={applyFilters}>Apply Filters</button>
         </div>
       </div>
@@ -136,7 +127,12 @@ function ShowAll() {
           <div className="freelancer-card" key={freelancer.id}>
             <h3>{freelancer.name}</h3>
             <p><strong>Title:</strong> {freelancer.title}</p>
-            <p><strong>Skills:</strong> {freelancer.skills.join(', ')}</p>
+            <p><strong>Skills:</strong></p>
+            <div>
+              {freelancer.skills.map((skill, index) => (
+              <span className="skills-badge" key={index}>{skill}</span>
+              ))}
+            </div>
             <p><strong>Hourly Rate:</strong> ${freelancer.hourlyRate}/hr</p>
             <p><strong>Job Success:</strong> {freelancer.jobSuccess}%</p>
             <p><strong>Location:</strong> {freelancer.country}</p>
