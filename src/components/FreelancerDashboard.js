@@ -63,13 +63,20 @@ function FreelancerDashboard() {
   const handleFilterChange = (e) => {
     const { name, value } = e.target;
     const limits = {
-      ratingMin: 5,
+      ratingMin: { min: 0, max: 5 },
+      rateMin: { min: 0, max: undefined },
     };
   
     // Check limits
-    if (limits[name] !== undefined && value > limits[name]) {
-      alert(`The limit for ${name} is ${limits[name]}.`);
-      return;
+    if (limits[name] !== undefined) {
+      if (limits[name].max !== undefined && value > limits[name].max) {
+        alert(`The limit for ${name} is ${limits[name].max}.`);
+        return;
+      }
+      if (value < limits[name].min) {
+        alert(`The limit for ${name} is between ${limits[name].min} and ${limits[name].max !== undefined ? limits[name].max : 'unlimited'}.`);
+        return;
+      }
     }
     setFilters({ ...filters, [name]: value });
   };
@@ -131,6 +138,7 @@ function FreelancerDashboard() {
               placeholder="Min Rating"
               value={filters.ratingMin}
               onChange={handleFilterChange}
+              min="0" required
             />
           </label>
           <label>
@@ -141,6 +149,7 @@ function FreelancerDashboard() {
               placeholder="Min hourly rate"
               value={filters.rateMin}
               onChange={handleFilterChange}
+              min="0" required
             />
           </label>
           <button onClick={applyFilters}>Apply Filters</button>

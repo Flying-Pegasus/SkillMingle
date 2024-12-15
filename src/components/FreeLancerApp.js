@@ -24,13 +24,22 @@ function FreelancerApp() {
 
     // Define limits
     const limits = {
-      jobSuccess: 100,
+      jobSuccess: { min: 0, max: 100 },
+      totalHours: { min: 0, max: undefined },
+      totalJobs: { min: 0, max: undefined },
+      hourlyRate: { min: 0, max: undefined },
     };
-
+  
     // Check limits
-    if (limits[name] !== undefined && value > limits[name]) {
-      alert(`The limit for ${name} is ${limits[name]}.`);
-      return;
+    if (limits[name] !== undefined) {
+      if (limits[name].max !== undefined && value > limits[name].max) {
+        alert(`The limit for ${name} is ${limits[name].max}.`);
+        return;
+      }
+      if (value < limits[name].min) {
+        alert(`The limit for ${name} is between ${limits[name].min} and ${limits[name].max !== undefined ? limits[name].max : 'unlimited'}.`);
+        return;
+      }
     }
 
     setFormData({ ...formData, [name]: value });
@@ -151,7 +160,7 @@ function FreelancerApp() {
         </div>
         <div className="form-row">
           <div className="input-data">
-            <input type="number" name="hourlyRate" value={formData.hourlyRate} onChange={handleChange} required />
+            <input type="number" name="hourlyRate" value={formData.hourlyRate} onChange={handleChange} min="0" required />
             <div className="underline"></div>
             <label>Hourly Rate</label>
           </div>
@@ -168,14 +177,14 @@ function FreelancerApp() {
             <label>Title</label>
           </div>
           <div className="input-data">
-            <input type="number" name="totalHours" value={formData.totalHours} onChange={handleChange} required />
+            <input type="number" name="totalHours" value={formData.totalHours} onChange={handleChange} min="0" required />
             <div className="underline"></div>
             <label>Total Hours Worked</label>
           </div>
         </div>
         <div className="form-row">
           <div className="input-data">
-            <input type="number" name="totalJobs" value={formData.totalJobs} onChange={handleChange} required />
+            <input type="number" name="totalJobs" value={formData.totalJobs} onChange={handleChange} min="0" required />
             <div className="underline"></div>
             <label>Total Jobs Completed</label>
           </div>
