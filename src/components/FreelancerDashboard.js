@@ -62,15 +62,6 @@ function FreelancerDashboard() {
 
   const handleFilterChange = (e) => {
     const { name, value } = e.target;
-    const limits = {
-      ratingMin: 5,
-    };
-  
-    // Check limits
-    if (limits[name] !== undefined && value > limits[name]) {
-      alert(`The limit for ${name} is ${limits[name]}.`);
-      return;
-    }
     setFilters({ ...filters, [name]: value });
   };
 
@@ -114,7 +105,7 @@ function FreelancerDashboard() {
             />
           </label>
           <label>
-            Skills:
+            Skills (comma-separated):
             <input
               type="text"
               name="skills"
@@ -124,26 +115,26 @@ function FreelancerDashboard() {
             />
           </label>
           <label>
-            Min Rating:
+            Min hourly rate:
             <input
               type="number"
-              name="ratingMin"
-              placeholder="Min Rating"
-              value={filters.ratingMin}
+              name="hourlyRateMin"
+              placeholder="Min hourly rate"
+              value={filters.hourlyRateMin}
               onChange={handleFilterChange}
             />
           </label>
           <label>
-            Min hourly rate:
+            Max hourly rate:
             <input
               type="number"
-              name="rateMin"
-              placeholder="Min hourly rate"
-              value={filters.rateMin}
+              name="hourlyRateMax"
+              placeholder="Max hourly rate"
+              value={filters.hourlyRateMax}
               onChange={handleFilterChange}
             />
           </label>
-          {/* <label>
+          <label>
             Min Job Success:
             <input
               type="number"
@@ -152,7 +143,7 @@ function FreelancerDashboard() {
               value={filters.jobSuccessMin}
               onChange={handleFilterChange}
             />
-          </label> */}
+          </label>
           <button onClick={applyFilters}>Apply Filters</button>
         </div>
       </div>
