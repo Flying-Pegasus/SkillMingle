@@ -32,15 +32,6 @@ function ShowAllJob() {
   // Handle filter changes
   const handleFilterChange = (e) => {
     const { name, value } = e.target;
-    const limits = {
-      ratingMin: 5,
-    };
-  
-    // Check limits
-    if (limits[name] !== undefined && value > limits[name]) {
-      alert(`The limit for ${name} is ${limits[name]}.`);
-      return;
-    }
     setFilters((prevFilters) => ({
       ...prevFilters,
       [name]: value,
@@ -94,7 +85,7 @@ function ShowAllJob() {
             />
           </label>
           <label>
-            Skills:
+            Skills (comma-separated):
             <input
               type="text"
               name="skills"
@@ -104,12 +95,32 @@ function ShowAllJob() {
             />
           </label>
           <label>
-            Min Rating:
+            Min hourly rate:
             <input
               type="number"
-              name="ratingMin"
-              placeholder="Min Rating"
-              value={filters.ratingMin}
+              name="hourlyRateMin"
+              placeholder="Min hourly rate"
+              value={filters.hourlyRateMin}
+              onChange={handleFilterChange}
+            />
+          </label>
+          <label>
+            Max hourly rate:
+            <input
+              type="number"
+              name="hourlyRateMax"
+              placeholder="Max hourly rate"
+              value={filters.hourlyRateMax}
+              onChange={handleFilterChange}
+            />
+          </label>
+          <label>
+            Min Job Success:
+            <input
+              type="number"
+              name="jobSuccessMin"
+              placeholder="Min Job Success"
+              value={filters.jobSuccessMin}
               onChange={handleFilterChange}
             />
           </label>
@@ -129,12 +140,7 @@ function ShowAllJob() {
             <p><strong>Number of feedbacks:</strong> {job.feedbackNum}</p>
             <p><strong>Payment Type:</strong> {job.paymentType}</p>
             <p><strong>Budget:</strong> ${job.startRate}-${job.endRate}</p>
-            <p><strong>Skills:</strong> </p>
-            <div>
-              {job.skills.map((skill, index) => (
-              <span className="skills-badge" key={index}>{skill}</span>
-              ))}
-            </div>
+            <p><strong>Skills:</strong> {job.skills.join(', ')}</p>
           </div>
         ))}
       </div>
