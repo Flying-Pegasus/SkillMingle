@@ -4,6 +4,7 @@ from flask_cors import CORS
 import os
 import json
 import bcrypt
+from datetime import datetime
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS to allow requests from the React frontend
@@ -85,7 +86,7 @@ def calculate_recommendation_score(job, freelancer):
     experience_score = (
         (freelancer["jobSuccess"] * 0.4) +
         (freelancer["totalHours"] * 0.08) +
-        (freelancer["totalJobs"] * 0.2)
+        (freelancer["totalJobs"] * 0.1  )
     )
     score += experience_score
 
@@ -94,6 +95,7 @@ def calculate_recommendation_score(job, freelancer):
         score += 5  # Small bonus for location match
 
     return score
+
 
 def calculate_job_recommendation_score(freelancer, job):
     score = 0
@@ -326,26 +328,47 @@ def get_freelancer_id():
 
     return jsonify({"id": freelancer["id"]}), 200
 
-@app.route('/submit_rating', methods=['POST'])
-def submit_rating():
-    """
-    Endpoint to handle rating submissions.
-    Currently non-functional, but ready for future implementation.
-    """
-    # Extract the rating from the request
+
+
+# Load existing feedback data
+def load_feedback():
     try:
-        data = request.get_json()
-        rating = data.get('rating')
+        with open("feedback.json", "r") as file:
+            return json.load(file)
+    except FileNotFoundError:
+        return []
 
-        # Placeholder logic: Print the rating to the console
-        print(f"Received rating: {rating}")
+# Save feedback data to the file
+def save_feedback(feedback_data):
+    with open("feedback.json", "w") as file:
+        json.dump(feedback_data, file, indent=4)
 
-        # Placeholder response
-        return jsonify({"message": "Rating received. Endpoint currently non-functional."}), 200
-    except Exception as e:
-        print(f"Error in /submit_rating: {e}")
-        return jsonify({"error": "An error occurred while submitting the rating."}), 500
+@app.route("/submit_rating", methods=["POST"])
+def submit_rating():
+    feedback_data = load_feedback()
+    new_feedback = request.get_json()
 
+    # Validate data
+    if not new_feedback.get("rating") or not (1 <= new_feedback["rating"] <= 5):
+        return jsonify({"message": "Invalid rating. Must be between 1 and 5."}), 400
+    if not new_feedback.get("jobId") and not new_feedback.get("freelancerId"):
+        return jsonify({"message": "Either jobId or freelancerId is required."}), 400
+
+    # Create a new feedback entry
+    feedback_entry = {
+        "feedbackId": len(feedback_data) + 1,  # Auto-increment feedback ID
+        "jobId": new_feedback.get("jobId"),
+        "freelancerId": new_feedback.get("freelancerId"),
+        "rating": new_feedback["rating"],
+        "feedback": new_feedback.get("feedback", ""),
+        "timestamp": datetime.now().isoformat(),
+    }
+
+    # Add the new feedback and save it
+    feedback_data.append(feedback_entry)
+    save_feedback(feedback_data)
+
+    return jsonify({"message": "Feedback submitted successfully!"}), 200
 
     
 

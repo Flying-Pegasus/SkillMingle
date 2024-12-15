@@ -139,16 +139,7 @@ function EmployerDashboard() {
               onChange={handleFilterChange}
             />
           </label>
-          {/* <label>
-            Min Job Success:
-            <input
-              type="number"
-              name="jobSuccessMin"
-              placeholder="Min Job Success"
-              value={filters.jobSuccessMin}
-              onChange={handleFilterChange}
-            />
-          </label> */}
+          
           <button onClick={applyFilters}>Apply Filters</button>
         </div>
       </div>
@@ -173,7 +164,7 @@ function EmployerDashboard() {
         ))}
       </div>
 
-      <RatingForm />
+      <RatingForm jobId={jobId} />
 
     </div>
     
