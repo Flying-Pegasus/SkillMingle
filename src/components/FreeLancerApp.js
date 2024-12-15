@@ -22,8 +22,8 @@ function FreelancerApp() {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-     // Define limits
-     const limits = {
+    // Define limits
+    const limits = {
       jobSuccess: 100,
     };
 
@@ -52,7 +52,7 @@ function FreelancerApp() {
       totalJobs: parseInt(formData.totalJobs, 10), // Convert to integer
       skills: formData.skills.split(",").map(skill => skill.trim()),
       email: formData.email,
-      password: hashedPassword, 
+      password: hashedPassword,
     };
 
     fetch("http://127.0.0.1:5000/store_freelancer", {
@@ -71,6 +71,19 @@ function FreelancerApp() {
       .then((data) => {
         console.log("Freelancer stored successfully with ID:", data.id);
         alert("Registration successful! Now you can log in.");
+
+        setFormData({
+          name: "",
+          country: "",
+          hourlyRate: 0,
+          jobSuccess: 0,
+          title: "",
+          totalHours: 0,
+          totalJobs: 0,
+          skills: "",
+          email: '',
+          password: '',
+        });
       })
       .catch((error) => {
         console.error("Error:", error);

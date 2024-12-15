@@ -861,5 +861,140 @@
             "Objective-C"
         ],
         "id": 44
+    },
+    {
+        "jobTitle": "Business developer",
+        "exLevelDemand": 85,
+        "clientCountry": "United States",
+        "rating": 4.0,
+        "feedbackNum": 42,
+        "email": "jasonsaliva21@gmail.com",
+        "password": "$2a$10$aZCNvE14ylP/7WJpgfMMsOQUYgrBGe/VWC/NnTlUP90IO6OMigkgG",
+        "startRate": 5,
+        "endRate": 16,
+        "skills": [
+            "Data Warehousing & ETL Software",
+            "Data Visualization",
+            "Microsoft Power BI",
+            "Data Analysis",
+            "Machine Learning"
+        ],
+        "id": 45
+    },
+    {
+        "jobTitle": "Machine Learning EXPERT needed to refine algorithms.",
+        "exLevelDemand": 90,
+        "clientCountry": "France",
+        "rating": 4.8,
+        "feedbackNum": 42,
+        "email": "jasonsqaliva21@gmail.com",
+        "password": "$2a$10$J58lwim8OQ8cgWez58bFRuhqshBuuRxIzK.KgoZu0c/aoMkF575gy",
+        "startRate": 5,
+        "endRate": 40,
+        "skills": [
+            "Data Structures",
+            "PostgreSQL",
+            "Artificial Neural Network",
+            "Django",
+            "Deep Neural Network",
+            "Keras",
+            "NumPy",
+            "pandas",
+            "Data Science",
+            "Machine Learning",
+            "Neural Network"
+        ],
+        "id": 46
+    },
+    {
+        "jobTitle": "Full Stack Developer - Python, Node, AI/ML ,API needed",
+        "exLevelDemand": 95,
+        "clientCountry": "India",
+        "rating": 4.8,
+        "feedbackNum": 10,
+        "email": "jasonsqaliva22@gmail.com",
+        "password": "$2a$10$iCXfeh4oSlaK5pyqYB.LPu5oKsnreR1J8iol5f/xfDeGGMwhKGmPu",
+        "startRate": 50,
+        "endRate": 150,
+        "skills": [
+            "Python",
+            "Node.js",
+            "JavaScript",
+            "R",
+            "Data Structures",
+            "Analytics Dashboard",
+            "MongoDB",
+            "Django",
+            "Flask"
+        ],
+        "id": 47
+    },
+    {
+        "jobTitle": "Data Scientist, Data Analytics",
+        "exLevelDemand": 95,
+        "clientCountry": "India",
+        "rating": 4.8,
+        "feedbackNum": 10,
+        "email": "elizabeth@gmail.com",
+        "password": "$2a$10$yelL8txqqUwr23FupT5.duud0idBubXEHjmDa9Ru1XusMvYdoK8Lq",
+        "startRate": 25,
+        "endRate": 100,
+        "skills": [
+            "Data Entry",
+            "Database",
+            "LinkedIn",
+            "Data Mining",
+            "Data Scraping",
+            "Communication",
+            "Management",
+            "SQL",
+            "Python",
+            "R",
+            "Data Modeling"
+        ],
+        "id": 48
+    },
+    {
+        "jobTitle": "Software Engineer Intern",
+        "exLevelDemand": 90,
+        "clientCountry": "United States",
+        "rating": 4.2,
+        "feedbackNum": 10,
+        "email": "elizabethol@gmail.com",
+        "password": "$2a$10$lU2JplxY5Oq33t.iWwbr9.oboR0oBiS26OXkRslS4yCPMvrw8pIiS",
+        "startRate": 5,
+        "endRate": 50,
+        "skills": [
+            "Software Development",
+            "Technology Tutoring",
+            "Web Application",
+            "Web Development",
+            "Web Design",
+            "Desktop Application",
+            "Programming",
+            "Data StructuresAlgorithms"
+        ],
+        "id": 49
+    },
+    {
+        "jobTitle": "Creative Artist",
+        "exLevelDemand": 75,
+        "clientCountry": "United States",
+        "rating": 3.8,
+        "feedbackNum": 10,
+        "email": "elizabetholsen@gmail.com",
+        "password": "$2a$10$16.yNaaBqxjkWvBcGnzZlO9KdV0LE4IcQH3/DRz3LmDkF2JQl/NRG",
+        "startRate": 0,
+        "endRate": 10,
+        "skills": [
+            "Photoshop",
+            "DesignerAi",
+            "Communication",
+            "Figma",
+            "Illustrator",
+            "Canva",
+            "Problem Solving"
+        ],
+        "id": 50
     }
 ]

@@ -71,6 +71,19 @@ function EmployerApp() {
       .then((data) => {
         console.log("Job stored successfully with ID:", data.id);
         alert("Registration successful! Now you can log in.");
+        // Clear the form fields
+        setFormData({
+          jobTitle: "",
+          exLevelDemand: 0,
+          clientCountry: "",
+          rating: 0,
+          feedbackNum: 0,
+          email: '',
+          password: '',
+          startRate: 0,
+          endRate: 0,
+          skills: "",
+        });
       })
       .catch((error) => {
         console.error("Error:", error);
