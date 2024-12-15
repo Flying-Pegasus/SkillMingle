@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import "../styles/RatingForm.css"; // Add custom styles for the form if needed
 
 function RatingForm({ jobId, freelancerId }) {

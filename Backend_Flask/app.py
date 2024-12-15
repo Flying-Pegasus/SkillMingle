@@ -328,7 +328,53 @@ def get_freelancer_id():
 
     return jsonify({"id": freelancer["id"]}), 200
 
+@app.route('/delete_job/<int:job_id>', methods=['DELETE'])
+def delete_job_profile(job_id):
+    try:
+        # Load the current job data from job.json
+        with open('job.json', 'r') as file:
+            jobs = json.load(file)
 
+        # Filter out the job with the specified job_id
+        updated_jobs = [job for job in jobs if job['id'] != job_id]
+
+        # Check if a job was deleted
+        if len(jobs) == len(updated_jobs):
+            return jsonify({"message": "Job profile not found."}), 404
+
+        # Write the updated data back to job.json
+        with open('job.json', 'w') as file:
+            json.dump(updated_jobs, file, indent=4)  # Pretty-print for readability
+
+        return jsonify({"message": f"Job profile with jobId {job_id} deleted successfully."}), 200
+    except FileNotFoundError:
+        return jsonify({"message": "job.json file not found."}), 500
+    except Exception as e:
+        return jsonify({"message": f"An error occurred: {str(e)}"}), 500
+    
+@app.route('/delete_freelancer/<int:freelancer_id>', methods=['DELETE'])
+def delete_freelancer_profile(freelancer_id):
+    try:
+        # Load the current freelancer data from freelancer.json
+        with open('freelancer.json', 'r') as file:
+            freelancers = json.load(file)
+
+        # Filter out the freelancer with the specified freelancer_id
+        updated_freelancers = [freelancer for freelancer in freelancers if freelancer['id'] != freelancer_id]
+
+        # Check if a freelancer was deleted
+        if len(freelancers) == len(updated_freelancers):
+            return jsonify({"message": "Freelancer profile not found."}), 404
+
+        # Write the updated data back to freelancer.json
+        with open('freelancer.json', 'w') as file:
+            json.dump(updated_freelancers, file, indent=4)  # Pretty-print for readability
+
+        return jsonify({"message": f"Freelancer profile with jobId {freelancer_id} deleted successfully."}), 200
+    except FileNotFoundError:
+        return jsonify({"message": "freelancer.json file not found."}), 500
+    except Exception as e:
+        return jsonify({"message": f"An error occurred: {str(e)}"}), 500
 
 # Load existing feedback data
 def load_feedback():
