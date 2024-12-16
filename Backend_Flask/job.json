@@ -996,5 +996,154 @@
             "Problem Solving"
         ],
         "id": 50
+    },
+    {
+        "jobTitle": "Looking to build a Sales Email List for Liquor Stores in Canada",
+        "exLevelDemand": 40,
+        "clientCountry": "Canada",
+        "rating": 4.5,
+        "feedbackNum": 1,
+        "email": "pagi@gmail.com",
+        "password": "$2a$10$T9eOChtFlotSiFxJ.RIHxORBe.jZf1I0ee3sFGjvxcwq.sSPzHML.",
+        "startRate": 0,
+        "endRate": 35,
+        "skills": [
+            "Lead Generation",
+            "Data Scraping",
+            "Data Mining",
+            "Prospect List"
+        ],
+        "id": 51
+    },
+    {
+        "jobTitle": "Social Medial Marketing for my Shopify Website",
+        "exLevelDemand": 30,
+        "clientCountry": "India",
+        "rating": 4.8,
+        "feedbackNum": 0,
+        "email": "shopy@gmail.com",
+        "password": "$2a$10$yhrE.lpEzdL6h2t8LGRHe.4GxHJ5mY7Nr0MhrKiK.uKFBWvsazQv6",
+        "startRate": 0,
+        "endRate": 40,
+        "skills": [
+            "Social Media Marketing",
+            "Campaign Management",
+            "Virtual Assistant",
+            "SEO Keyword Research",
+            "WordPress e-Commerce",
+            "Squarespace",
+            "Social Media Content Creation",
+            "SEO Audit",
+            "Shopify"
+        ],
+        "id": 52
+    },
+    {
+        "jobTitle": "Computer aided facility management (CAFM)",
+        "exLevelDemand": 20,
+        "clientCountry": "India",
+        "rating": 4.8,
+        "feedbackNum": 0,
+        "email": "cafm@gmail.com",
+        "password": "$2a$10$7tjnJUtVAc4c4POlUUGP5u.6rUOgl/hSuGGU89ZcUPfXKiaYFwZim",
+        "startRate": 0,
+        "endRate": 30,
+        "skills": [
+            "Digital Marketing Materials",
+            "Copywriting",
+            "Brand Identity Design",
+            "Brand Strategy",
+            "Brand Positioning",
+            "Graphic Design",
+            "Content Writing",
+            "Upwork",
+            "Upwork API"
+        ],
+        "id": 53
+    },
+    {
+        "jobTitle": "Texas Renovation",
+        "exLevelDemand": 50,
+        "clientCountry": "United States",
+        "rating": 4.8,
+        "feedbackNum": 0,
+        "email": "texas@gmail.com",
+        "password": "$2a$10$vcQBl4FL1pDfJHF6Fl25fO0j4ABvREOf0k0TOQZh.6.R6MIOmA3jK",
+        "startRate": 0,
+        "endRate": 35,
+        "skills": [
+            "3D Design",
+            "Residential Design",
+            "CAD",
+            "Drafting",
+            "Architectural Rendering",
+            "2D Design",
+            "Interior Design",
+            "Layout Design",
+            "Adobe Photoshop"
+        ],
+        "id": 54
+    },
+    {
+        "jobTitle": "Expert architect and expert hyper-realistic modeler",
+        "exLevelDemand": 0,
+        "clientCountry": "Canada",
+        "rating": 4.8,
+        "feedbackNum": 0,
+        "email": "aarch@gmail.com",
+        "password": "$2a$10$HJbf0kk1xJgDo6Qlh2KGeeCctjHbDCiBdpkcXuVlPMY4JKQFE0c1m",
+        "startRate": 0,
+        "endRate": 40,
+        "skills": [
+            "3D Rendering",
+            "3D Modeling",
+            "3D Design",
+            "Design Validation",
+            "Architectural Design",
+            "Autodesk 3ds Max",
+            "Visualization",
+            "Architectural Rendering",
+            "Autodesk AutoCAD"
+        ],
+        "id": 55
+    },
+    {
+        "jobTitle": "Lead Generation-Through Linkedin-1",
+        "exLevelDemand": 0,
+        "clientCountry": "United Arab Emirates",
+        "rating": 5.0,
+        "feedbackNum": 0,
+        "email": "arab@gmail.com",
+        "password": "$2a$10$BCrFfXmVn.IAAt3V/yoQU.A9DIZ4PqfsIe9xbLhXxxT0mFJKJUSOi",
+        "startRate": 0,
+        "endRate": 75,
+        "skills": [
+            "Telemarketing",
+            "Communication Skills",
+            "Lead Generation",
+            "LinkedIn",
+            "LinkedIn Lead Generation",
+            "LinkedIn Profile",
+            "Vendor & Supplier Outreach"
+        ],
+        "id": 56
+    },
+    {
+        "jobTitle": "Looking for a Full Stack Developer with Automotive Products Import Experience",
+        "exLevelDemand": 75,
+        "clientCountry": "United States",
+        "rating": 4.5,
+        "feedbackNum": 25,
+        "email": "uuss@gmail.com",
+        "password": "$2a$10$8GP8XkTBQcn1tD1uUY4wqO.TGGIFptDssvd5BmxN/zO4qYjlGhIim",
+        "startRate": 60,
+        "endRate": 80,
+        "skills": [
+            "ETL",
+            "Magento",
+            "Magento 2",
+            "PHP"
+        ],
+        "id": 57
     }
 ]
