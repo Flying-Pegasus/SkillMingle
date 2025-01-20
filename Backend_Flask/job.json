@@ -1145,5 +1145,41 @@
             "PHP"
         ],
         "id": 57
+    },
+    {
+        "jobTitle": "Data Engineer",
+        "exLevelDemand": 85,
+        "clientCountry": "India",
+        "rating": 4.5,
+        "feedbackNum": 15,
+        "email": "jasoansqaliva22@gmail.com",
+        "password": "$2a$10$Iqhv58vRb3iVY7pqkoxvD.98WAfbizJyhrgUsf5w8ngtSjRp4urpW",
+        "startRate": 5,
+        "endRate": 15,
+        "skills": [
+            "Python",
+            "Numpy",
+            "Pandas",
+            "Matplotlib"
+        ],
+        "id": 58
+    },
+    {
+        "jobTitle": "Data Engineer",
+        "exLevelDemand": 85,
+        "clientCountry": "United States",
+        "rating": 4.2,
+        "feedbackNum": 15,
+        "email": "atulya1804@gmail.com",
+        "password": "$2a$10$nxSvaSx2HJknyVoVQhWsc.FHtkmwm8TKS4igPowUd4D1p.Faj35g2",
+        "startRate": 5,
+        "endRate": 15,
+        "skills": [
+            "Python",
+            "Numpy",
+            "Pandas",
+            "Matplotlib"
+        ],
+        "id": 59
     }
 ]
