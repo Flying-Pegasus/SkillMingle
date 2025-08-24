@@ -1,0 +1,24 @@
+.hero {
+    background: linear-gradient(90deg, #1a2b5e, #2e4b8f);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .display-4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+  }
+  
+  .lead {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.25rem;
+  }
+  
+  h2 {
+    color: #1a2b5e;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  p {
+    font-family: 'Roboto', sans-serif;
+    color: #555;
+  }
